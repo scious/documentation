@@ -13,9 +13,8 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
+  organizationName: 'scious', // Usually your GitHub org/user name.
   projectName: 'documentation', // Usually your repo name.
-
   presets: [
     [
       'classic',
@@ -39,9 +38,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'Scious',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Scious Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -51,12 +50,12 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          {to: 'https://blog.scious.io/', label: 'Blog', position: 'left'},
+          // {
+          //   href: 'https://github.com/facebook/docusaurus',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
         ],
       },
       footer: {
@@ -71,23 +70,23 @@ const config = {
               },
             ],
           },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
+          // {
+          //   title: 'Community',
+          //   items: [
+          //     {
+          //       label: 'Stack Overflow',
+          //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+          //     },
+          //     {
+          //       label: 'Discord',
+          //       href: 'https://discordapp.com/invite/docusaurus',
+          //     },
+          //     {
+          //       label: 'Twitter',
+          //       href: 'https://twitter.com/docusaurus',
+          //     },
+          //   ],
+          // },
           {
             title: 'More',
             items: [
@@ -95,14 +94,14 @@ const config = {
                 label: 'Blog',
                 to: '/blog',
               },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+              // {
+              //   label: 'GitHub',
+              //   href: 'https://github.com/facebook/docusaurus',
+              // },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Scious, Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
