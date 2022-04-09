@@ -2,11 +2,16 @@
 sidebar_position: 1
 ---
 
-# Manage Docs Versions
+# Version 1
 
-Docusaurus can manage multiple versions of your docs.
+The following documentation covers Scious Search plugin versions `1.x.x`. Scious Search makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it also:
 
-## Create a docs version
+- Preserves Bubble privacy settings across all data types.
+- Provides a live and a test version of your search database.
+- Does not degrade or slow down as your database grows since it uses Algolia or Typesense as a search provider.
+- Allows you to easily swap and experiment with other search providers.
+
+## Getting started
 
 Release a version 1.0 of your project:
 
