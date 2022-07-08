@@ -24,7 +24,8 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: false,
         theme: {
@@ -38,7 +39,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Scious',
+        title: 'Scious Documentation',
         logo: {
           alt: 'Scious Logo',
           src: 'img/logo.svg',
@@ -50,7 +51,7 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorial',
           // },
-          {to: 'https://blog.scious.io/', label: 'Blog', position: 'left'},
+          { to: 'https://blog.scious.io/', label: 'Blog', position: 'left' },
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',
