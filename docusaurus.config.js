@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Scious Documentation',
+  title: 'Scious Docs',
   // tagline: 'Dinosaurs are cool',
   url: 'https://docs.scious.io',
   baseUrl: '/',
@@ -39,7 +39,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Scious Documentation',
+        title: 'Scious Docs',
         logo: {
           alt: 'Scious Logo',
           src: 'img/logo.svg',

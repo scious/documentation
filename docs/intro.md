@@ -1,11 +1,12 @@
 ---
 sidebar_position: 1
 slug: /
+sidebar_label: Home
 ---
 
-# Overview
+# Documentation
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Explore our guides and examples to integrate our products.
 
 ## Support
 
