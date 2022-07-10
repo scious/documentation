@@ -63,12 +63,16 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Support',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Forums (free)',
+                to: '/#forums',
               },
+              // {
+              //   label: 'Book a session',
+              //   to: '/#same',
+              // },
             ],
           },
           // {
@@ -93,7 +97,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                to: 'https://blog.scious.io',
               },
               // {
               //   label: 'GitHub',
