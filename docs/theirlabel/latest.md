@@ -13,9 +13,47 @@ For all the niceties, though, every tool has its flaws. One thing Bubble (curren
 
 This page serves as the official manual for using TheirLabel. You can visit [their-label.bubbleapps.io](https://their-label.bubbleapps.io) to try it before you buy it. For guidance you can always refer to [TheirLabel's editor](https://bubble.io/page?type=page&name=index&id=their-label&tab=tabs-1) which self documents exactly how to provide your end users with a white-labelling flow (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
 
-### Creating your end user's white-labelling experience
+We just need a few things to start white-labelling your Bubble app:
 
-<iframe width="100%" height="380" src="https://www.youtube.com/embed/_AQXQDjw7Y8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+### Get your Netlify API key
+
+1. Head on over to [netlify.com](https://www.netlify.com/) and create a new account. They will send you an email which you will need to open to finish verifying your account.
+2. Once you're logged in, look for your profile button and click on it to get to your `User Settings`... available on the top right corner of your screen.
+
+<div style={{textAlign: 'center'}}>
+  <img src="https://blog.scious.io/content/images/2020/08/image-1.png" />
+</div>
+
+3. Click on the `Applications` tab
+
+<div style={{textAlign: 'center'}}>
+  <img src="https://blog.scious.io/content/images/2020/08/image-3.png" />
+</div>
+
+4. Next press `New access token`. Follow the prompts to create the access token and then save it for later when we'll need to add it to the TheirLabel plugin.
+
+<div style={{textAlign: 'center'}}>
+  <img src="https://blog.scious.io/content/images/2020/08/image-4.png" />
+</div>
+
+## Setup the TheirLabel plugin
+
+1. Over in your Bubble app, head to the plugins tab and press `Add plugins`.
+2. Search for `TheirLabel` and install it.
+3. Navigate to the plugin's setting tab and paste the access token we generated from step 4 above into the `Netlify Access Token` field.
+   4.To setup the `Authorization (shared headers)` field we need to enter the phrase `Bearer` followed by the same access token, as shown below (your token should look different):
+
+<div style={{textAlign: 'center'}}>
+  <img src="https://blog.scious.io/content/images/2020/08/image-10.png" />
+</div>
+
+At this point you are now ready use TheirLabel's bubble elements and actions to programmatically white label your site.
+
+## Creating your end user's white-labelling experience
+
+TheirLabel's [Test Drive](https://their-label.bubbleapps.io/) shows one way you can implement an end user white-labelling experience:
+
+<iframe width="100%" height="380" src="https://www.youtube.com/embed/oDErIcb6ZlA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Ultimately the look and feel is up to you but an implementation should achieve the following:
 
@@ -26,7 +64,7 @@ Ultimately the look and feel is up to you but an implementation should achieve t
 5. Update a white-label
 6. Delete a white-label
 
-Let's take a look at how each of these are implemented in TheirLabel's Test Drive (learn it quicker by following along in the editor).
+Let's take a look at how each of these are implemented in TheirLabel's Test Drive (learn it quicker by following along in the [editor](https://bubble.io/page?name=index&id=their-label&tab=tabs-1)).
 
 ## Support
 
