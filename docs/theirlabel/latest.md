@@ -36,7 +36,7 @@ We just need a few things to start white-labelling your Bubble app:
   <img src="https://blog.scious.io/content/images/2020/08/image-4.png" />
 </div>
 
-## Setup the TheirLabel plugin
+### Setup the TheirLabel plugin
 
 1. Over in your Bubble app, head to the plugins tab and press `Add plugins`.
 2. Search for `TheirLabel` and install it.
@@ -49,7 +49,7 @@ We just need a few things to start white-labelling your Bubble app:
 
 At this point you are now ready use TheirLabel's bubble elements and actions to programmatically white label your site.
 
-## Creating your end user's white-labelling experience
+## Create your end user's white-labelling experience
 
 TheirLabel's [Test Drive](https://their-label.bubbleapps.io/) shows one way you can implement an end user white-labelling experience:
 
@@ -65,6 +65,44 @@ Ultimately the look and feel is up to you but an implementation should achieve t
 6. Delete a white-label
 
 Let's take a look at how each of these are implemented in TheirLabel's Test Drive (learn it quicker by following along in the [editor](https://bubble.io/page?name=index&id=their-label&tab=tabs-1)).
+
+### Provision a white-label on your Netlify account.
+
+The very first thing we do is provision a white-label.
+
+<div style={{textAlign: 'center'}}>
+  <img src="https://blog.scious.io/content/images/2020/08/image-8.png" />
+</div>
+
+To do this you'll need three things:
+
+1. The Bubble URL that needs to be white-labelled.
+2. The apex domain or subdomain name your customer wants to white label.
+3. TheirLabel's `Validate` element placed and visible on your page.
+
+In practice you will already know the Bubble URL since that is something you control. For example, TheirLabel's demo has a `feature request` page (see editor). Ordinarily, a unique URL for this page for one of your customers could look something like:
+
+> [https://their-label.bubbleapps.io/feature_request_page/1596231081229x896733754840270100](https://their-label.bubbleapps.io/feature_request_page/1596231081229x896733754840270100)
+
+But your customer would rather have that page hosted on a subdomain that they own, called:
+
+> [smallbusinesscustomer.theirlabel.com](https://smallbusinesscustomer.theirlabel.com)
+
+So to provision white labels you connect the input for your customer's white label (below called `Domain name you own`) to TheirLabel's `Validate` visual element.
+
+<div style={{textAlign: 'center'}}>
+  <img src="https://blog.scious.io/content/images/2020/08/image-12.png" />
+</div>
+
+This element generates five outputs (ignore the last 4 for now):
+
+1. `Normalized URL` a normalized version of your customer's desired URL
+2. `Record Type` a list of record types that your customer will need to add in their DNS provider.
+3. `Record Host` a list of record hosts that your customer will need to add in their DNS provider.
+4. `Record Value` a list of record values that your customer will need to add in their DNS provider.
+5. `Error` A human readable message describing any error. Empty if no error.
+
+So, in a workflow, we use the Provision white label action by setting its name and custom_domain fields to Normalized URL :
 
 ## Support
 
