@@ -10,6 +10,7 @@ const config = {
   // tagline: 'Dinosaurs are cool',
   url: 'https://docs.scious.io',
   baseUrl: '/',
+  baseUrlIssueBanner: true,
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
