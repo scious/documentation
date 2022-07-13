@@ -3,6 +3,8 @@ sidebar_position: 1
 sidebar_label: Latest
 ---
 
+import Figure from '@site/src/components/figure'
+
 # TheirLabel [Latest]
 
 [Bubble](https://bubble.io?ref=i61dryk2) is a technology we at Scious have come to love. The ethos behind its creation - that you shouldn't have to have a PhD in computer science to build a custom website - is exciting, democratic, and empowering. There's a lot of great design in this product. To list a few, we're really impressed by the automatically provisioned API one gets the second after you create a new app. Its built in authentication and rule based permissioning is a breeze to work with. Want to change the name of a key in your database? Okay, that key name has been automatically updated across the 56 places you've used it in your application logic! Want to secure your site? Press a button and it's done. All of these things, and many others, crush the core hurdles that stop even seasoned programmers from making sophisticated websites.
@@ -102,7 +104,13 @@ This element generates five outputs (ignore the last 4 for now):
 4. `Record Value` a list of record values that your customer will need to add in their DNS provider.
 5. `Error` A human readable message describing any error. Empty if no error.
 
-So, in a workflow, we use the Provision white label action by setting its name and custom_domain fields to Normalized URL :
+So, in a workflow, we use the `Provision white label` action by setting its `name` and `custom_domain` fields to `Normalized URL`:
+
+<div style={{textAlign: 'center'}}>
+  <img src="https://blog.scious.io/content/images/2020/08/image-11.png" alt="docusaurus mascot"/>
+</div>
+
+<Figure caption="Figure caption" src="https://blog.scious.io/content/images/2020/08/image-11.png" />
 
 ## Support
 
