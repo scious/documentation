@@ -11,21 +11,21 @@ Explore guides and examples to integrate our products.
 
 ## Products
 
-<div class="avatar">
-  <a
-    class="avatar__photo-link avatar__photo avatar__photo--lg"
-    href="https://twitter.com/dan_abramov">
-    <img
-      alt="Dan Abramov Profile"
-      src="https://avatars1.githubusercontent.com/u/810438?s=460" />
-  </a>
-  <div class="avatar__intro">
-    <div class="avatar__name">Dan Abramov</div>
-    <small class="avatar__subtitle">
-      Working on @reactjs. Co-author of Redux and Create React App.
-    </small>
+<nav class="pagination-nav">
+  <div class="pagination-nav__item">
+    <a class="pagination-nav__link" href="#url">
+      <div class="pagination-nav__sublabel">TheirLabel</div>
+      <div class="pagination-nav__label">Domain name white-labeling for Bubble</div>
+    </a>
   </div>
-</div>
+
+  <div class="pagination-nav__item pagination-nav__item--next">
+    <a class="pagination-nav__link" href="#url">
+      <div class="pagination-nav__sublabel">Scious Search</div>
+      <div class="pagination-nav__label">Getting Started</div>
+    </a>
+  </div>
+</nav>
 
 ## Versioning
 
