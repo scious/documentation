@@ -139,6 +139,20 @@ It's good practice to inform your customer that the white-labelled site won't be
 
 To finish setting up your customer's white label we can secure it using the `Provision TLS certificate` action.
 
+<Figure src="https://blog.scious.io/content/images/2020/08/image-16.png" />
+
+As with the others, this action requires the `site_id`. Under normal circumstances calling this action once should eventually (within 30 minutes) result in the white-labelled site getting secured via Let's Encrypt. However, if the site hasn't been secured, and you're certain that DNS records have had ample time to take effect, then their is no harm in calling this action again.
+
+It's good practice to inform your customer that the white-labelled site won't be HTTPS secured immediatly but that they should return a little later to check it is working. For example, here is TheirLabel's approach:
+
+<Figure src="https://blog.scious.io/content/images/2020/08/image-17.png" />
+
+### Update a white-label
+
+You may want to update a white-label if your customer wants to switch the URL it points to or to change the page's title and favicon. To do this, run the `Update white label` action (the same action we use to provision white labels).
+
+<Figure src="https://s3.amazonaws.com/appforest_uf/f1658683338060x954497849751599900/update-whitelabel-thumbnail-compressed.png" />
+
 ## Support
 
 Offical support is
