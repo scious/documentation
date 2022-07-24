@@ -3,7 +3,7 @@ sidebar_position: 1
 sidebar_label: Latest
 ---
 
-<!-- import Figure from '@site/src/components/figure' -->
+import Figure from '../components/figures'
 
 # TheirLabel [Latest]
 
