@@ -119,6 +119,26 @@ This action takes six fields:
 5. `page_description` This is the SEO description of this site.
 6. `page_image_url` This is the URL for the SEO Image of this site.
 
+### Provide your customer with appropriate A or CNAME records for them to add in their DNS provider.
+
+Remember how we ignored most of the outputs of the TheirLabel `Validate` element earlier in the tutorial? We'll use those now to inform your customers about the DNS records they need to add. The three fields we need are:
+
+1. `Record Type` a list of record types that your customer will need to add in their DNS provider.
+2. `Record Host` a list of record hosts that your customer will need to add in their DNS provider.
+3. `Record Value` a list of record values that your customer will need to add in their DNS provider.
+
+There are a number of ways you can show these but we decided to simply setup three different repeating groups side by side to show each value.
+
+<Figure caption="How to setup the editor" src="https://blog.scious.io/content/images/2020/08/image-15.png" />
+
+<Figure caption="The result" src="https://blog.scious.io/content/images/2020/08/image-14.png" />
+
+It's good practice to inform your customer that the white-labelled site won't be available immediatly since it often takes a few minutes but sometimes as long as 24 hours for new DNS records to take effect. Having some sort of resultion flow for them if the site isn't up after 24 hours (perhaps that walks them through how to debug things on their end or perhaps to get in touch with your support team) could be useful.
+
+### HTTPS secure the white-label
+
+To finish setting up your customer's white label we can secure it using the `Provision TLS certificate` action.
+
 ## Support
 
 Offical support is
