@@ -22,21 +22,15 @@ We just need a few things to start white-labelling your Bubble app:
 1. Head on over to [netlify.com](https://www.netlify.com/) and create a new account. They will send you an email which you will need to open to finish verifying your account.
 2. Once you're logged in, look for your profile button and click on it to get to your `User Settings`... available on the top right corner of your screen.
 
-<div style={{textAlign: 'center'}}>
-  <img src="https://blog.scious.io/content/images/2020/08/image-1.png" />
-</div>
+<Figure src="https://blog.scious.io/content/images/2020/08/image-1.png" />
 
 3. Click on the `Applications` tab
 
-<div style={{textAlign: 'center'}}>
-  <img src="https://blog.scious.io/content/images/2020/08/image-3.png" />
-</div>
+<Figure src="https://blog.scious.io/content/images/2020/08/image-3.png" />
 
 4. Next press `New access token`. Follow the prompts to create the access token and then save it for later when we'll need to add it to the TheirLabel plugin.
 
-<div style={{textAlign: 'center'}}>
-  <img src="https://blog.scious.io/content/images/2020/08/image-4.png" />
-</div>
+<Figure src="https://blog.scious.io/content/images/2020/08/image-4.png" />
 
 ### Setup the TheirLabel plugin
 
@@ -45,9 +39,7 @@ We just need a few things to start white-labelling your Bubble app:
 3. Navigate to the plugin's setting tab and paste the access token we generated from step 4 above into the `Netlify Access Token` field.
    4.To setup the `Authorization (shared headers)` field we need to enter the phrase `Bearer` followed by the same access token, as shown below (your token should look different):
 
-<div style={{textAlign: 'center'}}>
-  <img src="https://blog.scious.io/content/images/2020/08/image-10.png" />
-</div>
+<Figure src="https://blog.scious.io/content/images/2020/08/image-10.png" />
 
 At this point you are now ready use TheirLabel's bubble elements and actions to programmatically white label your site.
 
@@ -72,9 +64,7 @@ Let's take a look at how each of these are implemented in TheirLabel's Test Driv
 
 The very first thing we do is provision a white-label.
 
-<div style={{textAlign: 'center'}}>
-  <img src="https://blog.scious.io/content/images/2020/08/image-8.png" />
-</div>
+<Figure src="https://blog.scious.io/content/images/2020/08/image-8.png" />
 
 To do this you'll need three things:
 
@@ -92,9 +82,7 @@ But your customer would rather have that page hosted on a subdomain that they ow
 
 So to provision white labels you connect the input for your customer's white label (below called `Domain name you own`) to TheirLabel's `Validate` visual element.
 
-<div style={{textAlign: 'center'}}>
-  <img src="https://blog.scious.io/content/images/2020/08/image-12.png" />
-</div>
+<Figure src="https://blog.scious.io/content/images/2020/08/image-12.png" />
 
 This element generates five outputs (ignore the last 4 for now):
 
