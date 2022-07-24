@@ -22,7 +22,7 @@ Explore guides and examples to integrate our products.
   <div class="pagination-nav__item pagination-nav__item--next">
     <a class="pagination-nav__link" href="#url">
       <div class="pagination-nav__sublabel">Scious Search</div>
-      <div class="pagination-nav__label">Getting Started</div>
+      <div class="pagination-nav__label">Natively integrate Typesense or Algolia</div>
     </a>
   </div>
 </nav>
