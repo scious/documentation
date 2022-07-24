@@ -96,6 +96,29 @@ So, in a workflow, we use the `Provision white label` action by setting its `nam
 
 <Figure caption="In practice `name` can be anything you want" src="https://blog.scious.io/content/images/2020/08/image-11.png" />
 
+Finally, when this action fires, your white label will be provisioned. Additionally, the action will return a number of values including the **very important** `site_id`**. You need the** `site_id` **for all future white label actions so store this in your Bubble database.**
+
+:::caution
+
+The url that your customer can enter must have the form of an apex domain (example.com) or a subdomain (blog.example.com). URLs with multiple subdomains (kinder.blog.example.com) will throw an error that you can catch.
+
+:::
+
+### Link customer's unique Bubble URL to their provisioned white-label
+
+In the same workflow we used to provision the white label, we next use the `Update white label` action to link your app's URL to the customer's desired white label.
+
+This action takes six fields:
+
+<Figure src="https://s3.amazonaws.com/appforest_uf/f1658683338060x954497849751599900/update-whitelabel-thumbnail-compressed.png" />
+
+1. `site_id` This is the output from having provisioned the white label in a prior step
+2. `site_url` This is the actual URL where your customer wants your app to be white-labelled at.
+3. `favicon_url` (optional) This is the URL to the favicon that will be populated in a white labelled browse tab.
+4. `page_title` This is the text that will be populated in a white labelled browse tab.
+5. `page_description` This is the SEO description of this site.
+6. `page_image_url` This is the URL for the SEO Image of this site.
+
 ## Support
 
 Offical support is
