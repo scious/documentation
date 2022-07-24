@@ -153,6 +153,23 @@ You may want to update a white-label if your customer wants to switch the URL it
 
 <Figure src="https://s3.amazonaws.com/appforest_uf/f1658683338060x954497849751599900/update-whitelabel-thumbnail-compressed.png" />
 
+Just like when we used this action to provision a white label, when we update a white label we'll need to save its `site_id` to the Bubble database for later use, otherwise you will not be able to use Bubble to update or delete this white label in the future (of course you can always go into your Netlify account and manually find the `site_id` from there).
+
+### Delete a white-label
+
+Simply run the `Delete white label` action along with the `site_id` to remove a white label from your application.
+
+<Figure src="https://blog.scious.io/content/images/2020/08/image-18.png" />
+
+## Known limitations
+
+Because we use an iFrame to achieve white-labelling, any page changes in the white-labelled app will not be reflected in the browser's URL bar. For example, if your customer navigates from saas.com to saas.com/contact, then your application will navigate to the contact page but their URL bar will still read **saas.com**.
+Safari users will see a message like this when browsing a TheirLabelled site that makes use of cookies (such as when logging in). Without enabling cookies, Safari users will not be able to use your application. We're exploring ways to solve this issue (if you've solved this with [Webkit's Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/), we'd love to explore a solution with you - [get in touch here](mailto:aagostini+theirlabel@scious.io)):
+
+<Figure src="https://s3.amazonaws.com/appforest_uf/f1596228557855x579771458057098500/image%202.png" />
+
+All this said, I feel that TheirLabel is a reasonable 90% solution to Bubble's current inability to make multi-tenant SaaS apps that can be served across multiple domain names. It has been requested for years so ideally this will be a native Bubble feature someday. Until then, I hope you enjoy TheirLabel.
+
 ## Support
 
 Offical support is
