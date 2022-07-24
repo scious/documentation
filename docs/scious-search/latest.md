@@ -5,7 +5,7 @@ sidebar_label: Latest
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`.
+The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`. Scious: prouncounced **sci** like **sci**ence and **us** like _you and I_.
 
 # Features
 
