@@ -106,11 +106,7 @@ This element generates five outputs (ignore the last 4 for now):
 
 So, in a workflow, we use the `Provision white label` action by setting its `name` and `custom_domain` fields to `Normalized URL`:
 
-<div style={{textAlign: 'center'}}>
-  <img src="https://blog.scious.io/content/images/2020/08/image-11.png" alt="docusaurus mascot"/>
-</div>
-
-<Figure caption="Figure caption" src="https://blog.scious.io/content/images/2020/08/image-11.png" />
+<Figure caption="In practice `name` can be anything you want" src="https://blog.scious.io/content/images/2020/08/image-11.png" />
 
 ## Support
 
