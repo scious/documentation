@@ -163,7 +163,7 @@ Simply run the `Delete white label` action along with the `site_id` to remove a 
 
 ## Known limitations
 
-Because we use an iFrame to achieve white-labelling, any page changes in the white-labelled app will not be reflected in the browser's URL bar. For example, if your customer navigates from saas.com to saas.com/contact, then your application will navigate to the contact page but their URL bar will still read **saas.com**.
+Because we use an iFrame to achieve white-labelling, any page changes in the white-labelled app will not be reflected in the browser's URL bar. For example, if your customer navigates from **saas.com** to **saas.com/contact**, then your application will navigate to the contact page but their URL bar will still read **saas.com**.
 Safari users will see a message like this when browsing a TheirLabelled site that makes use of cookies (such as when logging in). Without enabling cookies, Safari users will not be able to use your application. We're exploring ways to solve this issue (if you've solved this with [Webkit's Storage Access API](https://webkit.org/blog/8124/introducing-storage-access-api/), we'd love to explore a solution with you - [get in touch here](mailto:aagostini+theirlabel@scious.io)):
 
 <Figure src="https://s3.amazonaws.com/appforest_uf/f1596228557855x579771458057098500/image%202.png" />
