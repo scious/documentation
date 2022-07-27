@@ -168,7 +168,7 @@ Safari users will see a message like this when browsing a TheirLabelled site tha
 
 <Figure src="https://s3.amazonaws.com/appforest_uf/f1596228557855x579771458057098500/image%202.png" />
 
-All this said, I feel that TheirLabel is a reasonable 90% solution to Bubble's current inability to make multi-tenant SaaS apps that can be served across multiple domain names. It has been requested for years so ideally this will be a native Bubble feature someday. Until then, I hope you enjoy TheirLabel.
+All this said, we feel that TheirLabel is a reasonable 90% solution to Bubble's current inability to make multi-tenant SaaS apps that can be served across multiple domain names. It has been requested for years so ideally this will be a native Bubble feature someday. Until then, we hope you enjoy TheirLabel.
 
 ## Support
 
