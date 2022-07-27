@@ -172,14 +172,17 @@ All this said, I feel that TheirLabel is a reasonable 90% solution to Bubble's c
 
 ## Support
 
-Offical support is
+We provide support in two ways:
+
+- [The forum](https://forum.bubble.io/t/introducing-theirlabel-domain-name-white-labeling-for-bubble/104972/last). This option is free for everyone to use where questions are answered by us as well as the community.
+- One on one consulations. This paid option is for anyone who wants direct, real time feedback on integration best practices straight from the people who made TheirLabel.
 
 ## Known limitations
 
 ## Additional resources
 
-- [Scious Search Demo](https://scious-plugins.bubbleapps.io/scious-search).
-- [Scious Search Demo Editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1).
+- [TheirLabel Demo](https://scious-plugins.bubbleapps.io/scious-search).
+- [Off](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1).
 - Refer to our demo's editor for a self documented guide on how to setup and use Scious Search.
 - Need help integrating Scious Search? Drop a message in our official Bubble thread and we'll help you get going!
 - Prefer for someone to integrate Scious Search for you? Set
