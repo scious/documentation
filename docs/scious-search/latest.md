@@ -17,17 +17,31 @@ The following is documentation for the latest version of the Scious Search plugi
 - Can sort search results by options.
 - Allows you to easily swap and experiment with other search providers.
 
-## Support
-
-Offical support is
-
 ## Getting started
+
+This page serves as the official manual for using TheirLabel. You can visit [scious-plugins.bubbleapps.io/scious-search](https://scious-plugins.bubbleapps.io/scious-search) to try it before you buy it. For guidance you can always refer to TheirLabel's editor which self documents exactly how to provide your end users with a white-labelling flow (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
+
+We just need a few things to start white-labelling your Bubble app:
+
+## install plugin
+
+- Get your Search Provider's API keys
+  - Typesense API keys
+  - Get your Algolia API keys
+- Setup the Scious Search plugin
+- get typesense APi keys
+- sync your database
+- implement search
 
 ## Visual Elements
 
 ## Actions
 
 ## Known limitations
+
+## Support
+
+Offical support is
 
 ## Additional resources
 
