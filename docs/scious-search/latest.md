@@ -23,23 +23,6 @@ Offical support is
 
 ## Getting started
 
-### Creating your end user's white-labelling experience
-
-The Scious Search [Demo](https://scious-plugins.bubbleapps.io/scious-search) shows a few ways you can implement an end user search-as-you-type experience:
-
-<iframe width="100%" height="380" src="https://www.youtube.com/embed/_AQXQDjw7Y8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Ultimately the look and feel is up to you but an implementation should achieve the following:
-
-1. Provision a white-label on your Netlify account.
-2. Link your customer's unique Bubble URL to their provisioned white-label.
-3. Provide your customer with appropriate A or CNAME records for them to add in their DNS provider.
-4. HTTPS secure the white-label
-5. Update a white-label
-6. Delete a white-label
-
-Let's take a look at how each of these are implemented in TheirLabel's Test Drive (learn it quicker by following along in the editor).
-
 ## Visual Elements
 
 ## Actions
