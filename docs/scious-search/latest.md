@@ -19,9 +19,9 @@ The following is documentation for the latest version of the Scious Search plugi
 
 ## Getting started
 
-This page serves as the official manual for using TheirLabel. You can visit [scious-plugins.bubbleapps.io/scious-search](https://scious-plugins.bubbleapps.io/scious-search) to try it before you buy it. For guidance you can always refer to TheirLabel's editor which self documents exactly how to provide your end users with a white-labelling flow (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
+All first time Scious Search users get a 2 day free trial but you can visit [scious-plugins.bubbleapps.io/scious-search](https://scious-plugins.bubbleapps.io/scious-search) to try it before you buy it. For guidance you can always refer to the demo's editor which self documents exactly how to provide your end users with a search as you type experience (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
 
-We just need a few things to start white-labelling your Bubble app:
+We just need a few things to start searching your Bubble app:
 
 ## install plugin
 
