@@ -7,7 +7,7 @@ title: Home
 
 # Documentation
 
-Explore guides and examples to integrate our products.
+Explore guides and examples to help you integrate our products.
 
 ## Products
 
@@ -18,24 +18,16 @@ Explore guides and examples to integrate our products.
       <div class="pagination-nav__label">Domain name white-labeling for Bubble</div>
     </a>
   </div>
-
-  <div class="pagination-nav__item pagination-nav__item--next">
-    <a class="pagination-nav__link" href="#url">
-      <div class="pagination-nav__sublabel">Scious Search</div>
-      <div class="pagination-nav__label">Natively integrate Typesense or Algolia</div>
-    </a>
-  </div>
 </nav>
 
 ## Versioning
 
-Documentation for older versions of our plugins or products are accessed in the sidebar as sub-menu items below the latest docs for each product of interest. We publish documentation for the last three versions of any product to keep these docs consice but can offer support and archived documentation for older versions.
+We publish documentation for the last three versions of any product to keep these docs consice but can offer support and archived documentation for older versions.
 
 ## Support
 
-We offer
+We offer additional support for all our products through the following channels:
 
-### Forums
-
-- [TheirLabel](https://forum.bubble.io/t/introducing-theirlabel-domain-name-white-labeling-for-bubble/104972/last)
-- [Scious Search](https://forum.bubble.io/t/introducing-scious-search-instant-search-for-bubble)
+- Forum based support. This is free and we always reply to unanswered questions. While we're usually able to follow up within 2 to 5 business days, sometimes we do take longer. Below are the official support forums for each of our products:
+  - [TheirLabel](https://forum.bubble.io/t/introducing-theirlabel-domain-name-white-labeling-for-bubble/104972/last)
+- For those with immediate needs, we offer one-on-one sessions to help answer your questions in a guarenteed timeframe. Click here to book a session.
