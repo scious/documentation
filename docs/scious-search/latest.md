@@ -5,11 +5,11 @@ sidebar_label: Latest
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`. Scious: prouncounced **sci** like **sci**ence and **us** like _you and I_.
+The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`. Scious is prouncounced **sci** like **sci**ence and **us** like _you and I_.
 
 # Features
 
-**Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it also:
+**Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
 
 - Preserves Bubble privacy settings across all data types.
 - Provides a live and a test version of your search database.
