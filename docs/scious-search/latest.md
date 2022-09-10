@@ -10,7 +10,7 @@ The following is documentation for the latest version of the Scious Search plugi
 <details>
 <summary>How do I say "Scious"?</summary>
 
-Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word conscious.
+Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
 
 </details>
 
