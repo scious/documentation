@@ -5,7 +5,14 @@ sidebar_label: Latest
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`. Scious is prouncounced **sci** like **sci**ence and **us** like _you and I_.
+The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`.
+
+<details>
+<summary>How do I say "Scious"?</summary>
+
+Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word conscious.
+
+</details>
 
 # Features
 
@@ -19,9 +26,9 @@ The following is documentation for the latest version of the Scious Search plugi
 
 ## Getting started
 
-All first time Scious Search users get a 2 day free trial but you can visit [scious-plugins.bubbleapps.io/scious-search](https://scious-plugins.bubbleapps.io/scious-search) to try it before you buy it. For guidance you can always refer to the demo's editor which self documents exactly how to provide your end users with a search as you type experience (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
+First time users get a 2 day free trial to experiment with Scious Search but you can also [visit our demo](https://scious-plugins.bubbleapps.io/scious-search) to try it before you buy. Additionally, [the demo's editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) is an excellent reference while integrating our plugin.
 
-We just need a few things to start searching your Bubble app:
+That said, we just need a few things to start searching records in your Bubble app:
 
 ## install plugin
 
