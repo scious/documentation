@@ -7,13 +7,6 @@ sidebar_label: Latest
 
 The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`.
 
-<details>
-<summary>How do I say "Scious"?</summary>
-
-Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
-
-</details>
-
 # Features
 
 **Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
