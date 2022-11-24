@@ -17,7 +17,7 @@ The following is documentation for the latest version of the Scious Search plugi
 - Preserves Bubble privacy settings across all data types.
 - Works with live, test, and other versions of your app so you can thoroughly test your integration before going live.
 - Does not degrade or slow down as your database grows since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
-- Can sort search results by options.
+- Can sort search results by options (which is not natively avilable in Bubble).
 - Allows you to easily swap and experiment with other search providers.
 
 # Demo
@@ -30,25 +30,31 @@ The following is documentation for the latest version of the Scious Search plugi
     </a>
   </div>
 
+  <div class="pagination-nav__item">
+    <a class="pagination-nav__link" href="https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1">
+      <div class="pagination-nav__sublabel">📙</div>
+      <div class="pagination-nav__label">Demo Editor →</div>
+    </a>
+  </div>
 </nav>
+
+.
+:::tip
+
+Check out our demo's editor above for an excellent reference while integrating our plugin.
+
+:::
 
 ## Getting started
 
-First time users get a 4 day free trial to experiment with Scious Search but you can also [visit our demo](https://scious-plugins.bubbleapps.io/scious-search) to try it before you buy. That said, we just need a few things to start searching records in your Bubble app:
+We just need a few things to start searching records in your Bubble app:
 
-- Install plugin
-- Get your Search Provider's API keys
-  - Typesense API keys
-  - Get your Algolia API keys
-- Setup the Scious Search plugin
-- Sync your database
-- Implement search
-
-:::tip
-
-Check out [our demo's editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) for an excellent reference while integrating our plugin.
-
-:::
+1. Install plugin
+2. Get Scious Search API Key.
+3. Get your Search Provider's API keys
+4. Setup the Scious Search plugin
+5. Sync your database
+6. Implement search
 
 # Algolia
 
