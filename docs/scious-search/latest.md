@@ -3,6 +3,9 @@ sidebar_position: 1
 sidebar_label: Latest
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Scious Search [Latest]
 
 The following is documentation for the latest version of the Scious Search plugin - version `0.2.0`.
@@ -33,9 +36,58 @@ That said, we just need a few things to start searching records in your Bubble a
 - sync your database
 - implement search
 
+## Actions
+
+<Tabs groupId="search-provider">
+  <TabItem value="Algolia" label="Algolia">
+  ### Sync search records
+  </TabItem>
+  <TabItem value="Typesense" label="Typesense">Use Command + C to copy.</TabItem>
+</Tabs>
+
+<Tabs groupId="search-provider">
+  <TabItem value="Algolia" label="Algolia">Use Ctrl + V to paste.</TabItem>
+  <TabItem value="Typesense" label="Typesense">Use Command + V to paste.</TabItem>
+</Tabs>
+
+<Tabs
+defaultValue="javascript"
+values={[
+{label: 'Javascript', value: 'javascript'},
+{label: 'Other', value: 'other'},
+]}>
+<TabItem value="javascript">
+
+    ```jsx
+    Formated code here
+    ```
+    ### df
+
+### efdf
+
+erer
+
+</TabItem>
+<TabItem value="other">
+
+## This is an orange
+
+</TabItem>
+</Tabs>
+
+### Add search record
+
+### Update search record
+
+### Delete search record
+
 ## Visual Elements
 
-## Actions
+### Scious Search
+
+Now that we've synced search records into Algolia
+
+The Scious Search visual element is where all
 
 ## Known limitations
 
