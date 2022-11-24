@@ -13,14 +13,14 @@ Explore guides and examples to help you integrate our products.
 
 <nav class="pagination-nav">
   <div class="pagination-nav__item">
-    <a class="pagination-nav__link" href="#url">
+    <a class="pagination-nav__link" href="theirlabel/latest">
       <div class="pagination-nav__sublabel">TheirLabel</div>
       <div class="pagination-nav__label">Domain name white-labeling for Bubble</div>
     </a>
   </div>
 
   <div class="pagination-nav__item pagination-nav__item--next">
-    <a class="pagination-nav__link" href="#url">
+    <a class="pagination-nav__link" href="scious-search/latest">
       <div class="pagination-nav__sublabel">Scious Search</div>
       <div class="pagination-nav__label">Natively integrate Typesense or Algolia</div>
     </a>
