@@ -1,3 +1,3 @@
-# Website
+# Scious Search Documentation
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This is our public documentation. See an error? Suggest a correction by making corrections and submitting a pull request!
