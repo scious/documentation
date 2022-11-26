@@ -3,8 +3,8 @@ sidebar_position: 1
 sidebar_label: Latest
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Figure from '../components/figures'
+import VideoGIF from '../components/videogifs'
 
 # Scious Search [Latest]
 
@@ -45,7 +45,7 @@ Check out our demo's editor above for an excellent reference while integrating o
 
 :::
 
-## Getting started
+# Getting started
 
 We just need a few things to start searching records in your Bubble app:
 
@@ -55,6 +55,20 @@ We just need a few things to start searching records in your Bubble app:
 4. Setup the Scious Search plugin
 5. Sync your database
 6. Implement search
+
+# Install plugin
+
+<VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1617165578068x639958339848037200/MOONVIRUS%20%28loop%29%20%281%29.mp4" />
+
+# Get Scious Search API Key.
+
+# Get your Search Provider's API keys
+
+# Setup the Scious Search plugin
+
+# Sync your database
+
+# Implement search
 
 # Algolia
 
