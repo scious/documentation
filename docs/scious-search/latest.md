@@ -5,6 +5,7 @@ sidebar_label: Latest
 
 import Figure from '../components/figures'
 import VideoGIF from '../components/videogifs'
+import Highlight from '../components/highlight'
 
 # Scious Search [Latest]
 
@@ -57,6 +58,10 @@ We just need a few things to start searching records in your Bubble app:
 6. Implement search
 
 # Install plugin
+
+<!-- df <Highlight color="#25c2a0">Docusaurus green</Highlight> -->
+
+Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious search"</Highlight>_ and install.
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
