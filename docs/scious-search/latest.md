@@ -59,13 +59,13 @@ We just need a few things to start searching records in your Bubble app:
 
 # Install plugin
 
-<!-- df <Highlight color="#25c2a0">Docusaurus green</Highlight> -->
-
 Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious search"</Highlight>_ and install.
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
 # Get Scious Search API Key.
+
+Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
 # Get your Search Provider's API keys
 
@@ -73,13 +73,21 @@ Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious sear
 
 # Sync your database
 
+While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your Search Provider, we've pre-built a synchronization admin page you can use to get your first sync started faster.
+
+(it actually uses this action).
+
 # Implement search
+
+Walk through making
 
 # Algolia
 
 dfdf
 
 ## Actions
+
+### Sync Search Index
 
 ### Add search record
 
