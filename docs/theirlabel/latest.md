@@ -13,18 +13,18 @@ For all the niceties, though, every tool has its flaws. One thing Bubble (curren
 
 # Demo
 
-<nav class="pagination-nav">
-  <div class="pagination-nav__item">
-    <a class="pagination-nav__link" href="http://their-label.bubbleapps.io/">
-      <div class="pagination-nav__sublabel">TheirLabel Plugin Demo</div>
-      <div class="pagination-nav__label">White-Labelling for Bubble →</div>
+<nav className="pagination-nav">
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="http://their-label.bubbleapps.io/">
+      <div className="pagination-nav__sublabel">TheirLabel Plugin Demo</div>
+      <div className="pagination-nav__label">White-Labelling for Bubble →</div>
     </a>
   </div>
 
-  <div class="pagination-nav__item">
-    <a class="pagination-nav__link" href="https://bubble.io/page?name=index&id=their-label&tab=tabs-1">
-      <div class="pagination-nav__sublabel">📙</div>
-      <div class="pagination-nav__label">Demo Editor →</div>
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="https://bubble.io/page?name=index&id=their-label&tab=tabs-1">
+      <div className="pagination-nav__sublabel">📙</div>
+      <div className="pagination-nav__label">Demo Editor →</div>
     </a>
   </div>
 </nav>

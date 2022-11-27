@@ -18,18 +18,18 @@ Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". I
 
 ## Products
 
-<nav class="pagination-nav">
-  <div class="pagination-nav__item">
-    <a class="pagination-nav__link" href="theirlabel/latest">
-      <div class="pagination-nav__sublabel">TheirLabel</div>
-      <div class="pagination-nav__label">Domain name white-labeling for Bubble →</div>
+<nav className="pagination-nav">
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="theirlabel/latest">
+      <div className="pagination-nav__sublabel">TheirLabel</div>
+      <div className="pagination-nav__label">Domain name white-labeling for Bubble →</div>
     </a>
   </div>
 
-  <div class="pagination-nav__item pagination-nav__item--next">
-    <a class="pagination-nav__link" href="scious-search/latest">
-      <div class="pagination-nav__sublabel">Scious Search</div>
-      <div class="pagination-nav__label">Natively integrate Typesense or Algolia →</div>
+  <div className="pagination-nav__item pagination-nav__item--next">
+    <a className="pagination-nav__link" href="scious-search/latest">
+      <div className="pagination-nav__sublabel">Scious Search</div>
+      <div className="pagination-nav__label">Natively integrate Typesense or Algolia →</div>
     </a>
   </div> 
 </nav>

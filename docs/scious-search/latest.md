@@ -22,18 +22,18 @@ The following is documentation for the latest version of the Scious Search plugi
 
 # Demo
 
-<nav class="pagination-nav">
-  <div class="pagination-nav__item">
-    <a class="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search">
-      <div class="pagination-nav__sublabel">Scious Search Plugin Demo</div>
-      <div class="pagination-nav__label">Instantly search over 250,000 records →</div>
+<nav className="pagination-nav">
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search">
+      <div className="pagination-nav__sublabel">Scious Search Plugin Demo</div>
+      <div className="pagination-nav__label">Instantly search over 250,000 records →</div>
     </a>
   </div>
 
-  <div class="pagination-nav__item">
-    <a class="pagination-nav__link" href="https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1">
-      <div class="pagination-nav__sublabel">📙</div>
-      <div class="pagination-nav__label">Demo Editor →</div>
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1">
+      <div className="pagination-nav__sublabel">📙</div>
+      <div className="pagination-nav__label">Demo Editor →</div>
     </a>
   </div>
 </nav>
