@@ -15,6 +15,12 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'scious', // Usually your GitHub org/user name.
   projectName: 'documentation', // Usually your repo name.
+  // scripts: [
+  //   {
+  //     src: 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
+  //     async: true,
+  //   },
+  // ],
   presets: [
     [
       'classic',
@@ -25,7 +31,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-          'https://pr.new/github.com/scious/scious-documentation/edit/development/',
+            'https://pr.new/github.com/scious/scious-documentation/edit/development/',
         },
         blog: false,
         theme: {

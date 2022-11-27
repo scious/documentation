@@ -3,7 +3,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function VideoGIF({ src, caption }) {
   return (
-    <figure style={{ textAlign: 'center', padding: 20 }}>
+    <figure
+      style={{
+        textAlign: 'center',
+        padding: 16,
+        boxShadow: '2px 3px 6px #F2F2F2',
+      }}
+    >
       <video width="100%" autoPlay loop muted playsInline>
         <source src={useBaseUrl(src)} type="video/mp4" />
       </video>

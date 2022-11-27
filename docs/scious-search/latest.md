@@ -58,7 +58,7 @@ We just need a few things to start searching records in your Bubble app:
 
 # Install plugin
 
-<VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1617165578068x639958339848037200/MOONVIRUS%20%28loop%29%20%281%29.mp4" />
+<VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
 # Get Scious Search API Key.
 
