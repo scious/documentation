@@ -18,7 +18,7 @@ The following is documentation for the latest version of the Scious Search plugi
 - Preserves Bubble privacy settings across all data types.
 - Works with live, test, and other versions of your app so you can thoroughly test your integration before going live.
 - Does not degrade or slow down as your database grows since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
-- Can sort search results by options (which is not natively avilable in Bubble).
+- Can sort search results by options (which is not natively available in Bubble).
 - Allows you to easily swap and experiment with other search providers.
 
 # Demo
