@@ -77,6 +77,8 @@ While we provide a `Sync Search Index` action (details [below](latest#sync-searc
 
 (it actually uses this action).
 
+- `Fields to search`: The Bubble fields to sync supplied as a JSON list. If empty, then all of the columns will be synchronized.
+
 ## Implement search
 
 Walk through making
