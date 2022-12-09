@@ -19,7 +19,7 @@ The following is documentation for the latest version of the Scious Search plugi
 - Works with live, test, and other versions of your app so you can thoroughly test your integration before going live.
 - Does not degrade or slow down as your database grows since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
 - Can sort search results by options (which is not natively available in Bubble).
-- Allows you to easily swap and experiment with other search providers.
+- Makes it easier to swap and experiment with other search providers (which can save you money).
 
 # Demo
 
@@ -46,7 +46,7 @@ Check out our demo's editor above for an excellent reference while integrating o
 
 :::
 
-# Getting started
+## Getting started
 
 We just need a few things to start searching records in your Bubble app:
 
@@ -57,27 +57,27 @@ We just need a few things to start searching records in your Bubble app:
 5. Sync your database
 6. Implement search
 
-# Install plugin
+### Install plugin
 
 Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious search"</Highlight>_ and install.
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
-# Get Scious Search API Key.
+### Get Scious Search API Key.
 
 Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
-# Get your Search Provider's API keys
+### Get your Search Provider's API keys
 
-# Setup the Scious Search plugin
+### Setup the Scious Search plugin
 
-# Sync your database
+### Sync your database
 
 While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your Search Provider, we've pre-built a synchronization admin page you can use to get your first sync started faster.
 
 (it actually uses this action).
 
-# Implement search
+## Implement search
 
 Walk through making
 
