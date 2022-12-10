@@ -77,7 +77,7 @@ While we provide a `Sync Search Index` action (details [below](latest#sync-searc
 
 (it actually uses this action).
 
-- `Fields to search`: The Bubble fields to sync supplied as a JSON list. If empty, then all of the columns will be synchronized.
+- `Fields to search`: The Bubble fields to sync supplied as a JSON list... for example `['Author','Title','Created Date']`. If empty, then all of the columns will be synchronized. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 
 ## Implement search
 
