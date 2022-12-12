@@ -105,6 +105,12 @@ Now that we've synced search records into Algolia
 
 The Scious Search visual element is where all
 
+:::tip
+
+Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Mac press..., on Windows , pressPress `CTRL` ) and you'll see your search filter printed to console. Explain that this printing only happens in dev environments. If you also want it to appear in live, you can include a console.log() statement in the filters js. But of course, this would double your print statments in dev environmnets.
+
+:::
+
 ## Known limitations
 
 ## Support
