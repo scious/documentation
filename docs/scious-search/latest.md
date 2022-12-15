@@ -9,7 +9,7 @@ import Highlight from '../components/highlight'
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - `version 0.2.0`.
+The following is documentation for the latest version of the Scious Search plugin - `version 1.0.0`.
 
 # Features
 
@@ -82,6 +82,18 @@ While we provide a `Sync Search Index` action (details [below](latest#sync-searc
 ## Implement search
 
 Walk through making
+
+## Keep your search index synchronized
+
+Once both your search index and data type of interest are synchronized, the best way to _keep_ them synchronized is to add, update or delete individual search records as the records for that data type are added, updated or deleted.
+
+??? Clean up the following tip for auto adding records... recommend this as a convenient catch all, especially for apps that may create new records in a variety of ways, or for those who's admin's frequenly add data to their database using the bulk data uploader.
+
+For reference, the following has been shown to work even when adding hundreds of new records on the Professional plan:
+
+- Create a trigger (of whichever data type(s) you often upload) who's condition is to run when thing before unique_id is empty and thing now unique_id is not empty. This will have the effect of triggering whenever a new record of that thing is created in your bubble app.
+- As an action in the above trigger, now create a search search record.
+  That's it. Now, every time you create a record, this workflow will trigger and create a new search record. It will also work across every development environment you have.
 
 # Algolia
 
