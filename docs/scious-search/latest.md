@@ -46,7 +46,7 @@ Check out our demo's editor above for an excellent reference while integrating o
 
 :::
 
-## Getting started
+## Get started in less than 10 minutes
 
 We just need a few things to start searching records in your Bubble app:
 
@@ -54,8 +54,8 @@ We just need a few things to start searching records in your Bubble app:
 2. Get Scious Search API Key.
 3. Get your Search Provider's API keys
 4. Setup the Scious Search plugin
-5. Sync your database
-6. Implement search
+5. Ensure your API is displaying key names as fields
+6. Sync your database
 
 ### Install plugin
 
@@ -71,6 +71,8 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
 ### Setup the Scious Search plugin
 
+### Display API key names as fields
+
 ### Sync your database
 
 While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your Search Provider, we've pre-built a synchronization admin page you can use to get your first sync started faster.
@@ -81,6 +83,7 @@ While we provide a `Sync Search Index` action (details [below](latest#sync-searc
 
 ## Implement search
 
+We can now start searching our records!
 Walk through making
 
 ## Keep your search index synchronized
