@@ -33,7 +33,7 @@ The following is documentation for the latest version of the Scious Search plugi
 
   <div className="pagination-nav__item">
     <a className="pagination-nav__link" href="https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1">
-      <div className="pagination-nav__sublabel">📙</div>
+      <div className="pagination-nav__sublabel">✪</div>
       <div className="pagination-nav__label">Demo Editor →</div>
     </a>
   </div>
@@ -50,12 +50,12 @@ Check out our demo's editor above for an excellent reference while integrating o
 
 We just need a few things to start searching records in your Bubble app:
 
-1. Install plugin
+1. Install plugin.
 2. Get Scious Search API Key.
-3. Get your Search Provider's API keys
-4. Setup the Scious Search plugin
-5. Ensure your API is displaying key names as fields
-6. Sync your database
+3. Get your Search Provider's API keys.
+4. Setup the Scious Search plugin.
+5. Ensure your API is displaying key names as fields.
+6. Sync your database.
 
 ### Install plugin
 
@@ -125,6 +125,10 @@ The Scious Search visual element is where all
 Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Mac press..., on Windows , pressPress `CTRL` ) and you'll see your search filter printed to console. Explain that this printing only happens in dev environments. If you also want it to appear in live, you can include a console.log() statement in the filters js. But of course, this would double your print statments in dev environmnets.
 
 :::
+
+## When to resync search indices
+
+- **After upgrading plugin versions**. We recommend to re-synchronize your search indices after upgrading your plugin's version. This ensures your search index and plugin are always configured correctly since, from time to time, we make changes to the way indices are built and interacted with.
 
 ## Known limitations
 
