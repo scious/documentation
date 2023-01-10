@@ -128,7 +128,13 @@ Want to see your `Filters` without having to print them to a text box? Open your
 
 ## When to resync search indices
 
-- **After upgrading plugin versions**. We recommend to re-synchronize your search indices after upgrading your plugin's version. This ensures your search index and plugin are always configured correctly since, from time to time, we make changes to the way indices are built and interacted with.
+- **After upgrading plugin versions**. This ensures your search index and plugin are always configured correctly since, from time to time, we make changes to the way indices are built and interacted with.
+- **After editing any name of any field relevant to a search.** A field is relevant if it is used to filter, search or sort records. Specifically, this extends to:
+  - **Data type name**
+  - **Data type field**
+  - **Option set name**
+  - **Option name** but changing any of an option's other attributes does not require a resync.
+- **After changing your domain name**. You will also need to update your Scious Search API key ([see here →](#get-scious-search-api-key)).
 
 ## Known limitations
 
