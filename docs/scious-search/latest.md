@@ -9,7 +9,7 @@ import Highlight from '../components/highlight'
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - `version 1.0.0`.
+The following is documentation for the latest version of the Scious Search plugin - `version 1.1.0`.
 
 # Features
 
