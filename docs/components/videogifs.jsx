@@ -7,7 +7,7 @@ export default function VideoGIF({ src, caption }) {
       style={{
         textAlign: 'center',
         padding: 16,
-        boxShadow: '2px 3px 6px #F2F2F2',
+        boxShadow: '2px 3px 6px #eaeaea',
       }}
     >
       <video width="100%" autoPlay loop muted playsInline>

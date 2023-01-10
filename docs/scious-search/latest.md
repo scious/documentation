@@ -50,12 +50,12 @@ Check out our demo's editor above for an excellent reference while integrating o
 
 We just need a few things to start searching records in your Bubble app:
 
-1. Install plugin.
-2. Get Scious Search API Key.
-3. Get your Search Provider's API keys.
-4. Setup the Scious Search plugin.
-5. Ensure your API is displaying key names as fields.
-6. Sync your database.
+1. [Install plugin](#install-plugin).
+2. [Get Scious Search API Key](#get-scious-search-api-key).
+3. [Get your Search Provider's API keys](#get-your-search-providers-api-keys).
+4. [Setup the Scious Search plugin](#setup-scious-search-plugin).
+5. [Ensure your API is displaying key names as fields](#display-api-key-names-as-fields).
+6. [Sync your database](#sync-your-database).
 
 ### Install plugin
 
@@ -69,7 +69,7 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
 ### Get your Search Provider's API keys
 
-### Setup the Scious Search plugin
+### Setup Scious Search plugin
 
 ### Display API key names as fields
 
@@ -134,7 +134,7 @@ Want to see your `Filters` without having to print them to a text box? Open your
   - **Data type field**
   - **Option set name**
   - **Option name** but changing any of an option's other attributes does not require a resync.
-- **After changing your domain name**. You will also need to update your Scious Search API key ([see here →](#get-scious-search-api-key)).
+- **After changing your domain name**. You will also need to update your Scious Search API key, [see here ⤴ ](#get-scious-search-api-key).
 
 ## Known limitations
 
