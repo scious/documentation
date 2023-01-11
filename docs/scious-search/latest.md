@@ -73,6 +73,8 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
 ### Display API key names as fields
 
+<Figure src="img/scious-search/use field display instead of id.png" />
+
 ### Sync your database
 
 While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your Search Provider, we've pre-built a synchronization admin page you can use to get your first sync started faster.
