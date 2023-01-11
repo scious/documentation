@@ -79,11 +79,14 @@ then > tap `API Keys`:
 
 <Figure src="img/scious-search/click on api keys.png" />
 
+If you've just created an Algolia account then the fields we need will be listed like so:
+
+listed default application will be unnamed and already selected for you - the API keys
 then > on the top left corner of your screen select the `Application` who's API key's you want to view. If you've just created an Algolia account then your default application will be unnamed and already selected for you.
 
-<Figure src="img/scious-search/click on api keys.png" />
+<Figure src="img/scious-search/select application.png" />
 
-**If you already have an existing application with data in it**, then tap `Create application` to create a new, blank application.
+**If you already have an existing application with data in it** then tap `Create application` to create a new, blank application.
 
 <Figure src="img/scious-search/create application.png" />
 
