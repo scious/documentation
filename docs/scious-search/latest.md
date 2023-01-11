@@ -75,7 +75,15 @@ Algolia integrations require three things: an `Application ID`, `Search Only API
 
 <Figure src="img/scious-search/nav to settings.png" />
 
-then, 
+then > tap `API Keys`:
+
+<Figure src="img/scious-search/click on api keys.png" />
+
+then > on the top left corner of your screen select the `Application` who's API key's you want to view. If you've just created an Aloglia account then your default application will be unnamed and already selected for you.
+
+<Figure src="img/scious-search/click on api keys.png" />
+
+If you already have an existing application with data in it, then tap `Create application` to create a new, blank application. 
 
 #### Typesense
 
