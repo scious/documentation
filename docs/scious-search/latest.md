@@ -70,9 +70,12 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 ### Get your Search Provider's API keys
 
 #### Algolia
-Algolia integrations require three things: an `Application ID`, `Search Only API Key` and an `Admin API Key`. To get these, [log into Algolia](https://www.algolia.com/) > navigate to the 
 
+Algolia integrations require three things: an `Application ID`, `Search Only API Key` and an `Admin API Key`. To get these, [log into Algolia](https://www.algolia.com/) > navigate to `Settings` on the bottom left corner of your screen:
 
+<Figure src="img/scious-search/nav to settings.png" />
+
+then, 
 
 #### Typesense
 
