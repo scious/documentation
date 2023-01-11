@@ -81,14 +81,15 @@ then > tap `API Keys`:
 
 If you've just created an Algolia account then the fields we need will be listed like so:
 
-listed default application will be unnamed and already selected for you - the API keys
-then > on the top left corner of your screen select the `Application` who's API key's you want to view. If you've just created an Algolia account then your default application will be unnamed and already selected for you.
+<Figure src="img/scious-search/algolia keys.png" />
 
-<Figure src="img/scious-search/select application.png" />
+:::warning
 
-**If you already have an existing application with data in it** then tap `Create application` to create a new, blank application.
+If you already have an existing Algolia application with data in it, then first create a new application (as shown below) before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new application's API keys in the following step.
 
-<Figure src="img/scious-search/create application.png" />
+:::
+
+<Figure src="img/scious-search/create algolia application.png" />
 
 #### Typesense
 
