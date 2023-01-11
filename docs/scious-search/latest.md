@@ -69,17 +69,24 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
 ### Get your Search Provider's API keys
 
+#### Algolia
+Algolia integrations require three things: an `Application ID`, `Search Only API Key` and an `Admin API Key`. To get these, [log into Algolia](https://www.algolia.com/) > navigate to the 
+
+
+
+#### Typesense
+
 ### Setup Scious Search plugin
 
 ### Display API key names as fields
+
+In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
 
 <Figure src="img/scious-search/use field display instead of id.png" />
 
 ### Sync your database
 
-While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your Search Provider, we've pre-built a synchronization admin page you can use to get your first sync started faster.
-
-(it actually uses this action).
+While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your Search Provider, we've also built a synchronization admin page you can copy and paste into your app to start your first sync.
 
 - `Fields to search`: The Bubble fields to sync supplied as a JSON list... for example `['Author','Title','Created Date']`. If empty, then all of the columns will be synchronized. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 
