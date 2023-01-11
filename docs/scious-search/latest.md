@@ -93,6 +93,8 @@ If you already have an existing Algolia application with data in it, then first 
 
 Finally, in the bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key`
 
+<Figure src="img/scious-search/algolia api key fields.png" />
+
 #### Typesense
 
 ### Setup Scious Search plugin
