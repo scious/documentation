@@ -6,6 +6,8 @@ sidebar_label: Latest
 import Figure from '../components/figures'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Scious Search [Latest]
 
@@ -69,9 +71,19 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
 ### Get your Search Provider's API keys
 
-#### Algolia
+<!-- <Tabs groupId="search-providers">
+  <TabItem value="Algolia" label="Algolia">
 
-Algolia integrations require three things: an `Application ID`, `Search Only API Key` and an `Admin API Key`. To get these, [log into Algolia](https://www.algolia.com/) > navigate to `Settings` on the bottom left corner of your screen:
+  </TabItem>
+  <TabItem value="Typesense" label="Typesense">
+
+  </TabItem>
+</Tabs> -->
+
+<Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+Algolia integrations require three things: an `Application ID`, `Search API Key` and an `Admin API Key`. To get these, [log into Algolia](https://www.algolia.com/) > navigate to `Settings` on the bottom left corner of your screen:
 
 <Figure src="img/scious-search/nav to settings.png" />
 
@@ -85,17 +97,45 @@ If you've just created an Algolia account then the fields we need will be listed
 
 :::warning
 
-If you already have an existing Algolia application with data in it, then first create a new application (as shown below) before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new application's API keys in the following step.
+If you already have an existing Algolia application with data in it, then first create a new application (as shown below) before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new application's API keys and ID in the following step.
 
 :::
 
-<Figure src="img/scious-search/create algolia application.png" />
+<Figure caption="In the top left corner click `Application` > then `Create Application`." src="img/scious-search/create algolia application.png" />
 
-Finally, in the bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the fields for Algolia.
+Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the Scious Search plugin configuration fields for Algolia.
 
 <Figure src="img/scious-search/algolia api fields.png" />
 
-#### Typesense
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+
+Typesense integrations require three things: a `Host`, `Search API Key` and an `Admin API Key`. To get these, [log into Typesense](https://cloud.typesense.org/bubble) > navigate to `Settings` on the bottom left corner of your screen:
+
+<Figure src="img/scious-search/nav to settings.png" />
+
+then > tap `API Keys`:
+
+<Figure src="img/scious-search/click on api keys.png" />
+
+If you've just created an Typesense account then the fields we need will be listed like so:
+
+<Figure src="img/scious-search/Typesense keys.png" />
+
+:::warning
+
+If you already have an existing Typesense application with data in it, then first create a new application (as shown below) before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new application's API keys and ID in the following step.
+
+:::
+
+<Figure caption="In the top left corner click `Application` > then `Create Application`." src="img/scious-search/create Typesense application.png" />
+
+Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the Scious Search plugin configuration fields for Typesense.
+
+<Figure src="img/scious-search/Typesense api fields.png" />
+
+</TabItem>
+</Tabs>
 
 ### Setup Scious Search plugin
 
@@ -107,7 +147,19 @@ In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field d
 
 ### Sync your database
 
-While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your Search Provider, we've also built a synchronization admin page you can copy and paste into your app to start your first sync.
+While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your search provider, we've also built a synchronization admin page you can copy and paste into your app to quickly run your first sync.
+
+:::warning
+
+If this is your first time synchronizing Scious Search and you prevously had an Algolia application with data in it, ensure you've already created a new, blank Algolia application and have set it's ID in the Scious Search plugin configuration tab's `Algolia Application ID` field. Otherwise, specific indices in your pre-existing Algolia application may be reset.
+:::
+
+<details>
+<summary>How do I say "Scious"?</summary>
+
+Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
+
+</details>
 
 - `Fields to search`: The Bubble fields to sync supplied as a JSON list... for example `['Author','Title','Created Date']`. If empty, then all of the columns will be synchronized. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 
