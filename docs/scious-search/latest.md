@@ -114,21 +114,15 @@ Typesense integrations require three things: a `Host`, `Search API Key` and an `
 
 <Figure src="img/scious-search/click get typesense keys.png" />
 
-When prompted, save the generated `.txt` file to a secure location > then open it. It will look like:
+When prompted, save the generated `.txt` file to a secure location > then open it. The fields we need will be listed like so:
 
-<Figure src="img/scious-search/typesense api keys.png" />
-
-If you've just created an Typesense account then the fields we need will be listed like so:
-
-<Figure src="img/scious-search/Typesense keys.png" />
+<Figure src="img/scious-search/show typesense api keys.png" />
 
 :::warning
 
-If you already have an existing Typesense application with data in it, then first create a new application (as shown below) before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new application's API keys and ID in the following step.
+If you already have an existing Typesense cluster with data in it, then first create a new cluster before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new cluster's API keys and host in the following step.
 
 :::
-
-<Figure caption="In the top left corner click `Application` > then `Create Application`." src="img/scious-search/create Typesense application.png" />
 
 Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the Scious Search plugin configuration fields for Typesense.
 
