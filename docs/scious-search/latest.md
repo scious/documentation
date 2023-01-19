@@ -124,9 +124,9 @@ If you already have an existing Typesense cluster with data in it, then first cr
 
 :::
 
-Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the Scious Search plugin configuration fields for Typesense.
+Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Search Only API Key`, `Admin API Key` and `Node`/`Host` into the Scious Search plugin configuration fields for Typesense.
 
-<Figure src="img/scious-search/Typesense api fields.png" />
+<Figure src="img/scious-search/typesense config.png" />
 
 </TabItem>
 </Tabs>
