@@ -110,11 +110,11 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
 
-Typesense integrations require three things: a `Host`, `Search API Key` and an `Admin API Key`. To get these, [log into Typesense](https://cloud.typesense.org/bubble) > then create a new cluster with the default configuration by tapping `Clusters` in the nav bar > then `+ New Cluster` and finally `Launch`. Then click `Generate API Keys`:
+Typesense integrations require three things: a `Host`, `Search API Key` and an `Admin API Key`. To get these, [log into Typesense](https://cloud.typesense.org/bubble) > then create a new cluster with the default configuration by tapping `Clusters` in the nav bar > then `+ New Cluster` and finally `Launch`. After your cluster is provisioned, click `Generate API Keys`:
 
-<Figure src="img/scious-search/nav to settings.png" />
+<Figure src="img/scious-search/click get typesense keys.png" />
 
-then > tap `API Keys`:
+When prompted, save the generated .txt file to a secure location > then open it.
 
 <Figure src="img/scious-search/click on api keys.png" />
 
