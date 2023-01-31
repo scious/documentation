@@ -116,7 +116,7 @@ Typesense integrations require three things: a `Host`, `Search API Key` and an `
 
 When prompted, save the generated `.txt` file to a secure location > then open it. The fields we need will be listed like so:
 
-<Figure src="img/scious-search/show typesense api keys.png" />
+<Figure src="img/scious-search/typesense api keys file.png" />
 
 :::warning
 
