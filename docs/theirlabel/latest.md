@@ -23,7 +23,7 @@ For all the niceties, though, every tool has its flaws. One thing Bubble (curren
 
   <div className="pagination-nav__item">
     <a className="pagination-nav__link" href="https://bubble.io/page?name=index&id=their-label&tab=tabs-1">
-      <div className="pagination-nav__sublabel">📙</div>
+      <div className="pagination-nav__sublabel">Bubble App Editor</div>
       <div className="pagination-nav__label">Demo Editor →</div>
     </a>
   </div>

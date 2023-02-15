@@ -35,7 +35,7 @@ The following is documentation for the latest version of the Scious Search plugi
 
   <div className="pagination-nav__item">
     <a className="pagination-nav__link" href="https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1">
-      <div className="pagination-nav__sublabel">✪</div>
+      <div className="pagination-nav__sublabel">Bubble app editor</div>
       <div className="pagination-nav__label">Demo Editor →</div>
     </a>
   </div>
