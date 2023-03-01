@@ -11,6 +11,31 @@ import Figure from '../components/figures'
 
 For all the niceties, though, every tool has its flaws. One thing Bubble (currently) lacks is a programmatic way to partition multi-tenant apps across different domain names. For many Bubble users this may not be an issue, but for those with dreams of building SaaS applications, it's a bit of a thorn. Being one such dreamer, we decided try to fill this gap. As a result, we bring you **TheirLabel**.
 
+# Demo
+
+<nav className="pagination-nav">
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="http://their-label.bubbleapps.io/">
+      <div className="pagination-nav__sublabel">TheirLabel Plugin Demo</div>
+      <div className="pagination-nav__label">White-Labelling for Bubble →</div>
+    </a>
+  </div>
+
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="https://bubble.io/page?name=index&id=their-label&tab=tabs-1">
+      <div className="pagination-nav__sublabel">Bubble App Editor</div>
+      <div className="pagination-nav__label">Demo Editor →</div>
+    </a>
+  </div>
+</nav>
+
+.
+:::tip
+
+Check out our demo's editor above for an excellent reference while integrating our plugin.
+
+:::
+
 ## Getting started
 
 This page serves as the official manual for using TheirLabel. You can visit [their-label.bubbleapps.io](https://their-label.bubbleapps.io) to try it before you buy it. For guidance you can always refer to [TheirLabel's editor](https://bubble.io/page?type=page&name=index&id=their-label&tab=tabs-1) which self documents exactly how to provide your end users with a white-labelling flow (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
@@ -176,13 +201,3 @@ We provide support in two ways:
 
 - [The forum](https://forum.bubble.io/t/introducing-theirlabel-domain-name-white-labeling-for-bubble/104972/last). This option is free for everyone to use where questions are answered by us as well as the community.
 - One on one consulations. This paid option is for anyone who wants direct, real time feedback on integration best practices straight from the people who made TheirLabel.
-
-## Known limitations
-
-## Additional resources
-
-- [TheirLabel Demo](https://scious-plugins.bubbleapps.io/scious-search).
-- [Off](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1).
-- Refer to our demo's editor for a self documented guide on how to setup and use Scious Search.
-- Need help integrating Scious Search? Drop a message in our official Bubble thread and we'll help you get going!
-- Prefer for someone to integrate Scious Search for you? Set

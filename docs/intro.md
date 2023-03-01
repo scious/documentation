@@ -9,15 +9,29 @@ title: Home
 
 Explore guides and examples to help you integrate our products.
 
+<details>
+<summary>How do I say "Scious"?</summary>
+
+Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
+
+</details>
+
 ## Products
 
-<nav class="pagination-nav">
-  <div class="pagination-nav__item">
-    <a class="pagination-nav__link" href="#url">
-      <div class="pagination-nav__sublabel">TheirLabel</div>
-      <div class="pagination-nav__label">Domain name white-labeling for Bubble</div>
+<nav className="pagination-nav">
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="theirlabel/latest">
+      <div className="pagination-nav__sublabel">TheirLabel</div>
+      <div className="pagination-nav__label">Domain name white-labeling for Bubble →</div>
     </a>
   </div>
+
+  <div className="pagination-nav__item pagination-nav__item--next">
+    <a className="pagination-nav__link" href="scious-search/latest">
+      <div className="pagination-nav__sublabel">Scious Search</div>
+      <div className="pagination-nav__label">Natively integrate Typesense or Algolia →</div>
+    </a>
+  </div> 
 </nav>
 
 ## Versioning
