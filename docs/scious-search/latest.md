@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 The following is documentation for the latest version of the Scious Search plugin - `version 1.1.0`.
 
-# Features
+## Features
 
 **Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
 
@@ -23,7 +23,7 @@ The following is documentation for the latest version of the Scious Search plugi
 - Can sort search results by options (which is not natively available in Bubble).
 - Makes it easier to swap and experiment with other search providers (which can save you money).
 
-# Demo
+## Demo
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item">
