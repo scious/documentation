@@ -28,13 +28,6 @@ If Company does not provide a workaround or a correction in the allotted Technic
 
 Monday through Friday, 9am to 5pm CST. [USA federal holiday's](https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays) that overlap with regular support hours will have double the Technical Response Time (within 8 hours) for High Priority Service Requests.
 
-What is the process for handling tickets that are submitted 30 minutes before the end of support hours?
-Category 1 tickets: resolved as able otherwise service/resolution clock begins the following weekday 9am.
-
-What is the process for handling tickets that are submitted outside of support hours?
-Weekdays: Service/resolution clock begins on the next day of regular support hours.
-Weekends: Category 1 tickets will be resolved as able otherwise service/resolution clock begins on Monday 9am.
-
 ## Exceptions
 
 Company will not be responsible for correcting a Service Request arising from any of the following:
