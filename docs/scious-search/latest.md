@@ -227,3 +227,4 @@ Offical support is
 - Refer to our demo's editor for a self documented guide on how to setup and use Scious Search.
 - Need help integrating Scious Search? Drop a message in our official Bubble thread and we'll help you get going!
 - Prefer for someone to integrate Scious Search for you? Set
+- 
