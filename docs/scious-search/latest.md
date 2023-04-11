@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 sidebar_label: Latest
+pagination_next: null
+pagination_prev: null
 ---
 
 import Figure from '../components/figures'
