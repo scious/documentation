@@ -26,25 +26,27 @@ If Company does not provide a workaround or a correction in the allotted Technic
 
 ## Support hours
 
+Monday through Friday, 9am to 5pm CST. [USA federal holiday's](https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays) that overlap with regular support hours will have double the Technical Response Time (within 8 hours) for High Priority Service Requests.
+
+What is the process for handling tickets that are submitted 30 minutes before the end of support hours?
+Category 1 tickets: resolved as able otherwise service/resolution clock begins the following weekday 9am.
+
+What is the process for handling tickets that are submitted outside of support hours?
+Weekdays: Service/resolution clock begins on the next day of regular support hours.
+Weekends: Category 1 tickets will be resolved as able otherwise service/resolution clock begins on Monday 9am.
+
 ## Exceptions
 
 Company will not be responsible for correcting a Service Request arising from any of the following:
 
-    * Problems resulting from any modifications of the Service made by any party other than Company.
-    * Problems resulting from any Customer Service-Compatible Application(s).
-    * Incorrect use of the Service; or to the extent the relevant environment is not within Company’s control.
-    * Any fault in the equipment or in any programs used in conjunction with the Service or in respect to any Customer Service-Compatible Application(s).
+- Problems resulting from any modifications of the Service made by any party other than Company.
+- Problems resulting from any Customer Service-Compatible Application(s).
+- Incorrect use of the Service; or to the extent the relevant environment is not within Company’s control.
+- Any fault in the equipment or in any programs used in conjunction with the Service or in respect to any Customer Service-Compatible Application(s).
 
-## Products
+## Associated Products
 
 <nav className="pagination-nav">
-  <div className="pagination-nav__item">
-    <a className="pagination-nav__link" href="theirlabel/latest">
-      <div className="pagination-nav__sublabel">TheirLabel</div>
-      <div className="pagination-nav__label">Domain name white-labeling for Bubble →</div>
-    </a>
-  </div>
-
   <div className="pagination-nav__item pagination-nav__item--next">
     <a className="pagination-nav__link" href="scious-search/latest">
       <div className="pagination-nav__sublabel">Scious Search</div>
