@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 sidebar_label: Latest
+pagination_next: null
+pagination_prev: null
 ---
 
 import Figure from '../components/figures'
@@ -10,6 +12,31 @@ import Figure from '../components/figures'
 [Bubble](https://bubble.io?ref=i61dryk2) is a technology we at Scious have come to love. The ethos behind its creation - that you shouldn't have to have a PhD in computer science to build a custom website - is exciting, democratic, and empowering. There's a lot of great design in this product. To list a few, we're really impressed by the automatically provisioned API one gets the second after you create a new app. Its built in authentication and rule based permissioning is a breeze to work with. Want to change the name of a key in your database? Okay, that key name has been automatically updated across the 56 places you've used it in your application logic! Want to secure your site? Press a button and it's done. All of these things, and many others, crush the core hurdles that stop even seasoned programmers from making sophisticated websites.
 
 For all the niceties, though, every tool has its flaws. One thing Bubble (currently) lacks is a programmatic way to partition multi-tenant apps across different domain names. For many Bubble users this may not be an issue, but for those with dreams of building SaaS applications, it's a bit of a thorn. Being one such dreamer, we decided try to fill this gap. As a result, we bring you **TheirLabel**.
+
+# Demo
+
+<nav className="pagination-nav">
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="http://their-label.bubbleapps.io/">
+      <div className="pagination-nav__sublabel">TheirLabel Plugin Demo</div>
+      <div className="pagination-nav__label">White-Labelling for Bubble →</div>
+    </a>
+  </div>
+
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="https://bubble.io/page?name=index&id=their-label&tab=tabs-1">
+      <div className="pagination-nav__sublabel">Bubble App Editor</div>
+      <div className="pagination-nav__label">Demo Editor →</div>
+    </a>
+  </div>
+</nav>
+
+.
+:::tip
+
+Check out our demo's editor above for an excellent reference while integrating our plugin.
+
+:::
 
 ## Getting started
 
@@ -176,13 +203,3 @@ We provide support in two ways:
 
 - [The forum](https://forum.bubble.io/t/introducing-theirlabel-domain-name-white-labeling-for-bubble/104972/last). This option is free for everyone to use where questions are answered by us as well as the community.
 - One on one consulations. This paid option is for anyone who wants direct, real time feedback on integration best practices straight from the people who made TheirLabel.
-
-## Known limitations
-
-## Additional resources
-
-- [TheirLabel Demo](https://scious-plugins.bubbleapps.io/scious-search).
-- [Off](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1).
-- Refer to our demo's editor for a self documented guide on how to setup and use Scious Search.
-- Need help integrating Scious Search? Drop a message in our official Bubble thread and we'll help you get going!
-- Prefer for someone to integrate Scious Search for you? Set
