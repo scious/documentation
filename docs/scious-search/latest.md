@@ -176,6 +176,8 @@ For reference, the following has been shown to work even when adding hundreds of
 - As an action in the above trigger, now create a search search record.
   That's it. Now, every time you create a record, this workflow will trigger and create a new search record. It will also work across every development environment you have.
 
+Now that we've synced search records into Algolia
+
 # Algolia
 
 dfdf
@@ -196,14 +198,9 @@ dfdf
 
 **Outputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
 
 ### Create search record
 
@@ -222,14 +219,9 @@ dfdf
 
 **Outputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
 
 ### Update search record
 
@@ -248,14 +240,9 @@ dfdf
 
 **Outputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
 
 ### Delete search record
 
@@ -270,14 +257,9 @@ dfdf
 
 **Outputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
 
 ## Visual Elements
 
@@ -367,11 +349,7 @@ This visual element returns
 
 ## Api calls
 
-We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Complain to Bubble for not providing a better way to return complex data from plugins for the years our community has wanted this.
-
-Now that we've synced search records into Algolia
-
-The Scious Search visual element is where all
+We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Complain to Bubble for not providing a better way to return complex data from plugins for the years our community has wanted to.
 
 ## When to resync search indices
 
