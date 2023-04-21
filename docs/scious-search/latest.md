@@ -233,7 +233,51 @@ dfdf
 
 ### Update search record
 
+<Figure src="img/scious-search/" />
+
+**Inputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
+**Outputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
 ### Delete search record
+
+<Figure src="img/scious-search/" />
+
+**Inputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+
+**Outputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
 
 ## Visual Elements
 
@@ -264,9 +308,81 @@ dfdf
 
 ### Typing Trigger
 
+<Figure src="img/scious-search/" />
+
+**Inputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
+**Outputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
 ### Get Data Types
 
+<Figure src="img/scious-search/" />
+
+**Inputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
+**Outputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
 ### Get Facets
+
+<Figure src="img/scious-search/" />
+
+**Inputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
+**Outputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
 
 ## Api calls
 
