@@ -25,13 +25,20 @@ The following is documentation for the latest version of the Scious Search plugi
 - Can sort search results by options (which is not natively available in Bubble).
 - Makes it easier to swap and experiment with other search providers (which can save you money).
 
-## Demo
+## Demos
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item">
     <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search">
-      <div className="pagination-nav__sublabel">Scious Search Plugin Demo</div>
+      <div className="pagination-nav__sublabel">Scious Search Overview</div>
       <div className="pagination-nav__label">Instantly search over 250,000 records →</div>
+    </a>
+  </div>
+
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search-ecommerce-typesense">
+      <div className="pagination-nav__sublabel">Faceted Search</div>
+      <div className="pagination-nav__label">Ecommerce template →</div>
     </a>
   </div>
 
@@ -42,13 +49,6 @@ The following is documentation for the latest version of the Scious Search plugi
     </a>
   </div>
 </nav>
-
-.
-:::tip
-
-Check out our demo's editor above for an excellent reference while integrating our plugin.
-
-:::
 
 ## Get started in less than 10 minutes
 
@@ -184,7 +184,7 @@ dfdf
 
 ### Sync Search Index
 
-### Add search record
+### Create search record
 
 ### Update search record
 
@@ -193,6 +193,37 @@ dfdf
 ## Visual Elements
 
 ### Scious Search
+
+**Inputs**
+
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL"
+3. `Data Type` The data type to sync.
+4. `Fields to search` The Bubble fields to sync supplied as a JSON list. If empty, then all columns will be synced.
+5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
+6. `Fields to facet` The Bubble fields that can be faceted (supplied as a JSON list).
+7. `Fields to filter if empty` The Bubble fields that your search results can be filtered by if empty (supplied as a JSON list).
+
+**Outputs**
+
+1. `Search Results` List of matched bubble things of the data type specified by `Data Type`.
+2. `Results Count` Number of results.
+3. `Search Time` The time it took to return a search result in milliseconds.
+4. `Page Count` Number of pages of results for the current search.
+5. `Returned error` A Yes/No indicating whether there was an error.
+6. `Error description` Additional text describing the error.
+7. `Highlights` List of matched highlight snippets.
+8. `Actual page` The actual page of search results returned.
+
+### Typing Trigger
+
+### Get Data Types
+
+### Get Facets
+
+## Api calls
+
+We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call.
 
 Now that we've synced search records into Algolia
 
