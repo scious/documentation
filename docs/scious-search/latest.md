@@ -184,7 +184,52 @@ dfdf
 
 ### Sync Search Index
 
+**Inputs**
+
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL"
+3. `Data Type` The data type to sync.
+4. `Fields to search` The Bubble fields to sync supplied as a JSON list. If empty, then all columns will be synced.
+5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
+6. `Fields to facet` The Bubble fields that can be faceted (supplied as a JSON list).
+7. `Fields to filter if empty` The Bubble fields that your search results can be filtered by if empty (supplied as a JSON list).
+
+**Outputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
 ### Create search record
+
+<Figure src="img/scious-search/" />
+
+**Inputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
+
+**Outputs**
+
+1. ``
+2. ``
+3. ``
+4. ``
+5. ``
+6. ``
+7. ``
+8. ``
 
 ### Update search record
 
@@ -194,7 +239,7 @@ dfdf
 
 ### Scious Search
 
-
+<Figure src="img/scious-search/Scious Search Visual Element.png" />
 
 **Inputs**
 
