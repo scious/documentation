@@ -315,51 +315,26 @@ dfdf
 
 **Inputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Search element ID` The unique ID of the relevant Bubble input element.
+2. `Typing timeout` The milliseconds between keystrokes before fetching new search results. Tune this value to reduce the number of unnecessary real time search requests initiated by queries that were typed quickly.
+3. `Character minimum` The minimum number of characters needed in a query to return search results.
 
 **Outputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Output text` The current text value of the input with ID `Search element ID`.
+2. `Is typing` Boolean indicator that toggles On and then Off every time a key is added to the search input referenced by `Search element ID`.
 
 ### Get Data Types
 
 <Figure src="img/scious-search/" />
 
-**Inputs**
-
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+This visual element returns
 
 **Outputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Data types` Your Bubble app's data types as a list.
+2. `Data type fields` Your Bubble app's data type's fields as a list.
+3. `Browser ID` A developer specific output. The current user's browser ID. Used for locking sync admin capabilities to a particular device. Will be removed in future releases.
 
 ### Get Facets
 
