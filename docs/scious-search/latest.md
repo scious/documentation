@@ -289,7 +289,7 @@ dfdf
 
 1. `Search Provider` The search provider you've synced your data with.
 2. `Result type` Search result data type.
-3. `Search query` Set to the Typing Trigger Value for best results.
+3. `Search query` Set to the Typing Trigger `Output text` for best results.
 4. `Fields to search` The Bubble fields to search supplied as a JSON list.
 5. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
 6. `Sort by` A dictionary of the fields to sort by specified in JSON.
@@ -308,6 +308,12 @@ dfdf
 6. `Error description` Additional text describing the error.
 7. `Highlights` List of matched highlight snippets.
 8. `Actual page` The actual page of search results returned.
+
+:::tip
+
+Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Mac press..., on Windows , pressPress `CTRL` ) and you'll see your search filter printed to console. Explain that this printing only happens in dev environments. If you also want it to appear in live, you can include a console.log() statement in the filters js. But of course, this would double your print statments in dev environmnets.
+
+:::
 
 ### Typing Trigger
 
@@ -342,39 +348,30 @@ This visual element returns
 
 **Inputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Search provider`
+2. `Result type` Search result data type.
+3. `Facet type` Set to the "Facet (🔍)" type.
+4. `Search query` Keywords to search. Set to the Typing Trigger Value for best results.
+5. `Fields to search` The Bubble fields to search supplied as a JSON list.
+6. `Fields to facet` The Bubble fields to facet supplied as a JSON list. Specifies the order of returned "Facets".
+7. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
+8. `Max values per facet` The maximum number of facet values returned per facet.
+9. `Facet query` Keywords to search in `Fields to facet`. Set to the Typing Trigger's `Output text` for best results.
+10. `Advanced options` Additional options for tuning search results.
 
 **Outputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Additional text describing the error.
+3. `Facets` The facet items and statistics for each field specified in `Fields to facet`.
 
 ## Api calls
 
-We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call.
+We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Complain to Bubble for not providing a better way to return complex data from plugins for the years our community has wanted this.
 
 Now that we've synced search records into Algolia
 
 The Scious Search visual element is where all
-
-:::tip
-
-Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Mac press..., on Windows , pressPress `CTRL` ) and you'll see your search filter printed to console. Explain that this printing only happens in dev environments. If you also want it to appear in live, you can include a console.log() statement in the filters js. But of course, this would double your print statments in dev environmnets.
-
-:::
 
 ## When to resync search indices
 
