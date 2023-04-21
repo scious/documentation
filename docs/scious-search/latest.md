@@ -288,12 +288,15 @@ dfdf
 **Inputs**
 
 1. `Search Provider` The search provider you've synced your data with.
-2. `Website Home URL` Enter the dynamic expression "Website Home URL"
-3. `Data Type` The data type to sync.
-4. `Fields to search` The Bubble fields to sync supplied as a JSON list. If empty, then all columns will be synced.
-5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
-6. `Fields to facet` The Bubble fields that can be faceted (supplied as a JSON list).
-7. `Fields to filter if empty` The Bubble fields that your search results can be filtered by if empty (supplied as a JSON list).
+2. `Result type` Search result data type.
+3. `Search query` Set to the Typing Trigger Value for best results.
+4. `Fields to search` The Bubble fields to search supplied as a JSON list.
+5. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
+6. `Sort by` A dictionary of the fields to sort by specified in JSON.
+7. `Results per page` Number of search results returned in each page of results.
+8. `Page` The current page of search results to display starting at "1".
+9. `Field to highlight` Field name to return highlights for. Must be one of the fields already listed in `Fields to search`.
+10. `Advanced Options` Additional options for tuning search results.
 
 **Outputs**
 
