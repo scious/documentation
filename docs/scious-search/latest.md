@@ -311,7 +311,7 @@ Want to see your `Filters` without having to print them to a text box? Open your
 
 ### Typing Trigger
 
-<Figure src="img/scious-search/Typing trigger.png" />
+<Figure src="img/scious-search/typing trigger.png" />
 
 **Inputs**
 
