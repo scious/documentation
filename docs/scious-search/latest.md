@@ -214,7 +214,7 @@ dfdf
 
 ### Create search record
 
-<Figure src="img/scious-search/" />
+<Figure src="img/scious-search/Create search record.png" />
 
 **Inputs**
 
