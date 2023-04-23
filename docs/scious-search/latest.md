@@ -208,14 +208,10 @@ dfdf
 
 **Inputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL".
+3. `Data Type` The data type to create a search record for.
+4. `Record` The Bubble record to be created as a searchable record.
 
 **Outputs**
 
@@ -229,14 +225,10 @@ dfdf
 
 **Inputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
-5. ``
-6. ``
-7. ``
-8. ``
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL".
+3. `Data Type` The data type to create a search record for.
+4. `Record` The Bubble record to be updated as a searchable record.
 
 **Outputs**
 
@@ -250,10 +242,10 @@ dfdf
 
 **Inputs**
 
-1. ``
-2. ``
-3. ``
-4. ``
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL".
+3. `Data Type` The data type to create a search record for.
+4. `Record` The Bubble record to delete from your search records.
 
 **Outputs**
 
