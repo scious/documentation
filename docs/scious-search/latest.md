@@ -231,7 +231,7 @@ dfdf
 
 ### Update search record
 
-<Figure src="img/scious-search/update search record.png" />
+<Figure src="img/scious-search/Update search record (1).png" />
 
 **Inputs**
 
