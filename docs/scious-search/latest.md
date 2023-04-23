@@ -248,7 +248,7 @@ dfdf
 
 ### Delete search record
 
-<Figure src="img/scious-search/" />
+<Figure src="img/scious-search/Delete search record.png" />
 
 **Inputs**
 
