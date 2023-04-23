@@ -338,7 +338,7 @@ This visual element returns
 
 ### Get Facets
 
-<Figure src="img/scious-search/" />
+<Figure src="img/scious-search/Get Facets.png" />
 
 **Inputs**
 
@@ -361,7 +361,7 @@ This visual element returns
 
 # Api calls
 
-We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Complain to Bubble for not providing a better way to return complex data from plugins for the years our community has wanted to.
+We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Show your support for fixing this problem by upvoting and commenting on [this feature request](https://bubble.io/ideaboard?idea=1603764356815x558406947894198300).
 
 ## Known limitations
 
