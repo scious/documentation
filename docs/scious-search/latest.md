@@ -196,6 +196,8 @@ dfdf
 
 ### Sync Search Index
 
+<Figure src="img/scious-search/Get Facets.png" />
+
 **Inputs**
 
 1. `Search Provider` The search provider you've synced your data with.
@@ -326,9 +328,7 @@ Want to see your `Filters` without having to print them to a text box? Open your
 
 ### Get Data Types
 
-<Figure src="img/scious-search/" />
-
-This visual element returns
+This visual element does not have any inputs.
 
 **Outputs**
 
