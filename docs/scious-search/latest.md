@@ -265,7 +265,7 @@ dfdf
 
 ### Refresh search results
 
-<Figure src="img/scious-search/Refresh Search Results.png" />
+<Figure src="img/scious-search/Refresh search results.png" />
 
 Refresh the search results from a Scious Search element.
 
