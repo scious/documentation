@@ -196,7 +196,7 @@ dfdf
 
 ### Sync Search Index
 
-<Figure src="img/scious-search/Get Facets.png" />
+<Figure src="img/scious-search/Sync search record.png" />
 
 **Inputs**
 
