@@ -263,6 +263,16 @@ dfdf
 2. `Error description` Error details as a plain string or JSON encoded string.
 3. `Result` Additional diagnostics data. Mainly used for development.
 
+### Refresh search results
+
+<Figure src="img/scious-search/Refresh Search Results.png" />
+
+Refresh the search results from a Scious Search element.
+
+**Inputs**
+
+1. `Pause length (ms)` The time in milliseconds to wait before refreshing search results.
+
 ## Visual Elements
 
 ### Scious Search
