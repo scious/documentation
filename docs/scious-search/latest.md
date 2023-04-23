@@ -50,7 +50,7 @@ The following is documentation for the latest version of the Scious Search plugi
   </div>
 </nav>
 
-## Get started in less than 10 minutes
+## Get started
 
 We just need a few things to start searching records in your Bubble app:
 
@@ -61,17 +61,17 @@ We just need a few things to start searching records in your Bubble app:
 5. [Ensure your API is displaying key names as fields](#display-api-key-names-as-fields).
 6. [Sync your database](#sync-your-database).
 
-### Install plugin
+# Install plugin
 
 Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious search"</Highlight>_ and install.
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
-### Get Scious Search API Key.
+# Get Scious Search API Key.
 
 Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
-### Get your Search Provider's API keys
+# Get your Search Provider's API keys
 
 <!-- <Tabs groupId="search-providers">
   <TabItem value="Algolia" label="Algolia">
@@ -133,15 +133,15 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 </TabItem>
 </Tabs>
 
-### Setup Scious Search plugin
+# Setup Scious Search plugin
 
-### Display API key names as fields
+# Display API key names as fields
 
 In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
 
 <Figure src="img/scious-search/use field display instead of id.png" />
 
-### Sync your database
+# Sync your database
 
 While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your search provider, we've also built a synchronization admin page you can copy and paste into your app to quickly run your first sync.
 
@@ -177,6 +177,16 @@ For reference, the following has been shown to work even when adding hundreds of
   That's it. Now, every time you create a record, this workflow will trigger and create a new search record. It will also work across every development environment you have.
 
 Now that we've synced search records into Algolia
+
+## When to resync search indices
+
+- **After upgrading plugin versions**. This ensures your search index and plugin are always configured correctly since, from time to time, we make changes to the way indices are built and interacted with.
+- **After editing any name of any field relevant to a search.** A field is relevant if it is used to filter, search or sort records. Specifically, this extends to:
+  - **Data type name**
+  - **Data type field**
+  - **Option set name**
+  - **Option name** but changing any of an option's other attributes does not require a resync.
+- **After changing your domain name**. You will also need to update your Scious Search API key, [see here ⤴ ](#get-scious-search-api-key).
 
 # Algolia
 
@@ -339,19 +349,9 @@ This visual element returns
 2. `Error description` Additional text describing the error.
 3. `Facets` The facet items and statistics for each field specified in `Fields to facet`.
 
-## Api calls
+# Api calls
 
 We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Complain to Bubble for not providing a better way to return complex data from plugins for the years our community has wanted to.
-
-## When to resync search indices
-
-- **After upgrading plugin versions**. This ensures your search index and plugin are always configured correctly since, from time to time, we make changes to the way indices are built and interacted with.
-- **After editing any name of any field relevant to a search.** A field is relevant if it is used to filter, search or sort records. Specifically, this extends to:
-  - **Data type name**
-  - **Data type field**
-  - **Option set name**
-  - **Option name** but changing any of an option's other attributes does not require a resync.
-- **After changing your domain name**. You will also need to update your Scious Search API key, [see here ⤴ ](#get-scious-search-api-key).
 
 ## Known limitations
 
