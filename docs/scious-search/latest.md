@@ -34,14 +34,14 @@ The following is documentation for the latest version of the Scious Search plugi
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item">
-    <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search">
+    <a className="pagination-nav__link" href="https://plugins.scious.io/scious-search">
       <div className="pagination-nav__sublabel">Scious Search Overview</div>
       <div className="pagination-nav__label">Instantly search over 250,000 records →</div>
     </a>
   </div>
 
   <div className="pagination-nav__item">
-    <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search-ecommerce-typesense">
+    <a className="pagination-nav__link" href="https://plugins.scious.io/scious-search-ecommerce-typesense">
       <div className="pagination-nav__sublabel">Faceted Search</div>
       <div className="pagination-nav__label">Ecommerce template →</div>
     </a>
@@ -167,7 +167,7 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 
 :::warning
 
-If this is your first time synchronizing Scious Search and you prevously had an Algolia (or Typesense) index with data in it, ensure you create a new Algolia application (or Typesense cluster) and set it's ID in the Scious Search plugin configuration tab. Otherwise, the **following steps may overwrite existing indices**.
+If you already have an Algolia (or Typesense) index with data in it, ensure you create a new Algolia application (or Typesense cluster) and set it's ID in the Scious Search plugin configuration tab. Otherwise, the **following steps may overwrite existing indices**.
 
 :::
 
@@ -184,31 +184,24 @@ Walk through making
 
 ## Keep your search index synchronized
 
-Once both your search index and data type of interest are synchronized, the best way to _keep_ them synchronized is to add, update or delete individual search records as the records for that data type are added, updated or deleted.
+Once both your search index and data type of interest are synchronized, the best way to _keep_ them synchronized is to create, update or delete individual search records as the records for that data type are created, updated or deleted.
 
-??? Clean up the following tip for auto adding records... recommend this as a convenient catch all, especially for apps that may create new records in a variety of ways, or for those who's admin's frequenly add data to their database using the bulk data uploader.
+Since we're getting started, an easy way to do this is to:
 
-For reference, the following has been shown to work even when adding hundreds of new records on the Professional plan:
-
-- Create a trigger (of whichever data type(s) you often upload) who's condition is to run when thing before unique_id is empty and thing now unique_id is not empty. This will have the effect of triggering whenever a new record of that thing is created in your bubble app.
+- Create a backend trigger (of whichever data type(s) you often upload) who's condition is to run when thing before `unique_id` is empty and thing now `unique_id` is not empty. This will have the effect of triggering whenever a new record of that thing is created in your bubble app.
 - As an action in the above trigger, now create a search search record.
-  That's it. Now, every time you create a record, this workflow will trigger and create a new search record. It will also work across every development environment you have.
 
-Now that we've synced search records into Algolia
+That's it. Now, every time you create a record, this workflow will trigger and create a new search record. You can setup similar triggers to update a search record. We've seen this approach work well in production. That said, since this approach relies on a backend trigger, which naturally adds a small delay to running that set of actions, you may instead want to create / update your search records as you create / update data types client side. To do this, you'll simply follow-up any create / modify data type action in your regular workflows with either of our Create / Update Search record actions. This ensures that your search indices are up to date within, on average, 3 seconds.
 
 ## When to resync search indices
 
-- **After upgrading plugin versions**. This ensures your search index and plugin are always configured correctly since, from time to time, we make changes to the way indices are built and interacted with.
+- **After upgrading plugin versions**. This ensures your search index and plugin are always configured correctly since, from time to time, we change the way indices are built and referenced.
 - **After editing any name of any field relevant to a search.** A field is relevant if it is used to filter, search or sort records. Specifically, this extends to:
   - **Data type name**
   - **Data type field**
   - **Option set name**
   - **Option name** but changing any of an option's other attributes does not require a resync.
 - **After changing your domain name**. You will also need to update your Scious Search API key, [see here ⤴ ](#get-scious-search-api-key).
-
-# Algolia
-
-dfdf
 
 ## Actions
 
@@ -251,7 +244,7 @@ dfdf
 
 ### Update search record
 
-<Figure src="img/scious-search/Update search record clean.png" />
+<Figure src="img/scious-search/update search record clean.png" />
 
 **Inputs**
 
@@ -377,21 +370,19 @@ This visual element does not have any inputs.
 2. `Error description` Additional text describing the error.
 3. `Facets` The facet items and statistics for each field specified in `Fields to facet`.
 
-# Api calls
+## Api calls
 
 We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Show your support for fixing this problem by upvoting and commenting on [this feature request](https://bubble.io/ideaboard?idea=1603764356815x558406947894198300).
 
 ## Known limitations
 
+- We have not implemented Algolia "Recommend" (we plan to along with a Typesense equivalent).
+- Search filters are not able to span multiple data types / indices. That said, we have work arounds for this (will be documenting this soon)
+- You cannot sync more than one geographic address field per record per index using Algolia - that's a limitation of Algolia. Typesense can sync any number of geographic addresses per record.
+
 ## Support
 
-Offical support is
-
-## Additional resources
-
-- [Scious Search Demo](https://scious-plugins.bubbleapps.io/scious-search).
-- [Scious Search Demo Editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1).
-- Refer to our demo's editor for a self documented guide on how to setup and use Scious Search.
-- Need help integrating Scious Search? Drop a message in our official Bubble thread and we'll help you get going!
-- Prefer for someone to integrate Scious Search for you? Set
+- Refer to [our demo's editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) for a self documented guide on how to setup and use Scious Search.
+- Need help integrating Scious Search? Drop a message in our free Bubble support channel where we'll answer questions as able.
+- Prefer for someone to integrate Scious Search for you? We'll be offering integration services 'for hire' soon.
 - We offer a [Service Level Agreement](https://buy.stripe.com/8wMg2x1if3zz3ba6op) for customers requiring plugin service and maintenance guarentees.
