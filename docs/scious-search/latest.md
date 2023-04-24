@@ -6,6 +6,7 @@ pagination_prev: null
 ---
 
 import Figure from '../components/figures'
+import Arcade from '../components/arcade'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
 import Tabs from '@theme/Tabs';
@@ -164,7 +165,11 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 
 ### Sync your database
 
-While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your search provider, we've also built a synchronization admin page you can copy and paste into your app to quickly run your first sync.
+We provide a `Sync Search Index` action for mirroring data from your Bubble app to your search provider. While you can use this to create your own synchronization administration page, we've already built a `Search Admin Dashboard` template you can copy into your app to get you going. The template [looks like this](https://plugins.scious.io/scious-search-admin). Let's overview it, first, by following the demo below.
+
+<Arcade src="https://demo.arcade.software/9svSsMqR779w8ebVNCv4?embed" />
+
+Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions.
 
 :::warning
 
