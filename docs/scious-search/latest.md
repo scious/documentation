@@ -91,9 +91,13 @@ API keys are transferrable. If you want to use Scious Search in another app, the
 
 ### Enable data API
 
-In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
+In your bubble editor, tap `Settings` > `API` tab > and then check `Enable Data API`. Below this you'll see a list of data types you can make available via the data API - check all the ones you'll want to search with our plugin. If you're not sure about which ones to enable, then you can always come back to this.
 
-<Figure src="img/scious-search/use field display instead of id.png" />
+Next, ensure that `Use field display instead of ID for key names` as enabled. By now, you're screen will look something like:
+
+<Figure src="img/scious-search/Data api setup.png" />
+
+While still on the `API` tab > next scroll down to the `API tokens` section > tap `Generate a new api token` > and tap on the `private key` provided to copy it. We need to add this to the Scious Search plugin so next press on the `Plugins` tab > scroll to `Scious Search` and paste the private key as the `Bubble Admin API Key`. The plugin configuration page will now look like:
 
 ### Get Search Provider API keys
 
