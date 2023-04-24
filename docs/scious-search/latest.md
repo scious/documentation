@@ -177,6 +177,8 @@ We provide a `Sync Search Index` action for mirroring data from your Bubble app 
 
 Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions.
 
+<Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
+
 ## Implement search
 
 We can now start searching our records!
