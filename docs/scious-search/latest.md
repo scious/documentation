@@ -19,11 +19,14 @@ The following is documentation for the latest version of the Scious Search plugi
 
 **Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
 
-- Preserves Bubble privacy settings across all data types.
-- Works with live, test, and other versions of your app so you can thoroughly test your integration before going live.
-- Does not degrade or slow down as your database grows since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
-- Can sort search results by options (which is not natively available in Bubble).
-- Makes it easier to swap and experiment with other search providers (which can save you money).
+* Preserves Bubble privacy settings across all data types.
+* Does not degrade or slow down as your database grows to millions of records since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
+* Returns an actual bubble thing, which can be used like any native bubble data type within the editor.
+* Works with live, test, and other versions of your app so you can thoroughly test your integration before going live.
+* Can filter searches by whether a value is missing (which is not available in any current Algolia or Typesense integration)
+* Can sort search results by options (which isn't even available in native Bubble searches).
+* Can sort search results alphabetically.
+* Can save you money.
 
 ## Demos
 
