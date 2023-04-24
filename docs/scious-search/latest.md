@@ -48,7 +48,7 @@ The following is documentation for the latest version of the Scious Search plugi
   </div>
 
   <div className="pagination-nav__item">
-    <a className="pagination-nav__link" href="https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1">
+    <a className="pagination-nav__link" href="https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1">
       <div className="pagination-nav__sublabel">Bubble app editor</div>
       <div className="pagination-nav__label">Demo Editor →</div>
     </a>
@@ -175,7 +175,7 @@ We provide a `Sync Search Index` action for mirroring data from your Bubble app 
 
 <Arcade src="https://demo.arcade.software/9svSsMqR779w8ebVNCv4?embed" />
 
-Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions. Towards the middle, you'll be asked to open the our `Admin Dashboard Template` - link to our editor for that [is here](https://bubble.io/page?type=page&name=scious-search-admin&id=scious-plugins&tab=tabs-1). You'll be directed to copy the `Group Search Admin Dashboard` group "with workflows" and "Paste with workflows" into your app.
+Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions. Towards the middle, you'll be asked to open the our `Admin Dashboard Template` - link to our editor for that [is here](https://bubble.io/page?version=live&type=page&name=scious-search-admin&id=scious-plugins&tab=tabs-1). You'll be directed to copy the `Group Search Admin Dashboard` group "with workflows" and "Paste with workflows" into your app.
 
 <Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
 
@@ -187,7 +187,7 @@ Once you've synced your data type(s) of interest, we can start searching them! T
 - `Result type`
 - `Fields to search`
 
-and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this **as you read this** and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
+and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this **as you read this** and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
 
 ## Keep your search index synchronized
 
@@ -389,7 +389,7 @@ We have a single data API call named `Facets (🔍)`. This API call does not ret
 
 ## Support
 
-- Refer to [our demo's editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) for a self documented guide on how to setup and use Scious Search.
+- Refer to [our demo's editor](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) for a self documented guide on how to setup and use Scious Search.
 - Need help integrating Scious Search? Drop a message in our free Bubble support channel where we'll answer questions as able.
 - Prefer for someone to integrate Scious Search for you? We'll be offering integration services 'for hire' soon.
 - We offer a [Service Level Agreement](https://buy.stripe.com/8wMg2x1if3zz3ba6op) for customers requiring plugin service and maintenance guarentees.
