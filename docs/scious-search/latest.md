@@ -56,7 +56,7 @@ The following is documentation for the latest version of the Scious Search plugi
 
 ## Get started
 
-We need a few things to start searching records in your Bubble app (we know this looks like a long list but promise it goes fast):
+You'll be using Scious Search in less than 20 minutes. To start we need a few things:
 
 1. [Install plugin](#install-plugin).
 2. [Get Scious Search API Key](#get-scious-search-api-key).
@@ -73,7 +73,16 @@ Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious sear
 
 ### Get Scious Search API Key.
 
-Next, go to [https://scious.io/plugins](https://scious.io/plugins),
+Next, go to [https://scious.io/plugins](https://scious.io/plugins) > scroll to Scious Search > tap `Get API Key` > and enter your email to sign in / make an account. This will email you a login link so check your spam folder if you're not seeing one. Within that email, tap `Sign in now →` to be taken to the Scious Search API key dashboard. Here, you'll need to fill out your account details such as first and last name. Then, navigate to `Get API key for bubble app` > and fill in the `Bubble app URL` for the app you want to use Scious Search with. Next, tap one of the subscribe options and complete your payment (new users get a 10 day, very easy to cancel, free trial).
+
+At this point, you'll see the following 
+<Figure src="img/scious-search/nav to settings.png" />
+
+:::tip
+
+API keys are transferrable. If you want to use Scious Search in another app, then update `Bubble app URL` accordingly > tap `Replace key` to generate a new API key, and finally add that new `Search Admin Key` and the `Search App ID` to the plugin configuration page in your new Bubble app.
+
+:::
 
 ### Get Search Provider API keys
 
@@ -145,7 +154,7 @@ In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field d
 
 <Figure src="img/scious-search/use field display instead of id.png" />
 
-# Sync your database
+### Sync your database
 
 While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your search provider, we've also built a synchronization admin page you can copy and paste into your app to quickly run your first sync.
 
