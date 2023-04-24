@@ -165,16 +165,17 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 
 ### Sync your database
 
+:::warning
+
+If this is your first time synchronizing Scious Search and you prevously had an Algolia (or Typesense) index with data in it, ensure you create a new Algolia application (or Typesense cluster) and set it's ID in the Scious Search plugin configuration tab. Otherwise, the **following steps may overwrite existing indices**.
+
+:::
+
 We provide a `Sync Search Index` action for mirroring data from your Bubble app to your search provider. While you can use this to create your own synchronization administration page, we've already built a `Search Admin Dashboard` template you can copy into your app to get you going. The template [looks like this](https://plugins.scious.io/scious-search-admin). Let's overview it, first, by following the demo below.
 
 <Arcade src="https://demo.arcade.software/9svSsMqR779w8ebVNCv4?embed" />
 
 Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions.
-
-:::warning
-
-If this is your first time synchronizing Scious Search and you prevously had an Algolia application with data in it, ensure you've already created a new, blank Algolia application and have set it's ID in the Scious Search plugin configuration tab's `Algolia Application ID` field. Otherwise, specific indices in your pre-existing Algolia application may be reset.
-:::
 
 ## Implement search
 
