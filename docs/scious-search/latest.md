@@ -85,7 +85,7 @@ Copy `Search Admin Key` and the `Search App ID` then, in your Bubble app editor,
 
 :::tip
 
-API keys are transferrable. If you want to use Scious Search in another app, then update `Bubble app URL` accordingly > tap `Replace key` to generate a new API key, and finally add that new `Search Admin Key` and the `Search App ID` to the plugin configuration page in your new Bubble app.
+API keys are transferrable. If you want to use Scious Search in another app, then update `Bubble app URL` accordingly > tap `Replace key` to generate a new API key, and finally add that new `Search Admin Key` and the `Search App ID` to the plugin configuration page in your app.
 
 :::
 
@@ -93,11 +93,13 @@ API keys are transferrable. If you want to use Scious Search in another app, the
 
 In your bubble editor, tap `Settings` > `API` tab > and then check `Enable Data API`. Below this you'll see a list of data types you can make available via the data API - check all the ones you'll want to search with our plugin. If you're not sure about which ones to enable, then you can always come back to this.
 
-Next, ensure that `Use field display instead of ID for key names` as enabled. By now, you're screen will look something like:
+Next, ensure that `Use field display instead of ID for key names` is enabled. By now, you're screen will look something like:
 
 <Figure src="img/scious-search/Data api setup.png" />
 
-While still on the `API` tab > next scroll down to the `API tokens` section > tap `Generate a new api token` > and tap on the `private key` provided to copy it. We need to add this to the Scious Search plugin so next press on the `Plugins` tab > scroll to `Scious Search` and paste the private key as the `Bubble Admin API Key`. The plugin configuration page will now look like:
+While still on the `API` tab > next scroll down to the `API tokens` section > tap `Generate a new api token` > and tap on the `private key` provided to copy it. We need to add this to the Scious Search plugin so next press on your `Plugins` tab > scroll to `Scious Search` and paste the private key as the `Bubble Admin API Key`. Your plugin configuration page will now look like:
+
+<Figure src="img/scious-search/Scious search config bubble admin key.png" />
 
 ### Get Search Provider API keys
 
@@ -113,6 +115,12 @@ While still on the `API` tab > next scroll down to the `API tokens` section > ta
 <Tabs groupId="search-providers">
 <TabItem value="Algolia" label="Algolia">
 
+:::warning
+
+If you already have an existing Algolia application with data in it, then first create a new application before proceeding with the remainder of this tutorial. Our synchronization step **will overwrite same named indices** in the selected application. Once created, use the new application's API keys and ID in the following step.
+
+:::
+
 Algolia integrations require three things: an `Application ID`, `Search API Key` and an `Admin API Key`. To get these, [log into Algolia](https://www.algolia.com/) > navigate to `Settings` on the bottom left corner of your screen:
 
 <Figure src="img/scious-search/nav to settings.png" />
@@ -125,13 +133,7 @@ If you've just created an Algolia account then the fields we need will be listed
 
 <Figure src="img/scious-search/algolia keys.png" />
 
-:::warning
-
-If you already have an existing Algolia application with data in it, then first create a new application (as shown below) before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new application's API keys and ID in the following step.
-
-:::
-
-<Figure caption="In the top left corner click `Application` > then `Create Application`." src="img/scious-search/create algolia application.png" />
+<!-- <Figure caption="In the top left corner click `Application` > then `Create Application`." src="img/scious-search/create algolia application.png" /> -->
 
 Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the Scious Search plugin configuration fields for Algolia.
 
@@ -140,6 +142,12 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
 
+:::warning
+
+If you already have an existing Typesense cluster with data in it, then first create a new cluster before proceeding with the remainder of this tutorial. Our synchronization step **will overwrite same named indices** in the selected application. Once created, use the new cluster's API keys and host in the following step.
+
+:::
+
 Typesense integrations require three things: a `Host`, `Search API Key` and an `Admin API Key`. To get these, [log into Typesense](https://cloud.typesense.org/bubble) > then create a new cluster with the default configuration by tapping `Clusters` in the nav bar > then `+ New Cluster` and finally `Launch`. After your cluster is provisioned, click `Generate API Keys`:
 
 <Figure src="img/scious-search/click get typesense keys.png" />
@@ -147,12 +155,6 @@ Typesense integrations require three things: a `Host`, `Search API Key` and an `
 When prompted, save the generated `.txt` file to a secure location > then open it. The fields we need will be listed like so:
 
 <Figure src="img/scious-search/typesense api keys file.png" />
-
-:::warning
-
-If you already have an existing Typesense cluster with data in it, then first create a new cluster before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new cluster's API keys and host in the following step.
-
-:::
 
 Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Search Only API Key`, `Admin API Key` and `Node`/`Host` into the Scious Search plugin configuration fields for Typesense.
 
@@ -246,7 +248,7 @@ dfdf
 
 ### Update search record
 
-<Figure src="img/scious-search/Update search record (2).png" />
+<Figure src="img/scious-search/Update search record clean.png" />
 
 **Inputs**
 
