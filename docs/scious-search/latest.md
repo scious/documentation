@@ -25,13 +25,20 @@ The following is documentation for the latest version of the Scious Search plugi
 - Can sort search results by options (which is not natively available in Bubble).
 - Makes it easier to swap and experiment with other search providers (which can save you money).
 
-## Demo
+## Demos
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item">
     <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search">
-      <div className="pagination-nav__sublabel">Scious Search Plugin Demo</div>
+      <div className="pagination-nav__sublabel">Scious Search Overview</div>
       <div className="pagination-nav__label">Instantly search over 250,000 records →</div>
+    </a>
+  </div>
+
+  <div className="pagination-nav__item">
+    <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search-ecommerce-typesense">
+      <div className="pagination-nav__sublabel">Faceted Search</div>
+      <div className="pagination-nav__label">Ecommerce template →</div>
     </a>
   </div>
 
@@ -43,14 +50,7 @@ The following is documentation for the latest version of the Scious Search plugi
   </div>
 </nav>
 
-.
-:::tip
-
-Check out our demo's editor above for an excellent reference while integrating our plugin.
-
-:::
-
-## Get started in less than 10 minutes
+## Get started
 
 We just need a few things to start searching records in your Bubble app:
 
@@ -61,17 +61,17 @@ We just need a few things to start searching records in your Bubble app:
 5. [Ensure your API is displaying key names as fields](#display-api-key-names-as-fields).
 6. [Sync your database](#sync-your-database).
 
-### Install plugin
+# Install plugin
 
 Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious search"</Highlight>_ and install.
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
-### Get Scious Search API Key.
+# Get Scious Search API Key.
 
 Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
-### Get your Search Provider's API keys
+# Get your Search Provider's API keys
 
 <!-- <Tabs groupId="search-providers">
   <TabItem value="Algolia" label="Algolia">
@@ -133,15 +133,15 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 </TabItem>
 </Tabs>
 
-### Setup Scious Search plugin
+# Setup Scious Search plugin
 
-### Display API key names as fields
+# Display API key names as fields
 
 In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
 
 <Figure src="img/scious-search/use field display instead of id.png" />
 
-### Sync your database
+# Sync your database
 
 While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your search provider, we've also built a synchronization admin page you can copy and paste into your app to quickly run your first sync.
 
@@ -176,33 +176,7 @@ For reference, the following has been shown to work even when adding hundreds of
 - As an action in the above trigger, now create a search search record.
   That's it. Now, every time you create a record, this workflow will trigger and create a new search record. It will also work across every development environment you have.
 
-# Algolia
-
-dfdf
-
-## Actions
-
-### Sync Search Index
-
-### Add search record
-
-### Update search record
-
-### Delete search record
-
-## Visual Elements
-
-### Scious Search
-
 Now that we've synced search records into Algolia
-
-The Scious Search visual element is where all
-
-:::tip
-
-Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Mac press..., on Windows , pressPress `CTRL` ) and you'll see your search filter printed to console. Explain that this printing only happens in dev environments. If you also want it to appear in live, you can include a console.log() statement in the filters js. But of course, this would double your print statments in dev environmnets.
-
-:::
 
 ## When to resync search indices
 
@@ -213,6 +187,181 @@ Want to see your `Filters` without having to print them to a text box? Open your
   - **Option set name**
   - **Option name** but changing any of an option's other attributes does not require a resync.
 - **After changing your domain name**. You will also need to update your Scious Search API key, [see here ⤴ ](#get-scious-search-api-key).
+
+# Algolia
+
+dfdf
+
+## Actions
+
+### Sync Search Index
+
+<Figure src="img/scious-search/Sync search record.png" />
+
+**Inputs**
+
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL"
+3. `Data Type` The data type to sync.
+4. `Fields to search` The Bubble fields to sync supplied as a JSON list. If empty, then all columns will be synced.
+5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
+6. `Fields to facet` The Bubble fields that can be faceted (supplied as a JSON list).
+7. `Fields to filter if empty` The Bubble fields that your search results can be filtered by if empty (supplied as a JSON list).
+
+**Outputs**
+
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
+
+### Create search record
+
+<Figure src="img/scious-search/Create search record.png" />
+
+**Inputs**
+
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL".
+3. `Data Type` The data type to create a search record for.
+4. `Record` The Bubble record to be created as a searchable record.
+
+**Outputs**
+
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
+
+### Update search record
+
+<Figure src="img/scious-search/Update search record (2).png" />
+
+**Inputs**
+
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL".
+3. `Data Type` The data type to create a search record for.
+4. `Record` The Bubble record to be updated as a searchable record.
+
+**Outputs**
+
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
+
+### Delete search record
+
+<Figure src="img/scious-search/Delete search record.png" />
+
+**Inputs**
+
+1. `Search Provider` The search provider you've synced your data with.
+2. `Website Home URL` Enter the dynamic expression "Website Home URL".
+3. `Data Type` The data type to create a search record for.
+4. `Record` The Bubble record to delete from your search records.
+
+**Outputs**
+
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Error details as a plain string or JSON encoded string.
+3. `Result` Additional diagnostics data. Mainly used for development.
+
+### Refresh search results
+
+<Figure src="img/scious-search/Refresh search results.png" />
+
+Refresh the search results from a Scious Search element.
+
+**Inputs**
+
+1. `Pause length (ms)` The time in milliseconds to wait before refreshing search results.
+
+## Visual Elements
+
+### Scious Search
+
+<Figure src="img/scious-search/Scious Search Visual Element.png" />
+
+**Inputs**
+
+1. `Search Provider` The search provider you've synced your data with.
+2. `Result type` Search result data type.
+3. `Search query` Set to the Typing Trigger `Output text` for best results.
+4. `Fields to search` The Bubble fields to search supplied as a JSON list.
+5. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
+6. `Sort by` A dictionary of the fields to sort by specified in JSON.
+7. `Results per page` Number of search results returned in each page of results.
+8. `Page` The current page of search results to display starting at "1".
+9. `Field to highlight` Field name to return highlights for. Must be one of the fields already listed in `Fields to search`.
+10. `Advanced Options` Additional options for tuning search results.
+
+**Outputs**
+
+1. `Search Results` List of matched bubble things of the data type specified by `Data Type`.
+2. `Results Count` Number of results.
+3. `Search Time` The time it took to return a search result in milliseconds.
+4. `Page Count` Number of pages of results for the current search.
+5. `Returned error` A Yes/No indicating whether there was an error.
+6. `Error description` Additional text describing the error.
+7. `Highlights` List of matched highlight snippets.
+8. `Actual page` The actual page of search results returned.
+
+:::tip
+
+Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Mac press..., on Windows , pressPress `CTRL` ) and you'll see your search filter printed to console. Explain that this printing only happens in dev environments. If you also want it to appear in live, you can include a console.log() statement in the filters js. But of course, this would double your print statments in dev environmnets.
+
+:::
+
+### Typing Trigger
+
+<Figure src="img/scious-search/typing trigger.png" />
+
+**Inputs**
+
+1. `Search element ID` The unique ID of the relevant Bubble input element.
+2. `Typing timeout` The milliseconds between keystrokes before fetching new search results. Tune this value to reduce the number of unnecessary real time search requests initiated by queries that were typed quickly.
+3. `Character minimum` The minimum number of characters needed in a query to return search results.
+
+**Outputs**
+
+1. `Output text` The current text value of the input with ID `Search element ID`.
+2. `Is typing` Boolean indicator that toggles On and then Off every time a key is added to the search input referenced by `Search element ID`.
+
+### Get Data Types
+
+This visual element does not have any inputs.
+
+**Outputs**
+
+1. `Data types` Your Bubble app's data types as a list.
+2. `Data type fields` Your Bubble app's data type's fields as a list.
+3. `Browser ID` A developer specific output. The current user's browser ID. Used for locking sync admin capabilities to a particular device. Will be removed in future releases.
+
+### Get Facets
+
+<Figure src="img/scious-search/Get Facets.png" />
+
+**Inputs**
+
+1. `Search provider`
+2. `Result type` Search result data type.
+3. `Facet type` Set to the "Facet (🔍)" type.
+4. `Search query` Keywords to search. Set to the Typing Trigger Value for best results.
+5. `Fields to search` The Bubble fields to search supplied as a JSON list.
+6. `Fields to facet` The Bubble fields to facet supplied as a JSON list. Specifies the order of returned "Facets".
+7. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
+8. `Max values per facet` The maximum number of facet values returned per facet.
+9. `Facet query` Keywords to search in `Fields to facet`. Set to the Typing Trigger's `Output text` for best results.
+10. `Advanced options` Additional options for tuning search results.
+
+**Outputs**
+
+1. `Returned error` A Yes/No indicating whether there was an error.
+2. `Error description` Additional text describing the error.
+3. `Facets` The facet items and statistics for each field specified in `Fields to facet`.
+
+# Api calls
+
+We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Show your support for fixing this problem by upvoting and commenting on [this feature request](https://bubble.io/ideaboard?idea=1603764356815x558406947894198300).
 
 ## Known limitations
 
