@@ -136,7 +136,7 @@ If you've just created an Algolia account then the fields we need will be listed
 
 Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the Scious Search plugin configuration fields for Algolia.
 
-<Figure src="img/scious-search/algolia api fields.png" />
+<Figure src="img/scious-search/Scious search config algolia.png" />
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
