@@ -15,12 +15,13 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'scious', // Usually your GitHub org/user name.
   projectName: 'documentation', // Usually your repo name.
-  // scripts: [
-  //   {
-  //     src: 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js',
-  //     async: true,
-  //   },
-  // ],
+  scripts: [
+    {
+      src: 'https://simple.scious.io/latest.js',
+      async: true,
+      defer: true,
+    },
+  ],
   presets: [
     [
       'classic',
