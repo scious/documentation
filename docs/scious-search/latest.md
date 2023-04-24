@@ -73,10 +73,15 @@ Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious sear
 
 ### Get Scious Search API Key.
 
-Next, go to [https://scious.io/plugins](https://scious.io/plugins) > scroll to Scious Search > tap `Get API Key` > and enter your email to sign in / make an account. This will email you a login link so check your spam folder if you're not seeing one. Within that email, tap `Sign in now →` to be taken to the Scious Search API key dashboard. Here, you'll need to fill out your account details such as first and last name. Then, navigate to `Get API key for bubble app` > and fill in the `Bubble app URL` for the app you want to use Scious Search with. Next, tap one of the subscribe options and complete your payment (new users get a 10 day, very easy to cancel, free trial).
+Next, go to [https://scious.io/plugins](https://scious.io/plugins) > scroll to `Scious Search` > tap `Get API Key` > and enter your email to sign in / make an account. This will email you a login link so check your spam folder if you're not seeing one. Within that email, tap `Sign in now →` to be taken to the Scious Search API key dashboard. Here, you'll need to fill out your account details such as first and last name. Then, navigate to `Get API key for bubble app` > and fill in the `Bubble app URL` for the app you want to use Scious Search with. Next, tap one of the subscribe options and complete your payment (new users get a 10 day, very easy to cancel, free trial).
 
-At this point, you'll see the following 
-<Figure src="img/scious-search/nav to settings.png" />
+At this point, you'll see the following:
+
+<Figure src="img/scious-search/Scious Search API keys.png" />
+
+Copy `Search Admin Key` and the `Search App ID` then, in your Bubble app editor, navigate to the `Plugins` tab > `Scious Search` plugin > and paste those values into their sections:
+
+
 
 :::tip
 
