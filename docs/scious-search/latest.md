@@ -13,20 +13,21 @@ import TabItem from '@theme/TabItem';
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - `version 1.3.1`
+The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
 
 ## Features
 
 **Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
 
-* Preserves Bubble privacy settings across all data types.
-* Does not degrade or slow down as your database grows to millions of records since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
-* Returns an actual bubble thing, which can be used like any native bubble data type within the editor.
-* Works with live, test, and other versions of your app so you can thoroughly test your integration before going live.
-* Can filter searches by whether a value is missing (which is not available in any current Algolia or Typesense integration)
-* Can sort search results by options (which isn't even available in native Bubble searches).
-* Can sort search results alphabetically.
-* Can save you money.
+- Preserves Bubble privacy settings across all data types.
+- Does not degrade or slow down as your database grows to millions of records since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
+- Returns an actual bubble thing, which can be used like any native bubble data type within the editor.
+- Works with all versions of your app so you can thoroughly test integrations before going live.
+- Can filter searches by whether a value is missing (which is not available in any current Algolia or Typesense integration)
+- Can sort search results by options (which isn't even available in native Bubble searches).
+- Can sort search results alphabetically.
+- Can facet search results.
+- Can save you money.
 
 ## Demos
 
@@ -55,26 +56,26 @@ The following is documentation for the latest version of the Scious Search plugi
 
 ## Get started
 
-We just need a few things to start searching records in your Bubble app:
+We need a few things to start searching records in your Bubble app (we know this looks like a long list but promise it goes fast):
 
 1. [Install plugin](#install-plugin).
 2. [Get Scious Search API Key](#get-scious-search-api-key).
-3. [Get your Search Provider's API keys](#get-your-search-providers-api-keys).
+3. [Get your Search Provider's API keys](#get-search-provider-api-keys).
 4. [Setup the Scious Search plugin](#setup-scious-search-plugin).
 5. [Ensure your API is displaying key names as fields](#display-api-key-names-as-fields).
 6. [Sync your database](#sync-your-database).
 
-# Install plugin
+### Install plugin
 
 Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious search"</Highlight>_ and install.
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
-# Get Scious Search API Key.
+### Get Scious Search API Key.
 
 Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 
-# Get your Search Provider's API keys
+### Get Search Provider API keys
 
 <!-- <Tabs groupId="search-providers">
   <TabItem value="Algolia" label="Algolia">
@@ -136,9 +137,9 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 </TabItem>
 </Tabs>
 
-# Setup Scious Search plugin
+### Setup Scious Search plugin
 
-# Display API key names as fields
+### Display API key names as fields
 
 In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
 
@@ -152,15 +153,6 @@ While we provide a `Sync Search Index` action (details [below](latest#sync-searc
 
 If this is your first time synchronizing Scious Search and you prevously had an Algolia application with data in it, ensure you've already created a new, blank Algolia application and have set it's ID in the Scious Search plugin configuration tab's `Algolia Application ID` field. Otherwise, specific indices in your pre-existing Algolia application may be reset.
 :::
-
-<details>
-<summary>How do I say "Scious"?</summary>
-
-Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
-
-</details>
-
-- `Fields to search`: The Bubble fields to sync supplied as a JSON list... for example `['Author','Title','Created Date']`. If empty, then all of the columns will be synchronized. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 
 ## Implement search
 
@@ -206,7 +198,7 @@ dfdf
 1. `Search Provider` The search provider you've synced your data with.
 2. `Website Home URL` Enter the dynamic expression "Website Home URL"
 3. `Data Type` The data type to sync.
-4. `Fields to search` The Bubble fields to sync supplied as a JSON list. If empty, then all columns will be synced.
+4. `Fields to search` The Bubble fields to sync supplied as a JSON list. For example `['Author','Title','Created Date']`. If empty, then all columns will be synced. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
 6. `Fields to facet` The Bubble fields that can be faceted (supplied as a JSON list).
 7. `Fields to filter if empty` The Bubble fields that your search results can be filtered by if empty (supplied as a JSON list).
