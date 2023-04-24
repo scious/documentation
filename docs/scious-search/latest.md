@@ -60,9 +60,9 @@ You'll be using Scious Search in less than 20 minutes. To start we need a few th
 
 1. [Install plugin](#install-plugin).
 2. [Get Scious Search API Key](#get-scious-search-api-key).
-3. [Get your Search Provider's API keys](#get-search-provider-api-keys).
-4. [Setup the Scious Search plugin](#setup-scious-search-plugin).
-5. [Ensure your API is displaying key names as fields](#display-api-key-names-as-fields).
+3. [Enable your data API](#enable-data-api)
+4. [Get your Search Provider's API keys](#get-search-provider-api-keys).
+5. [Setup the Scious Search plugin](#setup-scious-search-plugin).
 6. [Sync your database](#sync-your-database).
 
 ### Install plugin
@@ -79,13 +79,21 @@ At this point, you'll see the following:
 
 <Figure src="img/scious-search/Scious search api keys.png" />
 
-Copy `Search Admin Key` and the `Search App ID` then, in your Bubble app editor, navigate to the `Plugins` tab > `Scious Search` plugin > and paste those values into their sections:
+Copy `Search Admin Key` and the `Search App ID` then, in your Bubble app editor, navigate to the `Plugins` tab > `Scious Search` plugin > and paste those values into their sections, like so:
+
+<Figure src="img/scious-search/Scious search config plugin keys.png" />
 
 :::tip
 
 API keys are transferrable. If you want to use Scious Search in another app, then update `Bubble app URL` accordingly > tap `Replace key` to generate a new API key, and finally add that new `Search Admin Key` and the `Search App ID` to the plugin configuration page in your new Bubble app.
 
 :::
+
+### Enable data API
+
+In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
+
+<Figure src="img/scious-search/use field display instead of id.png" />
 
 ### Get Search Provider API keys
 
@@ -150,12 +158,6 @@ Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then p
 </Tabs>
 
 ### Setup Scious Search plugin
-
-### Display API key names as fields
-
-In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
-
-<Figure src="img/scious-search/use field display instead of id.png" />
 
 ### Sync your database
 
