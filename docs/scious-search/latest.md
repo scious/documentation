@@ -175,14 +175,19 @@ We provide a `Sync Search Index` action for mirroring data from your Bubble app 
 
 <Arcade src="https://demo.arcade.software/9svSsMqR779w8ebVNCv4?embed" />
 
-Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions.
+Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions. Towards the middle, you'll be asked to open the our `Admin Dashboard Template` - link to our editor for that [is here](https://bubble.io/page?type=page&name=scious-search-admin&id=scious-plugins&tab=tabs-1). You'll be directed to copy the `Group Search Admin Dashboard` group "with workflows" and "Paste with workflows" into your app.
 
 <Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
 
 ## Implement search
 
-We can now start searching our records!
-Walk through making
+Once you've synced your data type(s) of interest, we can start searching them! This is as easy as placing our [Scious Search visual element](#scious-search) onto your page (a page other than your `sync-admin` page), specifying:
+
+- `Search Provider`
+- `Result type`
+- `Fields to search`
+
+and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this **as you read this** and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
 
 ## Keep your search index synchronized
 
