@@ -77,11 +77,9 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins) > scroll to `
 
 At this point, you'll see the following:
 
-<Figure src="img/scious-search/Scious Search API keys.png" />
+<Figure src="img/scious-search/Scious search api keys.png" />
 
 Copy `Search Admin Key` and the `Search App ID` then, in your Bubble app editor, navigate to the `Plugins` tab > `Scious Search` plugin > and paste those values into their sections:
-
-
 
 :::tip
 
