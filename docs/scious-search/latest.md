@@ -6,6 +6,7 @@ pagination_prev: null
 ---
 
 import Figure from '../components/figures'
+import Arcade from '../components/arcade'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
 import Tabs from '@theme/Tabs';
@@ -13,30 +14,34 @@ import TabItem from '@theme/TabItem';
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - `version 1.3.1`
+The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
 
 ## Features
 
 **Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
 
 - Preserves Bubble privacy settings across all data types.
-- Works with live, test, and other versions of your app so you can thoroughly test your integration before going live.
-- Does not degrade or slow down as your database grows since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
-- Can sort search results by options (which is not natively available in Bubble).
-- Makes it easier to swap and experiment with other search providers (which can save you money).
+- Does not degrade or slow down as your database grows to millions of records since it uses [Algolia](https://www.algolia.com/) or [Typesense](https://cloud.typesense.org/bubble) as a search provider.
+- Returns an actual bubble thing, which can be used like any native bubble data type within the editor.
+- Works with all versions of your app so you can thoroughly test integrations before going live.
+- Can filter searches by whether a value is missing (which is not available in any current Algolia or Typesense integration)
+- Can sort search results by options (which isn't even available in native Bubble searches).
+- Can sort search results alphabetically.
+- Can facet search results.
+- Can save you money.
 
 ## Demos
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item">
-    <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search">
+    <a className="pagination-nav__link" href="https://plugins.scious.io/scious-search">
       <div className="pagination-nav__sublabel">Scious Search Overview</div>
       <div className="pagination-nav__label">Instantly search over 250,000 records →</div>
     </a>
   </div>
 
   <div className="pagination-nav__item">
-    <a className="pagination-nav__link" href="https://scious-plugins.bubbleapps.io/scious-search-ecommerce-typesense">
+    <a className="pagination-nav__link" href="https://plugins.scious.io/scious-search-ecommerce-typesense">
       <div className="pagination-nav__sublabel">Faceted Search</div>
       <div className="pagination-nav__label">Ecommerce template →</div>
     </a>
@@ -52,26 +57,51 @@ The following is documentation for the latest version of the Scious Search plugi
 
 ## Get started
 
-We just need a few things to start searching records in your Bubble app:
+You'll be using Scious Search in less than 20 minutes. To start we need a few things:
 
 1. [Install plugin](#install-plugin).
 2. [Get Scious Search API Key](#get-scious-search-api-key).
-3. [Get your Search Provider's API keys](#get-your-search-providers-api-keys).
-4. [Setup the Scious Search plugin](#setup-scious-search-plugin).
-5. [Ensure your API is displaying key names as fields](#display-api-key-names-as-fields).
-6. [Sync your database](#sync-your-database).
+3. [Enable your data API](#enable-data-api)
+4. [Get your Search Provider's API keys](#get-search-provider-api-keys).
+5. [Sync your database](#sync-your-database).
 
-# Install plugin
+### Install plugin
 
 Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious search"</Highlight>_ and install.
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
-# Get Scious Search API Key.
+### Get Scious Search API key
 
-Next, go to [https://scious.io/plugins](https://scious.io/plugins),
+Next, go to [https://scious.io/plugins](https://scious.io/plugins) > scroll to `Scious Search` > tap `Get API Key` > and enter your email to sign in / make an account. This will email you a login link so check your spam folder if you're not seeing one. Within that email, tap `Sign in now →` to be taken to the Scious Search API key dashboard. Here, you'll need to fill out your account details such as first and last name. Then, navigate to `Get API key for bubble app` > and fill in the `Bubble app URL` for the app you want to use Scious Search with. Next, tap one of the subscribe options and complete your payment (new users get a 10 day, very easy to cancel, free trial).
 
-# Get your Search Provider's API keys
+At this point, you'll see the following:
+
+<Figure src="img/scious-search/Scious search api keys.png" />
+
+Copy `Search Admin Key` and the `Search App ID` then, in your Bubble app editor, navigate to the `Plugins` tab > `Scious Search` plugin > and paste those values into their sections, like so:
+
+<Figure src="img/scious-search/Scious search config plugin keys.png" />
+
+:::tip
+
+API keys are transferrable. If you want to use Scious Search in another app, then update `Bubble app URL` accordingly > tap `Replace key` to generate a new API key, and finally add that new `Search Admin Key` and the `Search App ID` to the plugin configuration page in your app.
+
+:::
+
+### Enable data API
+
+In your bubble editor, tap `Settings` > `API` tab > and then check `Enable Data API`. Below this you'll see a list of data types you can make available via the data API - check all the ones you'll want to search with our plugin. If you're not sure about which ones to enable, then you can always come back to this.
+
+Next, ensure that `Use field display instead of ID for key names` is enabled. By now, you're screen will look something like:
+
+<Figure src="img/scious-search/Data api setup.png" />
+
+While still on the `API` tab > next scroll down to the `API tokens` section > tap `Generate a new api token` > and tap on the `private key` provided to copy it. We need to add this to the Scious Search plugin so next press on your `Plugins` tab > scroll to `Scious Search` and paste the private key as the `Bubble Admin API Key`. Your plugin configuration page will now look like:
+
+<Figure src="img/scious-search/Scious search config bubble admin key.png" />
+
+### Get search provider API keys
 
 <!-- <Tabs groupId="search-providers">
   <TabItem value="Algolia" label="Algolia">
@@ -85,6 +115,12 @@ Next, go to [https://scious.io/plugins](https://scious.io/plugins),
 <Tabs groupId="search-providers">
 <TabItem value="Algolia" label="Algolia">
 
+:::warning
+
+If you already have an existing Algolia application with data in it, then first create a new application before proceeding with the remainder of this tutorial. Our synchronization step **will overwrite same named indices** in the selected application. Once created, use the new application's API keys and ID in the following step.
+
+:::
+
 Algolia integrations require three things: an `Application ID`, `Search API Key` and an `Admin API Key`. To get these, [log into Algolia](https://www.algolia.com/) > navigate to `Settings` on the bottom left corner of your screen:
 
 <Figure src="img/scious-search/nav to settings.png" />
@@ -97,20 +133,20 @@ If you've just created an Algolia account then the fields we need will be listed
 
 <Figure src="img/scious-search/algolia keys.png" />
 
-:::warning
-
-If you already have an existing Algolia application with data in it, then first create a new application (as shown below) before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new application's API keys and ID in the following step.
-
-:::
-
-<Figure caption="In the top left corner click `Application` > then `Create Application`." src="img/scious-search/create algolia application.png" />
+<!-- <Figure caption="In the top left corner click `Application` > then `Create Application`." src="img/scious-search/create algolia application.png" /> -->
 
 Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Application ID`, `Search Only API Key` and `Admin API Key` into the Scious Search plugin configuration fields for Algolia.
 
-<Figure src="img/scious-search/algolia api fields.png" />
+<Figure src="img/scious-search/Scious search config algolia.png" />
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
+
+:::warning
+
+If you already have an existing Typesense cluster with data in it, then first create a new cluster before proceeding with the remainder of this tutorial. Our synchronization step **will overwrite same named indices** in the selected application. Once created, use the new cluster's API keys and host in the following step.
+
+:::
 
 Typesense integrations require three things: a `Host`, `Search API Key` and an `Admin API Key`. To get these, [log into Typesense](https://cloud.typesense.org/bubble) > then create a new cluster with the default configuration by tapping `Clusters` in the nav bar > then `+ New Cluster` and finally `Launch`. After your cluster is provisioned, click `Generate API Keys`:
 
@@ -120,77 +156,59 @@ When prompted, save the generated `.txt` file to a secure location > then open i
 
 <Figure src="img/scious-search/typesense api keys file.png" />
 
-:::warning
-
-If you already have an existing Typesense cluster with data in it, then first create a new cluster before proceeding with the remainder of this tutorial. Our synchronization step will overwrite indices in the selected application and we don't want you to loose any important data. Once created, use that new cluster's API keys and host in the following step.
-
-:::
-
 Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Search Only API Key`, `Admin API Key` and `Node`/`Host` into the Scious Search plugin configuration fields for Typesense.
 
-<Figure src="img/scious-search/typesense config.png" />
+<Figure src="img/scious-search/Scious search config typesense.png" />
 
 </TabItem>
 </Tabs>
 
-# Setup Scious Search plugin
-
-# Display API key names as fields
-
-In your bubble editor, tap `Settings` > `API` tab > and then enable `Use field display instead of ID for key names` as shown below.
-
-<Figure src="img/scious-search/use field display instead of id.png" />
-
-# Sync your database
-
-While we provide a `Sync Search Index` action (details [below](latest#sync-search-index)) for mirroring data from your Bubble app to your search provider, we've also built a synchronization admin page you can copy and paste into your app to quickly run your first sync.
+### Sync your database
 
 :::warning
 
-If this is your first time synchronizing Scious Search and you prevously had an Algolia application with data in it, ensure you've already created a new, blank Algolia application and have set it's ID in the Scious Search plugin configuration tab's `Algolia Application ID` field. Otherwise, specific indices in your pre-existing Algolia application may be reset.
+If you already have an Algolia (or Typesense) index with data in it, ensure you create a new Algolia application (or Typesense cluster) and set it's ID in the Scious Search plugin configuration tab. Otherwise, the **following steps may overwrite existing indices**.
+
 :::
 
-<details>
-<summary>How do I say "Scious"?</summary>
+We provide a `Sync Search Index` action for mirroring data from your Bubble app to your search provider. While you can use this to create your own synchronization administration page, we've already built a `Search Admin Dashboard` template you can copy into your app to get you going. The template [looks like this](https://plugins.scious.io/scious-search-admin). Let's overview it, first, by following the demo below.
 
-Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
+<Arcade src="https://demo.arcade.software/9svSsMqR779w8ebVNCv4?embed" />
 
-</details>
+Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions. Towards the middle, you'll be asked to open the our `Admin Dashboard Template` - link to our editor for that [is here](https://bubble.io/page?type=page&name=scious-search-admin&id=scious-plugins&tab=tabs-1). You'll be directed to copy the `Group Search Admin Dashboard` group "with workflows" and "Paste with workflows" into your app.
 
-- `Fields to search`: The Bubble fields to sync supplied as a JSON list... for example `['Author','Title','Created Date']`. If empty, then all of the columns will be synchronized. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
+<Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
 
 ## Implement search
 
-We can now start searching our records!
-Walk through making
+Once you've synced your data type(s) of interest, we can start searching them! This is as easy as placing our [Scious Search visual element](#scious-search) onto your page (a page other than your `sync-admin` page), specifying:
+
+- `Search Provider`
+- `Result type`
+- `Fields to search`
+
+and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this **as you read this** and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
 
 ## Keep your search index synchronized
 
-Once both your search index and data type of interest are synchronized, the best way to _keep_ them synchronized is to add, update or delete individual search records as the records for that data type are added, updated or deleted.
+Once both your search index and data type of interest are synchronized, the best way to _keep_ them synchronized is to create, update or delete individual search records as the records for that data type are created, updated or deleted.
 
-??? Clean up the following tip for auto adding records... recommend this as a convenient catch all, especially for apps that may create new records in a variety of ways, or for those who's admin's frequenly add data to their database using the bulk data uploader.
+Since we're getting started, an easy way to do this is to:
 
-For reference, the following has been shown to work even when adding hundreds of new records on the Professional plan:
-
-- Create a trigger (of whichever data type(s) you often upload) who's condition is to run when thing before unique_id is empty and thing now unique_id is not empty. This will have the effect of triggering whenever a new record of that thing is created in your bubble app.
+- Create a backend trigger (of whichever data type(s) you often upload) who's condition is to run when thing before `unique_id` is empty and thing now `unique_id` is not empty. This will have the effect of triggering whenever a new record of that thing is created in your bubble app.
 - As an action in the above trigger, now create a search search record.
-  That's it. Now, every time you create a record, this workflow will trigger and create a new search record. It will also work across every development environment you have.
 
-Now that we've synced search records into Algolia
+That's it. Now, every time you create a record, this workflow will trigger and create a new search record. You can setup similar triggers to update a search record. We've seen this approach work well in production. That said, since this approach relies on a backend trigger, which naturally adds a small delay to running that set of actions, you may instead want to create / update your search records as you create / update data types client side. To do this, you'll simply follow-up any create / modify data type action in your regular workflows with either of our Create / Update Search record actions. This ensures that your search indices are up to date within, on average, 3 seconds.
 
 ## When to resync search indices
 
-- **After upgrading plugin versions**. This ensures your search index and plugin are always configured correctly since, from time to time, we make changes to the way indices are built and interacted with.
+- **After upgrading plugin versions**. This ensures your search index and plugin are always configured correctly since, from time to time, we change the way indices are built and referenced.
 - **After editing any name of any field relevant to a search.** A field is relevant if it is used to filter, search or sort records. Specifically, this extends to:
   - **Data type name**
   - **Data type field**
   - **Option set name**
   - **Option name** but changing any of an option's other attributes does not require a resync.
 - **After changing your domain name**. You will also need to update your Scious Search API key, [see here ⤴ ](#get-scious-search-api-key).
-
-# Algolia
-
-dfdf
 
 ## Actions
 
@@ -203,7 +221,7 @@ dfdf
 1. `Search Provider` The search provider you've synced your data with.
 2. `Website Home URL` Enter the dynamic expression "Website Home URL"
 3. `Data Type` The data type to sync.
-4. `Fields to search` The Bubble fields to sync supplied as a JSON list. If empty, then all columns will be synced.
+4. `Fields to search` The Bubble fields to sync supplied as a JSON list. For example `['Author','Title','Created Date']`. If empty, then all columns will be synced. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
 6. `Fields to facet` The Bubble fields that can be faceted (supplied as a JSON list).
 7. `Fields to filter if empty` The Bubble fields that your search results can be filtered by if empty (supplied as a JSON list).
@@ -233,7 +251,7 @@ dfdf
 
 ### Update search record
 
-<Figure src="img/scious-search/Update search record (2).png" />
+<Figure src="img/scious-search/update search record clean.png" />
 
 **Inputs**
 
@@ -359,21 +377,19 @@ This visual element does not have any inputs.
 2. `Error description` Additional text describing the error.
 3. `Facets` The facet items and statistics for each field specified in `Fields to facet`.
 
-# Api calls
+## Api calls
 
 We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Show your support for fixing this problem by upvoting and commenting on [this feature request](https://bubble.io/ideaboard?idea=1603764356815x558406947894198300).
 
 ## Known limitations
 
+- We have not implemented Algolia "Recommend" (we plan to along with a Typesense equivalent).
+- Search filters are not able to span multiple data types / indices. That said, we have work arounds for this (will be documenting this soon)
+- You cannot sync more than one geographic address field per record per index using Algolia - that's a limitation of Algolia. Typesense can sync any number of geographic addresses per record.
+
 ## Support
 
-Offical support is
-
-## Additional resources
-
-- [Scious Search Demo](https://scious-plugins.bubbleapps.io/scious-search).
-- [Scious Search Demo Editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1).
-- Refer to our demo's editor for a self documented guide on how to setup and use Scious Search.
-- Need help integrating Scious Search? Drop a message in our official Bubble thread and we'll help you get going!
-- Prefer for someone to integrate Scious Search for you? Set
+- Refer to [our demo's editor](https://bubble.io/page?type=page&name=scious-search&id=scious-plugins&tab=tabs-1) for a self documented guide on how to setup and use Scious Search.
+- Need help integrating Scious Search? Drop a message in our free Bubble support channel where we'll answer questions as able.
+- Prefer for someone to integrate Scious Search for you? We'll be offering integration services 'for hire' soon.
 - We offer a [Service Level Agreement](https://buy.stripe.com/8wMg2x1if3zz3ba6op) for customers requiring plugin service and maintenance guarentees.
