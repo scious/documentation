@@ -62,8 +62,7 @@ You'll be using Scious Search in less than 20 minutes. To start we need a few th
 2. [Get Scious Search API Key](#get-scious-search-api-key).
 3. [Enable your data API](#enable-data-api)
 4. [Get your Search Provider's API keys](#get-search-provider-api-keys).
-5. [Setup the Scious Search plugin](#setup-scious-search-plugin).
-6. [Sync your database](#sync-your-database).
+5. [Sync your database](#sync-your-database).
 
 ### Install plugin
 
@@ -71,7 +70,7 @@ Head on over to your plugin tab, search _<Highlight color="#25c2a0">"scious sear
 
 <VideoGIF src="https://s3.amazonaws.com/appforest_uf/f1669532176275x365303613975589400/Install%20scious%20search%20compressed.mp4" />
 
-### Get Scious Search API Key.
+### Get Scious Search API key
 
 Next, go to [https://scious.io/plugins](https://scious.io/plugins) > scroll to `Scious Search` > tap `Get API Key` > and enter your email to sign in / make an account. This will email you a login link so check your spam folder if you're not seeing one. Within that email, tap `Sign in now →` to be taken to the Scious Search API key dashboard. Here, you'll need to fill out your account details such as first and last name. Then, navigate to `Get API key for bubble app` > and fill in the `Bubble app URL` for the app you want to use Scious Search with. Next, tap one of the subscribe options and complete your payment (new users get a 10 day, very easy to cancel, free trial).
 
@@ -101,7 +100,7 @@ While still on the `API` tab > next scroll down to the `API tokens` section > ta
 
 <Figure src="img/scious-search/Scious search config bubble admin key.png" />
 
-### Get Search Provider API keys
+### Get search provider API keys
 
 <!-- <Tabs groupId="search-providers">
   <TabItem value="Algolia" label="Algolia">
@@ -158,12 +157,10 @@ When prompted, save the generated `.txt` file to a secure location > then open i
 
 Finally, in your bubble editor, navigate to `Plugins` > `Scious Search` > then paste the `Search Only API Key`, `Admin API Key` and `Node`/`Host` into the Scious Search plugin configuration fields for Typesense.
 
-<Figure src="img/scious-search/typesense config.png" />
+<Figure src="img/scious-search/Scious search config typesense.png" />
 
 </TabItem>
 </Tabs>
-
-### Setup Scious Search plugin
 
 ### Sync your database
 
