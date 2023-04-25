@@ -13,9 +13,9 @@ export default function Arcade({ src }) {
         src={src}
         frameborder="0"
         loading="lazy"
-        webkitallowfullscreen
-        mozallowfullscreen
-        allowfullscreen
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true"
+        allowfullscreen="true"
         style={{
           position: 'absolute',
           top: 0,
