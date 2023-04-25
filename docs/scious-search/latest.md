@@ -325,11 +325,29 @@ This visual element is the work horse of Scious Search - it's what returns searc
 7. `Highlights` List of matched highlight snippets.
 8. `Actual page` The actual page of search results returned.
 
+#### Filters deep dive
+
+Most of the integration time spent with this element will revolve around your use of `Filters`. As mentioned above, the `Filters` section accepts Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this - it behaves almost exactly the same way. This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
+
+
+
+Here we're using Javascript's [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) to create the filter string that will be assigned to internal variable `territory_filter`. That may sound a touch complicated but it works like this:
+
+`var territory_filter = (if_condition_true) ? "value_A" : "value_B"`
+
+If `if_condition_true` is true, then this javascript expression assigns `value_A` to the javascript variable `territory_filter`. Otherwise, `territory_filter` will be equal to `value_B`. The values `value_A` and `value_B` can be anything we want them to be. In our case, we want to return a text of the form `Territory:"Midwest" OR Territory:"Southwest"'` so (looking back at our last screenshot) we conditionally check if the "Territory" Dropdown is empty, and if it is we assign the text `" AND (Territory:'Midwest' OR Territory:'Southwest')"` to var `territory_filter`. Otherwise, if the “Territory” Dropdown is not empty, then we assign an empty text `''`.
+
+By now, this expression has only generated our filter conditions for territories. But we may want to apply additional filters. To do this, we build additional filter strings and assign them to their respective javascript variables just as we did above. We may have filters like `var brand_filter=...` and `var investors_filter=..`. Once defined, the last step in we simply concatenate these filter together
+
+line we've just made there's that initial " AND since we want to essentially remove that filter from our larger filter string.
+
 :::tip
 
 Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Windows, press `CTRL`+`SHFT`+`i`, on Mac press `Option` + `⌘` + `i`) and you'll see your search filter printed to console. Filter logs are only printed to console in dev environments. If you also want them to appear in live, you can include a console.log() statement in your filter's javascript. Of course, this would double such logs in your dev environmnets.
 
 :::
+
+#### Difference between `Page` input and `Actual page` output
 
 ### Typing Trigger
 
