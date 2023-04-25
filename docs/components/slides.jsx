@@ -1,21 +1,20 @@
 import React from 'react';
 
-export default function Arcade({ src }) {
+export default function Slides({ src, title }) {
   return (
     <div
       style={{
         position: 'relative',
-        paddingBottom: 'calc(67.14527027027027% + 60px)',
-        height: 0,
+        height: '540px',
       }}
     >
       <iframe
         src={src}
         frameborder="0"
-        loading="lazy"
         webkitallowfullscreen="true"
         mozallowfullscreen="true"
         allowfullscreen="true"
+        allow="autoplay; fullscreen"
         style={{
           position: 'absolute',
           top: 0,
@@ -23,8 +22,10 @@ export default function Arcade({ src }) {
           width: '100%',
           height: '100%',
           colorScheme: 'light',
+          overflow: 'hidden',
+          padding: '16px 0px',
         }}
-        title="Search Admin Dashboard"
+        title={title ? title : ''}
       ></iframe>
     </div>
   );

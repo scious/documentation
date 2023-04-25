@@ -7,6 +7,7 @@ pagination_prev: null
 
 import Figure from '../components/figures'
 import Arcade from '../components/arcade'
+import Slides from '../components/slides'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
 import Tabs from '@theme/Tabs';
@@ -329,7 +330,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 
 Most of the integration time spent with this element will revolve around your use of `Filters`. As mentioned above, the `Filters` section accepts Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this - it behaves almost exactly the same way. This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
 
-
+<Slides src="https://slides.com/aagostini/deck-f8ce96/embed?style=light" />
 
 Here we're using Javascript's [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) to create the filter string that will be assigned to internal variable `territory_filter`. That may sound a touch complicated but it works like this:
 
