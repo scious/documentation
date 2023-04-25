@@ -325,7 +325,7 @@ Refresh the search results from a Scious Search element.
 
 :::tip
 
-Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Mac press..., on Windows , pressPress `CTRL` ) and you'll see your search filter printed to console. Explain that this printing only happens in dev environments. If you also want it to appear in live, you can include a console.log() statement in the filters js. But of course, this would double your print statments in dev environmnets.
+Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Windows, press `CTRL`+`SHFT`+`i`, on Mac press `Option` + `⌘` + `i`) and you'll see your search filter printed to console. Filter logs are only printed to console in dev environments. If you also want them to appear in live, you can include a console.log() statement in your filter's javascript. Of course, this would double such logs in your dev environmnets.
 
 :::
 
@@ -379,7 +379,7 @@ This visual element does not have any inputs.
 
 ## Api calls
 
-We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Show your support for fixing this problem by upvoting and commenting on [this feature request](https://bubble.io/ideaboard?idea=1603764356815x558406947894198300).
+We have a single data API call named `Facets (🔍)`. This API call does not return any usable data. It exists solely to set the type of data that the [Get Facets](#get-facets) visual element returns. Do not use this API call outside of the Get Facets visual element. Don't like that we did this? Neither do we. Show your support for fixing this problem by commenting on and upvoting [this feature request](https://bubble.io/ideaboard?idea=1603764356815x558406947894198300).
 
 ## Known limitations
 
