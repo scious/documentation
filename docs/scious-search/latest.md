@@ -297,6 +297,8 @@ Refresh the search results from a Scious Search element.
 
 ### Scious Search
 
+This visual element is the work horse of Scious Search - it's what returns search results from your provider of choice.
+
 <Figure src="img/scious-search/Scious Search Visual Element.png" />
 
 **Inputs**
@@ -386,6 +388,7 @@ We have a single data API call named `Facets (🔍)`. This API call does not ret
 - We have not implemented Algolia "Recommend" (we plan to along with a Typesense equivalent).
 - Search filters are not able to span multiple data types / indices. That said, we have work arounds for this (will be documenting this soon)
 - You cannot sync more than one geographic address field per record per index using Algolia - that's a limitation of Algolia. Typesense can sync any number of geographic addresses per record.
+- We currently only process a few "Advanced Options" within the Scious Search visual element. We'll be supporting all of them soon.
 
 ## Support
 
