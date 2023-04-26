@@ -328,7 +328,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 
 #### Filters deep dive
 
-Despite how complex filters can get, the `Filters` input exists to accomplish one goal: make a string of text that your search provider can interpret as filters. That's the main idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made the `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this since it behaves the same way. That said, below, we walk through examples of setting up filters, from the simple to very complex.
+Despite how complex filters can get, the `Filters` input exists to accomplish one goal: make a string of text that your search provider can interpret as filters. That's the big idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made the `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this since it behaves the same way. That said, below, we walk through examples of setting up filters from the simple to complex.
 
 This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
 
