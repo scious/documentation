@@ -328,9 +328,13 @@ This visual element is the work horse of Scious Search - it's what returns searc
 
 #### Filters deep dive
 
-Most of the integration time spent with this element will revolve around your use of `Filters`. As mentioned above, the `Filters` section accepts Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this - it behaves almost exactly the same way. This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
+Despite how complex filters can get, the `Filters` input exists to accomplish one goal: make a string of text that your search provider can interpret as filters. That's the main idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made the `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this since it behaves the same way. That said, below, we walk through examples of setting up filters, from the simple to very complex.
 
-<Slides src="https://slides.com/aagostini/deck-f8ce96/embed?style=light" />
+This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
+
+<Slides src="https://slides.com/aagostini/scious_search_filters/embed?style=light" />
+
+??? Mention how "Yes" or "No" in the filters sections will be interpreted with True/False... but how this doesn't extend to bits in strings... Also mention how we replace the starting && and AND from a string.
 
 Here we're using Javascript's [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) to create the filter string that will be assigned to internal variable `territory_filter`. That may sound a touch complicated but it works like this:
 
