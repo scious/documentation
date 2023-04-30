@@ -7,7 +7,6 @@ pagination_prev: null
 
 import Figure from '../components/figures'
 import Arcade from '../components/arcade'
-import Slides from '../components/slides'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
 import BrowserWindow from '../components/browserWindow';
