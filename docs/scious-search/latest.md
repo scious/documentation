@@ -10,12 +10,21 @@ import Arcade from '../components/arcade'
 import Slides from '../components/slides'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
+import BrowserWindow from '../components/browserWindow';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Scious Search [Latest]
 
 The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
+
+<BrowserWindow>
+
+```js
+console.log('Every repo must come with a mascot.');
+```
+
+</BrowserWindow>
 
 ## Features
 
@@ -331,7 +340,6 @@ This visual element is the work horse of Scious Search - it's what returns searc
 Despite how complex filters can get, the `Filters` input exists to accomplish one goal: make a string of text your search provider can interpret as filters. That's the big idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made the `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this since it behaves the same way.
 
 Next, we'll walk through three filter examples of increasing complexity.
-
 
 ```js
 console.log('Every repo must come with a mascot.');
