@@ -191,6 +191,68 @@ Once you've synced your data type(s) of interest, we can start searching them! T
 
 and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this **as you read this** and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
 
+### Filters deep dive
+
+This section applies to the following visual elements:
+
+- [Scious Search](#scious-search)
+- [Get Facets](#get-facets)
+
+Whether you want to filter by a single dropdown or apply 12 different criteria with conditional dependencies, our filtering capability is flexible enough to accomodate most needs. The most important thing to know is our `Filters` input exists to accomplish one goal:
+
+> **Make a string of text your search provider can interpret as filters.**
+
+That's the big idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made our `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this.
+
+The examples that follow will get you filtering with Scious Search, starting simple and then getting more complex. We'll be looking at search provider specific implementations, so be sure to click the right one below to follow along.
+<Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+One more thing - these examples are from our [Algolia Filter demo](https://plugins.scious.io/scious-search-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
+
+#### Low Complexity
+
+Behold. The simplist filter you can build.
+
+<BubblePropertyEditor title="Scioussearch Simple" searchProvider="Algolia">
+
+```js
+"usage_count<40"
+```
+
+</BubblePropertyEditor>
+
+Like we said, the goal of the `Filters` expression is to create filter strings. Referencing Algolia's
+
+This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
+
+??? Mention how "Yes" or "No" in the filters sections will be interpreted with True/False... but how this doesn't extend to bits in strings... Also mention how we replace the starting && and AND from a string.
+
+Here we're using Javascript's [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) to create the filter string that will be assigned to internal variable `territory_filter`. That may sound a touch complicated but it works like this:
+
+`var territory_filter = (if_condition_true) ? "value_A" : "value_B"`
+
+If `if_condition_true` is true, then this javascript expression assigns `value_A` to the javascript variable `territory_filter`. Otherwise, `territory_filter` will be equal to `value_B`. The values `value_A` and `value_B` can be anything we want them to be. In our case, we want to return a text of the form `Territory:"Midwest" OR Territory:"Southwest"'` so (looking back at our last screenshot) we conditionally check if the "Territory" Dropdown is empty, and if it is we assign the text `" AND (Territory:'Midwest' OR Territory:'Southwest')"` to var `territory_filter`. Otherwise, if the “Territory” Dropdown is not empty, then we assign an empty text `''`.
+
+By now, this expression has only generated our filter conditions for territories. But we may want to apply additional filters. To do this, we build additional filter strings and assign them to their respective javascript variables just as we did above. We may have filters like `var brand_filter=...` and `var investors_filter=..`. Once defined, the last step in we simply concatenate these filter together
+
+line we've just made there's that initial " AND since we want to essentially remove that filter from our larger filter string.
+
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+</TabItem>
+</Tabs>
+
+:::tip
+
+Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Windows, press `CTRL`+`SHFT`+`i`, on Mac press `Option` + `⌘` + `i`) and you'll see your search filter printed to console. Filter logs are only printed to console in dev environments. If you also want them to appear in live, you can include a console.log() statement in your filter's javascript. Of course, this would double such logs in your dev environmnets.
+
+:::
+
+### Pagination
+
+#### Difference between `Page` input and `Actual page` output
+
 ## Keep your search index synchronized
 
 Once both your search index and data type of interest are synchronized, the best way to _keep_ them synchronized is to create, update or delete individual search records as the records for that data type are created, updated or deleted.
@@ -309,7 +371,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 2. `Result type` Search result data type.
 3. `Search query` Set to the Typing Trigger `Output text` for best results.
 4. `Fields to search` The Bubble fields to search supplied as a JSON list.
-5. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
+5. `Filters` This section allows you to compose your filters using Javascript. For details, checkout our [Filters Deep Dive](#filters-deep-dive) section.
 6. `Sort by` A dictionary of the fields to sort by specified in JSON.
 7. `Results per page` Number of search results returned in each page of results.
 8. `Page` The current page of search results to display starting at "1".
@@ -326,43 +388,6 @@ This visual element is the work horse of Scious Search - it's what returns searc
 6. `Error description` Additional text describing the error.
 7. `Highlights` List of matched highlight snippets.
 8. `Actual page` The actual page of search results returned.
-
-#### Filters deep dive
-
-Despite how complex filters can get, the `Filters` input exists to accomplish one goal: make a string of text your search provider can interpret as filters. That's the big idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made the `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this since it behaves the same way.
-
-Whether you're new to Javascript or a seasoned developer, the following examples will get you filtering with Scious Search quickly.
-
-<BubblePropertyEditor title="Scioussearch Simple" searchProvider="Algolia">
-
-```js
-var category_filter = (condition) ? "this_is_true" : "this_is_false"
-
-```
-
-</BubblePropertyEditor>
-
-This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
-
-??? Mention how "Yes" or "No" in the filters sections will be interpreted with True/False... but how this doesn't extend to bits in strings... Also mention how we replace the starting && and AND from a string.
-
-Here we're using Javascript's [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) to create the filter string that will be assigned to internal variable `territory_filter`. That may sound a touch complicated but it works like this:
-
-`var territory_filter = (if_condition_true) ? "value_A" : "value_B"`
-
-If `if_condition_true` is true, then this javascript expression assigns `value_A` to the javascript variable `territory_filter`. Otherwise, `territory_filter` will be equal to `value_B`. The values `value_A` and `value_B` can be anything we want them to be. In our case, we want to return a text of the form `Territory:"Midwest" OR Territory:"Southwest"'` so (looking back at our last screenshot) we conditionally check if the "Territory" Dropdown is empty, and if it is we assign the text `" AND (Territory:'Midwest' OR Territory:'Southwest')"` to var `territory_filter`. Otherwise, if the “Territory” Dropdown is not empty, then we assign an empty text `''`.
-
-By now, this expression has only generated our filter conditions for territories. But we may want to apply additional filters. To do this, we build additional filter strings and assign them to their respective javascript variables just as we did above. We may have filters like `var brand_filter=...` and `var investors_filter=..`. Once defined, the last step in we simply concatenate these filter together
-
-line we've just made there's that initial " AND since we want to essentially remove that filter from our larger filter string.
-
-:::tip
-
-Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Windows, press `CTRL`+`SHFT`+`i`, on Mac press `Option` + `⌘` + `i`) and you'll see your search filter printed to console. Filter logs are only printed to console in dev environments. If you also want them to appear in live, you can include a console.log() statement in your filter's javascript. Of course, this would double such logs in your dev environmnets.
-
-:::
-
-#### Difference between `Page` input and `Actual page` output
 
 ### Typing Trigger
 
