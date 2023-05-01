@@ -18,15 +18,6 @@ import TabItem from '@theme/TabItem';
 
 The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
 
-<BubblePropertyEditor>
-
-```js
-var category_filter = (condition) ? "this_is_true" : "this_is_false"
-
-```
-
-</BubblePropertyEditor>
-
 ## Features
 
 **Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
@@ -298,7 +289,7 @@ That's it. Now, every time you create a record, this workflow will trigger and c
 
 <Figure src="img/scious-search/Refresh search results.png" />
 
-Refresh the search results from a Scious Search element.
+Refresh the search results from a Scious Search element. This action is typically used directly following any Create or Update a search record action in scenarios where users should be able to see the effect of those changes reflected in search results.
 
 **Inputs**
 
@@ -340,11 +331,16 @@ This visual element is the work horse of Scious Search - it's what returns searc
 
 Despite how complex filters can get, the `Filters` input exists to accomplish one goal: make a string of text your search provider can interpret as filters. That's the big idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made the `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this since it behaves the same way.
 
-Next, we'll walk through three filter examples of increasing complexity.
+Whether you're new to Javascript or a seasoned developer, the following examples will get you filtering with Scious Search quickly.
+
+<BubblePropertyEditor title="Scioussearch Simple" searchProvider="Algolia">
 
 ```js
-console.log('Every repo must come with a mascot.');
+var category_filter = (condition) ? "this_is_true" : "this_is_false"
+
 ```
+
+</BubblePropertyEditor>
 
 This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
 

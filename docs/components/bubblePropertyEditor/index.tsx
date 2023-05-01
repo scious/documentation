@@ -8,13 +8,15 @@
  
  export default function BubblePropertyEditor({
    children,
+	 searchProvider,
+	 title,
  }: Props): JSX.Element {
    return (
     <figure style={{ display: 'flex', justifyContent: 'center', padding: 16}}>
     <div id={styles.DIV_1}>
 		<div id={styles.DIV_2}>
 			<div id={styles.DIV_4}>
-				Scioussearch A
+				{title}
 			</div>
 		</div>
 		<div id={styles.DIV_20}>
@@ -39,7 +41,7 @@
 							<div id={styles.DIV_31}>
 								<div id={styles.DIV_32}>
 									<div id={styles.DIV_33}>
-										Algolia
+										{searchProvider}
 									</div>
 								</div>
 							</div>
