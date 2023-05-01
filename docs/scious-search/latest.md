@@ -9,7 +9,6 @@ import Figure from '../components/figures'
 import Arcade from '../components/arcade'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
-import BrowserWindow from '../components/browserWindow';
 import BubblePropertyEditor from '../components/bubblePropertyEditor';
 
 import Tabs from '@theme/Tabs';
