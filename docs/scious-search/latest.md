@@ -25,12 +25,15 @@ The following is documentation for the latest version of the Scious Search plugi
 console.log('Every repo must come with a mascot.');
 ```
 
+<!-- // highlight-next-line -->
+<!-- showLineNumbers -->
 </BrowserWindow>
 
 <BubblePropertyEditor>
 
 ```js
-console.log('Every repo must come with a mascot.');
+var category_filter = (condition) ? "this_is_true" : "this_is_false"
+
 ```
 
 </BubblePropertyEditor>

@@ -10,6 +10,7 @@
    children,
  }: Props): JSX.Element {
    return (
+    <figure style={{ display: 'flex', justifyContent: 'center', padding: 16}}>
     <div id={styles.DIV_1}>
 		<div id={styles.DIV_2}>
 			<div id={styles.DIV_4}>
@@ -50,16 +51,14 @@
 						<div id={styles.DIV_76}>
 							Filters
 						</div>
-						<div id={styles.DIV_77}>
-							<div id={styles.DIV_80}>
-
+						<div className={styles.prismOverride}>
               {children}
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+  </figure>
    );
  }
