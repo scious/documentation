@@ -19,16 +19,6 @@ import TabItem from '@theme/TabItem';
 
 The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
 
-<BrowserWindow>
-
-```js
-console.log('Every repo must come with a mascot.');
-```
-
-<!-- // highlight-next-line -->
-<!-- showLineNumbers -->
-</BrowserWindow>
-
 <BubblePropertyEditor>
 
 ```js
