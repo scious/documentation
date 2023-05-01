@@ -222,7 +222,29 @@ Behold. The simplist filter you can build.
 
 </BubblePropertyEditor>
 
-Like we said, the goal of the `Filters` expression is to create filter strings. Referencing Algolia's
+Like we said, the goal of the `Filters` expression is to create a set of filter intructions Algolia can understand. Here, this text asks Algolia to:
+
+> Return all records where the `usage_count` is less than `40`
+
+We're leaning on Algolia's [Filter by numeric syntax](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-numeric-value/#applying-a-numeric-filter) to accomplish this. To learn about all of Algolia's filtering grammars, we refer our users to their [excellent documentation here](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/).
+
+#### Mid Complexity
+
+This next example uses Javascript's ternary operator to conditionally build a filter.
+
+<BubblePropertyEditor title="Scioussearch mid complexity" searchProvider="Algolia">
+
+```js
+var categories_filter = (MultilineInput Categories value:count > 0) ? "categories:'MultilineInput Categories value:each items Display join with ' AND categories:''": ""
+
+categories_filter
+```
+
+</BubblePropertyEditor>
+
+Let's break it down. We're asking Algolia to:
+
+> Return all records where the `categories` field contains all of the items from `MultilineInput Categories`, but only if `MultilineInput Categories` has at least one value selected.
 
 This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
 
