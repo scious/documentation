@@ -230,7 +230,7 @@ We're leaning on Algolia's [Filter by numeric syntax](https://www.algolia.com/do
 
 #### Mid Complexity
 
-This next example uses Javascript's ternary operator to conditionally build a filter.
+This next example uses Javascript's ternary operator to conditionally build a filter text.
 
 <BubblePropertyEditor title="Scioussearch mid complexity" searchProvider="Algolia">
 
@@ -245,6 +245,29 @@ categories_filter
 Let's break it down. We're asking Algolia to:
 
 > Return all records where the `categories` field contains all of the items from `MultilineInput Categories`, but only if `MultilineInput Categories` has at least one value selected.
+
+If we were to build this filter in Bubble's native search, we'd `Do a search for` and check `ignore empty constraints` to ignore the `MultilineInput Categories` if empty.
+
+Javascript's [ternary operator](https://www.javascripttutorial.net/javascript-ternary-operator/) is our way of accomplishing the same thing. It's a condensed form of an `if`... `else`... statement and it looks like this:
+
+```js
+var our_variable = (some_condition) ? "value_A" : "value_B"
+```
+
+What happens here is when `some_condition` is true, then `our_variable` will be assigned the text `"value_A"`. Otherwise it will be assigned `"value_B"`.
+
+So back to our example:
+
+```js
+var categories_filter = (MultilineInput Categories value:count > 0) ? "categories:'MultilineInput Categories value:each items Display join with ' AND categories:''": ""
+```
+
+We check if `MultilineInput Categories value:count > 0`.
+
+- **If it is zero**, then we assign the empty string `''` to `categories_filter` which gets sent to Algolia as our filter. As a result, Algolia will not apply any filters to our returned search results.
+- **If it is greater than zero** , then we create the unique filter string that will get Algolia to filter
+
+This has the effect of applying no filter. Otherwise, we assign `categories_filter` the value `"categories:'MultilineInput Categories value:each items Display join with ' AND categories:''"`. Let's focus on that.
 
 This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
 
