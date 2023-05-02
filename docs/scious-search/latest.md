@@ -235,7 +235,7 @@ This next example uses Javascript's ternary operator to conditionally build a fi
 <BubblePropertyEditor title="Scioussearch mid complexity" searchProvider="Algolia">
 
 ```js
-var categories_filter = (MultilineInput Categories value:count > 0) ? "categories:'MultilineInput Categories value:each items Display join with ' AND categories:''": ""
+var categories_filter = (Multidropdown Categories value:count > 0) ? "categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
 
 categories_filter
 ```
@@ -244,9 +244,9 @@ categories_filter
 
 Let's break it down. We're asking Algolia to:
 
-> Return all records where the `categories` field contains all of the items from `MultilineInput Categories`, but only if `MultilineInput Categories` has at least one value selected.
+> Return all records where the `categories` field contains all of the items from `Multidropdown Categories`, but only if `Multidropdown Categories` has at least one value selected.
 
-If we were to build this filter in Bubble's native search, we'd `Do a search for` and check `ignore empty constraints` to ignore the `MultilineInput Categories` if empty.
+If we were to build this filter in Bubble's native search, we'd `Do a search for` and check `ignore empty constraints` to ignore the `Multidropdown Categories` when empty.
 
 Javascript's [ternary operator](https://www.javascripttutorial.net/javascript-ternary-operator/) is our way of accomplishing the same thing. It's a condensed form of an `if`... `else`... statement and it looks like this:
 
@@ -256,32 +256,57 @@ var our_variable = (some_condition) ? "value_A" : "value_B"
 
 What happens here is when `some_condition` is true, then `our_variable` will be assigned the text `"value_A"`. Otherwise it will be assigned `"value_B"`.
 
-So back to our example:
+So in our example,
 
 ```js
-var categories_filter = (MultilineInput Categories value:count > 0) ? "categories:'MultilineInput Categories value:each items Display join with ' AND categories:''": ""
+var categories_filter = (Multidropdown Categories value:count > 0) ? "categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
+categories_filter
 ```
 
-We check if `MultilineInput Categories value:count > 0`.
+we check if `Multidropdown Categories value:count > 0`.
 
-- **If it is zero**, then we assign the empty string `''` to `categories_filter` which gets sent to Algolia as our filter. As a result, Algolia will not apply any filters to our returned search results.
-- **If it is greater than zero** , then we create the unique filter string that will get Algolia to filter
+- **If it is zero**, then we assign the empty text `""` to `categories_filter`. As a result, Algolia will not apply any filters to our search results.
+- **If it is greater than zero**, here we ultimately want to make text that looks something like
 
-This has the effect of applying no filter. Otherwise, we assign `categories_filter` the value `"categories:'MultilineInput Categories value:each items Display join with ' AND categories:''"`. Let's focus on that.
+  > `"categories:'technical' AND categories:'social network'"`
 
-This means that if we want to filter on a list of items (say the result of some intersection), we can craft that concatenated filter string above like
+  So to do that, we:
 
-??? Mention how "Yes" or "No" in the filters sections will be interpreted with True/False... but how this doesn't extend to bits in strings... Also mention how we replace the starting && and AND from a string.
+  - start with the phrase `categories:'`
+  - append `' AND categories:'` to each `Multidropdown Categories value`
+  - and finish off the string with a single quotation mark `'`
 
-Here we're using Javascript's [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) to create the filter string that will be assigned to internal variable `territory_filter`. That may sound a touch complicated but it works like this:
+  Put it all together, and that looks like:
 
-`var territory_filter = (if_condition_true) ? "value_A" : "value_B"`
+  > `"categories:'Multidropdown Categories value:each items Display join with ' AND categories:''"`
 
-If `if_condition_true` is true, then this javascript expression assigns `value_A` to the javascript variable `territory_filter`. Otherwise, `territory_filter` will be equal to `value_B`. The values `value_A` and `value_B` can be anything we want them to be. In our case, we want to return a text of the form `Territory:"Midwest" OR Territory:"Southwest"'` so (looking back at our last screenshot) we conditionally check if the "Territory" Dropdown is empty, and if it is we assign the text `" AND (Territory:'Midwest' OR Territory:'Southwest')"` to var `territory_filter`. Otherwise, if the “Territory” Dropdown is not empty, then we assign an empty text `''`.
+With the `categories_filter` variable completely defined, the last thing to do in the `Filters` input is state the variable we want to return. Since we only have one filter variable, `categories_filter`, that's the one we state.
 
-By now, this expression has only generated our filter conditions for territories. But we may want to apply additional filters. To do this, we build additional filter strings and assign them to their respective javascript variables just as we did above. We may have filters like `var brand_filter=...` and `var investors_filter=..`. Once defined, the last step in we simply concatenate these filter together
+To close, in this example we leaned on [Algolia's Boolean Operator](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/in-depth/combining-boolean-operators/) syntax to `AND` multiple category filters together. Whether our source values come from a Multidropdown, a List Intersection, or some other list, you can use the same approach to make filters that return records matching ALL items within a list field. Note that Algolia also has the boolean operator `OR` which can be used to return records that match ANY items within a list field. They've also got a `NOT` operator that, along with `AND` and `OR`, can be chained and scoped using parenthesis `()` to craft even more sophisticated filters.
 
-line we've just made there's that initial " AND since we want to essentially remove that filter from our larger filter string.
+#### High-ish Complexity
+
+Next we show how to combine multiple filters.
+
+<BubblePropertyEditor title="Scioussearch high-ish complexity" searchProvider="Algolia">
+
+```js
+var categories_filter = (Multidropdown Categoriess value:count > 0) ? " AND categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
+
+var usage_filter = " AND usage_count:SliderInput Usage Counts value:min TO SliderInput Usage Counts value:max"
+
+var open_source_filter = " AND published_open_source:Checkbox Is open source is checked:formatted as text"
+
+var filters = categories_filter + usage_filter + open_source_filter
+
+// this is a comment
+
+filters
+```
+
+</BubblePropertyEditor>
+
+Let's break it down. We're asking Algolia to:
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
