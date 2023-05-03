@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Arcade({ src }) {
+export default function Arcade({ src, title }) {
   return (
     <div
       style={{
@@ -24,7 +24,7 @@ export default function Arcade({ src }) {
           height: '100%',
           colorScheme: 'light',
         }}
-        title="Search Admin Dashboard"
+        title={title ? title : ''}
       ></iframe>
     </div>
   );
