@@ -181,7 +181,7 @@ Now that you have a feel for how the Search Admin Dashboard looks and feels, let
 
 <Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
 
-## Implement search
+### Implement search
 
 Once you've synced your data type(s) of interest, we can start searching them! This is as easy as placing our [Scious Search visual element](#scious-search) onto your page (a page other than your `sync-admin` page), specifying:
 
@@ -189,9 +189,9 @@ Once you've synced your data type(s) of interest, we can start searching them! T
 - `Result type`
 - `Fields to search`
 
-and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this **as you read this** and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
+and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
 
-### Filters deep dive
+## Filters deep dive
 
 This section applies to the following visual elements:
 
@@ -210,7 +210,7 @@ The examples that follow will get you filtering with Scious Search, starting sim
 
 One more thing - these examples are from our [Algolia Filter demo](https://plugins.scious.io/scious-search-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
 
-#### Low Complexity
+### Low Complexity
 
 Behold. The simplist filter you can build.
 
@@ -228,7 +228,7 @@ Like we said, the goal of the `Filters` expression is to create a set of filter 
 
 We're leaning on Algolia's [Filter by numeric syntax](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-numeric-value/#applying-a-numeric-filter) to accomplish this. To learn about all of Algolia's filtering grammars, we refer our users to their [excellent documentation here](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/).
 
-#### Mid Complexity
+### Mid Complexity
 
 This next example uses Javascript's ternary operator to conditionally build a filter text.
 
@@ -284,29 +284,54 @@ With the `categories_filter` variable completely defined, the last thing to do i
 
 To close, in this example we leaned on [Algolia's Boolean Operator](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/in-depth/combining-boolean-operators/) syntax to `AND` multiple category filters together. Whether our source values come from a Multidropdown, a List Intersection, or some other list, you can use the same approach to make filters that return records matching ALL items within a list field. Note that Algolia also has the boolean operator `OR` which can be used to return records that match ANY items within a list field. They've also got a `NOT` operator that, along with `AND` and `OR`, can be chained and scoped using parenthesis `()` to craft even more sophisticated filters.
 
-#### High-ish Complexity
+### High-ish Complexity
 
-Next we show how to combine multiple filters.
+Let's combine multiple filters.
 
 <BubblePropertyEditor title="Scioussearch high-ish complexity" searchProvider="Algolia">
 
 ```js
-var categories_filter = (Multidropdown Categoriess value:count > 0) ? " AND categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
+var categories_filter = (Multidropdown Categories value:count > 0) ? " AND categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
 
 var usage_filter = " AND usage_count:SliderInput Usage Counts value:min TO SliderInput Usage Counts value:max"
 
+// Format our condition so that yes is "true" and no is 'false'
 var open_source_filter = " AND published_open_source:Checkbox Is open source is checked:formatted as text"
 
 var filters = categories_filter + usage_filter + open_source_filter
-
-// this is a comment
 
 filters
 ```
 
 </BubblePropertyEditor>
 
-Let's break it down. We're asking Algolia to:
+Our three filters are as follow:
+
+1. The `Multidropdown Categories` filter from our prior example.
+2. A `usage_count` filter using [Algolia's numeric range](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-numeric-value/#filtering-by-price-range) filter syntax.
+3. A `published_open_source` filter using [Algolia's boolean filter](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-boolean/#applying-a-boolean-filter) syntax. If the relevant checkbox is checked, then we format it's value as a text where `'yes'` is `true` and `'no'` is `false` (since that's what Algolia expects).
+
+With all three filter texts defined, we then concatenate them together into the variable `filters` using Javascript's `+` operator. Finally, we write `filters` so that our visual element knows it's the variable containing our full filter text.
+
+Readers may notice we start each filter with the phrase `" AND "`. As mentioned in our mid-complexity example, this is done so that when our filter strings are appended to each other, there's an AND in between them just the way Algolia expects. Of course, if your use case merits something else - you can also use `OR` or `NOT` as [Algolia allows](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/in-depth/combining-boolean-operators/).
+
+#### How the Filter's input is different from Toolbox's Expression element
+
+Earlier we said the `Filters` input behaves like the `Expression` element from the `Toolbox` plugin. There are two exceptions:
+
+1. If the resulting `Filters` text starts with the phrase `' AND '` or `'AND '`, then we remove that part before sending your filters to Algolia.
+
+   To understand why, imagine a filter composed of two ternary operators:
+
+    ```js
+   var my_filter = ternary_filter_a + ternary_filter_b
+   ```
+
+   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` which, if sent to Algolia, would cause an error. So, to maintain order in the universe, we automatically remove that leading phrase.
+
+2. We interpret non-quoted appearances of the phrase `yes` as Javascript's boolean `true` and `no` as Javascript's boolean `false`.
+
+   Quoted appearances like `"yes"`, `'yes'`, `"is_open_source=yes"` or `"is_open_source=no"` will not be converted to `true` or `false`. This means you can define Javascript conditions without having to format one of Bubble's Dynamic expressions with `Formatted as text`. 
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
