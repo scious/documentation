@@ -498,10 +498,6 @@ Want to see your `Filters` without having to print them to a text box? Open your
 
 :::
 
-### Pagination
-
-#### Difference between `Page` input and `Actual page` output
-
 ## Keep your search index synchronized
 
 Once both your search index and data type of interest are synchronized, the best way to _keep_ them synchronized is to create, update or delete individual search records as the records for that data type are created, updated or deleted.
