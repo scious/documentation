@@ -9,6 +9,8 @@ import Figure from '../components/figures'
 import Arcade from '../components/arcade'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
+import BubblePropertyEditor from '../components/bubblePropertyEditor';
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -179,7 +181,7 @@ Now that you have a feel for how the Search Admin Dashboard looks and feels, let
 
 <Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
 
-## Implement search
+### Implement search
 
 Once you've synced your data type(s) of interest, we can start searching them! This is as easy as placing our [Scious Search visual element](#scious-search) onto your page (a page other than your `sync-admin` page), specifying:
 
@@ -187,7 +189,314 @@ Once you've synced your data type(s) of interest, we can start searching them! T
 - `Result type`
 - `Fields to search`
 
-and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this **as you read this** and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
+and finally displaying the visual element's `Search Results` in a repeating group. We're actively creating a demo like the ones above to demonstrate this and will update this section to better illustrate this soon. In the mean time, check out any of the Scious Search visual elements [from our demo](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) to see exactly how this is setup.
+
+## Filters deep dive
+
+This section applies to the following visual elements:
+
+- [Scious Search](#scious-search)
+- [Get Facets](#get-facets)
+
+Whether you want to filter by a single dropdown or apply 12 different criteria with conditional dependencies, our filtering capability is flexible enough to accomodate most needs. The most important thing to know is our `Filters` input exists to accomplish one goal:
+
+> **Make a string of text your search provider can interpret as filters.**
+
+That's the big idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made our `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this.
+
+The examples that follow will get you filtering with Scious Search, starting simple and then getting more complex. We'll be looking at search provider specific implementations, so be sure to click the right one below to follow along.
+
+### Low Complexity
+
+<Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+These examples are from our [Algolia Filter demo](https://plugins.scious.io/scious-search-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
+
+Behold. The simplist filter you can build.
+
+<BubblePropertyEditor title="Scioussearch Simple" searchProvider="Algolia">
+
+```js
+"usage_count<40"
+```
+
+</BubblePropertyEditor>
+
+Like we said, the goal of the `Filters` expression is to create a set of filter intructions Algolia can understand. Here, this text asks Algolia to:
+
+> Return all records where the `usage_count` is less than `40`
+
+We're leaning on Algolia's [Filter by numeric syntax](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-numeric-value/#applying-a-numeric-filter) to accomplish this. To learn about all of Algolia's filter grammars, check out their [excellent documentation here](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/).
+
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+
+These examples are from our [Typesense Filter demo](https://plugins.scious.io/scious-search-typesense-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-typesense-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
+
+Behold. The simplist filter you can build.
+
+<BubblePropertyEditor title="Scioussearch Simple" searchProvider="Typesense">
+
+```js
+"usage_count<40"
+```
+
+</BubblePropertyEditor>
+
+Like we said, the goal of the `Filters` expression is to create a set of filter intructions Typesense can understand. Here, this text asks Typesense to:
+
+> Return all records where the `usage_count` is less than `40`
+
+We're leaning on Typesense's numeric filtering syntax to accomplish this. To learn about all of Typesense's filter grammars, check out their [excellent documentation here](https://typesense.org/docs/latest/api/search.html#filter-parameters).
+
+</TabItem>
+</Tabs>
+
+### Mid Complexity
+
+<Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+This next example uses Javascript's ternary operator to conditionally build a filter text.
+
+<BubblePropertyEditor title="Scioussearch mid complexity" searchProvider="Algolia">
+
+```js
+var categories_filter = (Multidropdown Categories value:count > 0) ? "categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
+
+categories_filter
+```
+
+</BubblePropertyEditor>
+
+Let's break it down. We're asking Algolia to:
+
+> Return all records where the `categories` field contains all of the items from `Multidropdown Categories`, but only if `Multidropdown Categories` has at least one value selected.
+
+If we were to build this filter in Bubble's native search, we'd `Do a search for` and check `ignore empty constraints` to ignore the `Multidropdown Categories` when empty.
+
+Javascript's [ternary operator](https://www.javascripttutorial.net/javascript-ternary-operator/) is our way of accomplishing the same thing. It's a condensed form of an `if`... `else`... statement and it looks like this:
+
+```js
+var our_variable = (some_condition) ? "value_A" : "value_B"
+```
+
+What happens here is when `some_condition` is true, then `our_variable` will be assigned the text `"value_A"`. Otherwise it will be assigned `"value_B"`.
+
+So in our example,
+
+```js
+var categories_filter = (Multidropdown Categories value:count > 0) ? "categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
+categories_filter
+```
+
+we check if `Multidropdown Categories value:count > 0`.
+
+- **If it is zero**, then we assign the empty text `""` to `categories_filter`. As a result, Algolia will not apply any filters to our search results.
+- **If it is greater than zero**, here we ultimately want to make text that looks something like
+
+  > `"categories:'technical' AND categories:'social network'"`
+
+  So to do that, we:
+
+  - start with the phrase `categories:'`
+  - append `' AND categories:'` to each `Multidropdown Categories value`
+  - and finish off the string with a single quotation mark `'`
+
+  Put it all together, and that looks like:
+
+  > `"categories:'Multidropdown Categories value:each items Display join with ' AND categories:''"`
+
+With the `categories_filter` variable completely defined, the last thing to do in the `Filters` input is state the variable we want to return. Since we only have one filter variable, `categories_filter`, that's the one we state.
+
+To close, in this example we leaned on [Algolia's Boolean Operator](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/in-depth/combining-boolean-operators/) syntax to `AND` multiple category filters together. Whether our source values come from a Multidropdown, a List Intersection, or some other list, you can use the same approach to make filters that return records matching ALL items within a list field. Note that Algolia also has the boolean operator `OR` which can be used to return records that match ANY items within a list field. They've also got a `NOT` operator that, along with `AND` and `OR`, can be chained and scoped using parenthesis `()` to craft even more sophisticated filters.
+
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+
+This next example uses Javascript's ternary operator to conditionally build a filter text.
+
+<BubblePropertyEditor title="Scioussearch mid complexity" searchProvider="Typesense">
+
+```js
+var categories_filter = (Multidropdown Categories value:count > 0) ? "categories:='Multidropdown Categories value:each items Display join with ' && categories:''": ""
+
+categories_filter
+```
+
+</BubblePropertyEditor>
+
+Let's break it down. We're asking Typesense to:
+
+> Return all records where the `categories` field contains all of the items from `Multidropdown Categories`, but only if `Multidropdown Categories` has at least one value selected.
+
+If we were to build this filter in Bubble's native search, we'd `Do a search for` and check `ignore empty constraints` to ignore the `Multidropdown Categories` when empty.
+
+Javascript's [ternary operator](https://www.javascripttutorial.net/javascript-ternary-operator/) is our way of accomplishing the same thing. It's a condensed form of an `if`... `else`... statement and it looks like this:
+
+```js
+var our_variable = (some_condition) ? "value_A" : "value_B"
+```
+
+What happens here is when `some_condition` is true, then `our_variable` will be assigned the text `"value_A"`. Otherwise it will be assigned `"value_B"`.
+
+So in our example,
+
+```js
+var categories_filter = (Multidropdown Categories value:count > 0) ? "categories:='Multidropdown Categories value:each items Display join with ' && categories:''": ""
+categories_filter
+```
+
+we check if `Multidropdown Categories value:count > 0`.
+
+- **If it is zero**, then we assign the empty text `""` to `categories_filter`. As a result, Typesense will not apply any filters to our search results.
+- **If it is greater than zero**, here we ultimately want to make text that looks something like
+
+  > `"categories:='technical' && categories:='social network'"`
+
+  So to do that, we:
+
+  - start with the phrase `categories:='`
+  - append `' && categories:='` to each `Multidropdown Categories value`
+  - and finish off the string with a single quotation mark `'`
+
+  Put it all together, and that looks like:
+
+  > `"categories:='Multidropdown Categories value:each items Display join with ' && categories:''"`
+
+With the `categories_filter` variable completely defined, the last thing to do in the `Filters` input is state the variable we want to return. Since we only have one filter variable, `categories_filter`, that's the one we state.
+
+To close, in this example we leaned on [Typesense's Boolean Operator](https://typesense.org/docs/latest/api/search.html#filter-parameters) syntax to `&&` multiple category filters together. Whether our source values come from a Multidropdown, a List Intersection, or some other list, you can use the same approach to make filters that return records matching ALL items within a list field. Note that Typesense also has the boolean operator `||` which can be used to return records that match ANY items within a list field. Their `&&` and `||` operators can be chained and scoped using parenthesis `()` to craft even more sophisticated filters.
+
+</TabItem>
+</Tabs>
+
+### High-ish Complexity
+
+<Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+Let's combine multiple filters.
+
+<BubblePropertyEditor title="Scioussearch high-ish complexity" searchProvider="Algolia">
+
+```js
+var categories_filter = (Multidropdown Categories value:count > 0) ? " AND categories:'Multidropdown Categories value:each items Display join with ' AND categories:''": ""
+
+var usage_filter = " AND usage_count:SliderInput Usage Counts value:min TO SliderInput Usage Counts value:max"
+
+// Format our condition so that yes is "true" and no is 'false'
+var open_source_filter = " AND published_open_source:Checkbox Is open source is checked:formatted as text"
+
+var filters = categories_filter + usage_filter + open_source_filter
+
+filters
+```
+
+</BubblePropertyEditor>
+
+Our three filters are as follow:
+
+1. The `Multidropdown Categories` filter from our last example.
+2. A `usage_count` filter using [Algolia's numeric range](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-numeric-value/#filtering-by-price-range) filter syntax.
+3. A `published_open_source` filter using [Algolia's boolean filter](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-boolean/#applying-a-boolean-filter) syntax. If the relevant checkbox is checked, then we format it's value as a text where `'yes'` is `true` and `'no'` is `false` (since that's what Algolia expects).
+
+With all three filter texts defined, we then concatenate them together into the variable `filters` using Javascript's `+` operator. Finally, we write `filters` so that our visual element knows it's the variable containing our full filter text.
+
+Readers may notice we start each filter with the phrase `" AND "`. As mentioned in our mid-complexity example, this is done so that when our filter strings are appended to each other, there's an AND in between them just the way Algolia expects. Of course, if your use case merits something else - you can also use `OR` or `NOT` as [Algolia allows](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/in-depth/combining-boolean-operators/).
+
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+
+Let's combine multiple filters.
+
+<BubblePropertyEditor title="Scioussearch high-ish complexity" searchProvider="Typesense">
+
+```js
+var categories_filter = (Multidropdown Categories value:count > 0) ? " && categories:='Multidropdown Categories value:each items Display join with ' && categories:=''": ""
+
+var usage_filter = " && usage_count:[SliderInput Usage Counts value:min..SliderInput Usage Counts value:max]"
+
+// Format our condition so that yes is "true" and no is 'false'
+var open_source_filter = " && published_open_source:=Checkbox Is open source is checked:formatted as text"
+
+var filters = categories_filter + usage_filter + open_source_filter
+
+filters
+```
+
+</BubblePropertyEditor>
+
+Our three filters are as follow:
+
+1. The `Multidropdown Categories` filter from our last example.
+2. A `usage_count` filter using [Typesense's numeric range](https://typesense.org/docs/latest/api/search.html#filter-parameters) filter syntax.
+3. A `published_open_source` filter using [Typesense's boolean filter](https://typesense.org/docs/latest/api/search.html#filter-parameters) syntax. If the relevant checkbox is checked, then we format it's value as a text where `'yes'` is `true` and `'no'` is `false` (since that's what Typesense expects).
+
+With all three filter texts defined, we then concatenate them together into the variable `filters` using Javascript's `+` operator. Finally, we write `filters` so that our visual element knows it's the variable containing our full filter text.
+
+Readers may notice we start each filter with the phrase `" && "`. As mentioned in our mid-complexity example, this is done so that when our filter strings are appended to each other, there's an && in between them just the way Typesense expects. Of course, if your use case merits something else - you can also use `OR` as Typesense allows.
+
+</TabItem>
+</Tabs>
+
+#### How the Filter's input is different from Toolbox's Expression element
+
+<Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+Earlier we said the `Filters` input behaves like the `Expression` element from the `Toolbox` plugin. There are two exceptions:
+
+1. If the resulting `Filters` text starts with the phrase `' AND '` or `'AND '`, then we remove that part before sending your filters to Algolia.
+
+   To understand why, imagine a filter composed of two ternary operators:
+
+   ```js
+   var my_filter = ternary_filter_a + ternary_filter_b
+   ```
+
+   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` which, if sent to Algolia, would cause an error. So, to maintain order in the universe, we automatically remove that leading phrase.
+
+2. We interpret non-quoted appearances of the phrase `yes` as Javascript's boolean `true` and `no` as Javascript's boolean `false`.
+
+   Quoted appearances like `"yes"`, `'yes'`, `"is_open_source=yes"` or `"is_open_source=no"` will not be converted to `true` or `false`. This means you can define Javascript conditions without having to format one of Bubble's Dynamic expressions with `Formatted as text`.
+
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+
+Earlier we said the `Filters` input behaves like the `Expression` element from the `Toolbox` plugin. There are two exceptions:
+
+1. If the resulting `Filters` text starts with the phrase `' && '` or `'&& '`, then we remove that part before sending your filters to Typesense.
+
+   To understand why, imagine a filter composed of two ternary operators:
+
+   ```js
+   var my_filter = ternary_filter_a + ternary_filter_b
+   ```
+
+   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `&&` which, if sent to Typesense, would cause an error. So, to maintain order in the universe, we automatically remove that leading phrase.
+
+2. We interpret non-quoted appearances of the phrase `yes` as Javascript's boolean `true` and `no` as Javascript's boolean `false`.
+
+   Quoted appearances like `"yes"`, `'yes'`, `"is_open_source=yes"` or `"is_open_source=no"` will not be converted to `true` or `false`. This means you can define Javascript conditions without having to format one of Bubble's Dynamic expressions with `Formatted as text`.
+
+</TabItem>
+</Tabs>
+
+<!-- <Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+</TabItem>
+</Tabs> -->
+
+:::tip
+
+Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Windows, press `CTRL`+`SHFT`+`i`, on Mac press `Option` + `⌘` + `i`) and you'll see your search filter printed to console. Filter logs are only printed to console in dev environments. If you also want them to appear in live, you can include a console.log() statement in your filter's javascript. Of course, this would double such logs in your dev environmnets.
+
+:::
 
 ## Keep your search index synchronized
 
@@ -287,7 +596,7 @@ That's it. Now, every time you create a record, this workflow will trigger and c
 
 <Figure src="img/scious-search/Refresh search results.png" />
 
-Refresh the search results from a Scious Search element.
+Refresh the search results from a Scious Search element. This action is typically used directly following any Create or Update a search record action in scenarios where users should be able to see the effect of those changes reflected in search results.
 
 **Inputs**
 
@@ -297,6 +606,8 @@ Refresh the search results from a Scious Search element.
 
 ### Scious Search
 
+This visual element is the work horse of Scious Search - it's what returns search results from your provider of choice.
+
 <Figure src="img/scious-search/Scious Search Visual Element.png" />
 
 **Inputs**
@@ -305,7 +616,7 @@ Refresh the search results from a Scious Search element.
 2. `Result type` Search result data type.
 3. `Search query` Set to the Typing Trigger `Output text` for best results.
 4. `Fields to search` The Bubble fields to search supplied as a JSON list.
-5. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
+5. `Filters` This section allows you to compose your filters using Javascript. For details, checkout our [Filters Deep Dive](#filters-deep-dive) section.
 6. `Sort by` A dictionary of the fields to sort by specified in JSON.
 7. `Results per page` Number of search results returned in each page of results.
 8. `Page` The current page of search results to display starting at "1".
@@ -322,12 +633,6 @@ Refresh the search results from a Scious Search element.
 6. `Error description` Additional text describing the error.
 7. `Highlights` List of matched highlight snippets.
 8. `Actual page` The actual page of search results returned.
-
-:::tip
-
-Want to see your `Filters` without having to print them to a text box? Open your browser developer tools (on Windows, press `CTRL`+`SHFT`+`i`, on Mac press `Option` + `⌘` + `i`) and you'll see your search filter printed to console. Filter logs are only printed to console in dev environments. If you also want them to appear in live, you can include a console.log() statement in your filter's javascript. Of course, this would double such logs in your dev environmnets.
-
-:::
 
 ### Typing Trigger
 
@@ -386,6 +691,7 @@ We have a single data API call named `Facets (🔍)`. This API call does not ret
 - We have not implemented Algolia "Recommend" (we plan to along with a Typesense equivalent).
 - Search filters are not able to span multiple data types / indices. That said, we have work arounds for this (will be documenting this soon)
 - You cannot sync more than one geographic address field per record per index using Algolia - that's a limitation of Algolia. Typesense can sync any number of geographic addresses per record.
+- We currently only process a few "Advanced Options" within the Scious Search visual element. We'll be supporting all of them soon.
 
 ## Support
 
