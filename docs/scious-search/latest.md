@@ -10,6 +10,7 @@ import Arcade from '../components/arcade'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
 import BubblePropertyEditor from '../components/bubblePropertyEditor';
+import Embed from '../components/embed'
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -17,6 +18,8 @@ import TabItem from '@theme/TabItem';
 # Scious Search [Latest]
 
 The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
+
+<Embed src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTEEb4Xgaq1HblW-57rIAdQYsrkWs5S9NGW0_0q0d3lhkFHVIdhm_tSnUlhEgb5d_X2CxGflq-iO93N/pubhtml?gid=533249420&amp;single=true&amp;widget=true&amp;headers=false" />
 
 ## Features
 
