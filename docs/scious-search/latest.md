@@ -216,7 +216,7 @@ The examples that follow will get you filtering with Scious Search, starting sim
 
 These examples are from our [Algolia Filter demo](https://plugins.scious.io/scious-search-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
 
-Behold. The simplist filter you can build.
+**Behold.** The simplist filter you can build.
 
 <BubblePropertyEditor title="Scioussearch Simple" searchProvider="Algolia">
 
@@ -231,6 +231,8 @@ Like we said, the goal of the `Filters` expression is to create a set of filter 
 > Return all records where the `usage_count` is less than `40`
 
 We're leaning on Algolia's [Filter by numeric syntax](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-numeric-value/#applying-a-numeric-filter) to accomplish this. To learn about all of Algolia's filter grammars, check out their [excellent documentation here](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/).
+
+Finally, please note that field names themselves (i.e. `usage_count` above) are case sensitive - they should match the case of the field names as written in your Bubble database.
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
@@ -252,6 +254,8 @@ Like we said, the goal of the `Filters` expression is to create a set of filter 
 > Return all records where the `usage_count` is less than `40`
 
 We're leaning on Typesense's numeric filtering syntax to accomplish this. To learn about all of Typesense's filter grammars, check out their [excellent documentation here](https://typesense.org/docs/latest/api/search.html#filter-parameters).
+
+Finally, please note that field names themselves (i.e. `usage_count` above) are case sensitive - they should match the case of the field names as written in your Bubble database.
 
 </TabItem>
 </Tabs>
