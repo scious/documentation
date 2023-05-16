@@ -10,6 +10,7 @@ import Arcade from '../components/arcade'
 import VideoGIF from '../components/videogifs'
 import Highlight from '../components/highlight'
 import BubblePropertyEditor from '../components/bubblePropertyEditor';
+import Embed from '../components/embed'
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -181,6 +182,8 @@ Now that you have a feel for how the Search Admin Dashboard looks and feels, let
 
 <Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
 
+By default, this template will sync the selected datatype for the current environment it's used in (`test`, `live` or other). This means that syncing other environments requires loading the `Search Admin Dashboard` for that environment and then syncing as needed. Of course, you can change this to work as you like - say, to sync any environment from the `test` environment via dropdown menu. We leave the implementation of such changes to end users.
+
 ### Implement search
 
 Once you've synced your data type(s) of interest, we can start searching them! This is as easy as placing our [Scious Search visual element](#scious-search) onto your page (a page other than your `sync-admin` page), specifying:
@@ -213,7 +216,7 @@ The examples that follow will get you filtering with Scious Search, starting sim
 
 These examples are from our [Algolia Filter demo](https://plugins.scious.io/scious-search-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
 
-Behold. The simplist filter you can build.
+**Behold.** The simplist filter you can build.
 
 <BubblePropertyEditor title="Scioussearch Simple" searchProvider="Algolia">
 
@@ -228,6 +231,8 @@ Like we said, the goal of the `Filters` expression is to create a set of filter 
 > Return all records where the `usage_count` is less than `40`
 
 We're leaning on Algolia's [Filter by numeric syntax](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/how-to/filter-by-numeric-value/#applying-a-numeric-filter) to accomplish this. To learn about all of Algolia's filter grammars, check out their [excellent documentation here](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/).
+
+Finally, please note that field names themselves (i.e. `usage_count` above) are case sensitive - they should match the case of the field names as written in your Bubble database.
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
@@ -249,6 +254,8 @@ Like we said, the goal of the `Filters` expression is to create a set of filter 
 > Return all records where the `usage_count` is less than `40`
 
 We're leaning on Typesense's numeric filtering syntax to accomplish this. To learn about all of Typesense's filter grammars, check out their [excellent documentation here](https://typesense.org/docs/latest/api/search.html#filter-parameters).
+
+Finally, please note that field names themselves (i.e. `usage_count` above) are case sensitive - they should match the case of the field names as written in your Bubble database.
 
 </TabItem>
 </Tabs>
@@ -523,12 +530,14 @@ That's it. Now, every time you create a record, this workflow will trigger and c
 
 ### Sync Search Index
 
+This is the action used to sync indices. While we've already set it up for you within our [sync admin template](https://plugins.scious.io/scious-search-admin), you can use it to make a custom search index administration page.
+
 <Figure src="img/scious-search/Sync search record.png" />
 
 **Inputs**
 
 1. `Search Provider` The search provider you've synced your data with.
-2. `Website Home URL` Enter the dynamic expression "Website Home URL"
+2. `Website Home URL` Decides which environment we're going to synchronize. In general, you'll want to enter Bubble's dynamic expression "Website Home URL" but you can build your various environment URLs seperately (say, to be selected from a dropdown) to feed this input.
 3. `Data Type` The data type to sync.
 4. `Fields to search` The Bubble fields to sync supplied as a JSON list. For example `['Author','Title','Created Date']`. If empty, then all columns will be synced. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
