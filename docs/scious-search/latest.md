@@ -182,7 +182,7 @@ Now that you have a feel for how the Search Admin Dashboard looks and feels, let
 
 <Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
 
-By default, this template will sync the selected datatype for the environment it's used in (`test`, `live` or other). Of course, this can be changed to work as you like - say, to sync any environment from the `test` environment via a dropdown menu. We leave the implementation of such changes to the end user.
+By default, this template will sync the selected datatype for the current environment it's used in (`test`, `live` or other). This means that syncing other environments requires loading the `Search Admin Dashboard` for that environment and then syncing as needed. Of course, you can change this to work as you like - say, to sync any environment from the `test` environment via dropdown menu. We leave the implementation of such changes to end users.
 
 ### Implement search
 
