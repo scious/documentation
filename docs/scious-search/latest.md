@@ -19,8 +19,6 @@ import TabItem from '@theme/TabItem';
 
 The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
 
-<Embed src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTEEb4Xgaq1HblW-57rIAdQYsrkWs5S9NGW0_0q0d3lhkFHVIdhm_tSnUlhEgb5d_X2CxGflq-iO93N/pubhtml?gid=533249420&amp;single=true&amp;widget=true&amp;headers=false" />
-
 ## Features
 
 **Scious Search** makes it possible to build real time, search-as-you-type experiences in Bubble. As a deep integration, it:
@@ -183,6 +181,8 @@ We provide a `Sync Search Index` action for mirroring data from your Bubble app 
 Now that you have a feel for how the Search Admin Dashboard looks and feels, let's add it to your app. Follow these directions. Towards the middle, you'll be asked to open the our `Admin Dashboard Template` - link to our editor for that [is here](https://bubble.io/page?version=live&type=page&name=scious-search-admin&id=scious-plugins&tab=tabs-1). You'll be directed to copy the `Group Search Admin Dashboard` group "with workflows" and "Paste with workflows" into your app.
 
 <Arcade src="https://demo.arcade.software/ibtoHyvfJMfcM3N97F9W?embed" />
+
+By default, this template will sync the selected datatype for the environment it's used in (`test`, `live` or other). Of course, this can be changed to work as you like - say, to sync any environment from the `test` environment via a dropdown menu. We leave the implementation of such changes to the end user.
 
 ### Implement search
 
@@ -530,12 +530,14 @@ That's it. Now, every time you create a record, this workflow will trigger and c
 
 ### Sync Search Index
 
+This is the action used to sync indices. While we've already set it up for you within our [sync admin template](https://plugins.scious.io/scious-search-admin), you can use it to make a custom search index administration page.
+
 <Figure src="img/scious-search/Sync search record.png" />
 
 **Inputs**
 
 1. `Search Provider` The search provider you've synced your data with.
-2. `Website Home URL` Enter the dynamic expression "Website Home URL"
+2. `Website Home URL` Decides which environment we're going to synchronize. In general, you'll want to enter Bubble's dynamic expression "Website Home URL" but you can build your various environment URLs seperately (say, to be selected from a dropdown) to feed this input.
 3. `Data Type` The data type to sync.
 4. `Fields to search` The Bubble fields to sync supplied as a JSON list. For example `['Author','Title','Created Date']`. If empty, then all columns will be synced. Empty is defined as nothing at all, `[]`, `['']`, or `[""]`. Any other value will result in an error.
 5. `Fields to sort` The Bubble fields that your search results can be sorted by (supplied as a JSON list).
