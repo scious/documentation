@@ -66,6 +66,6 @@ The following is documentation for the latest version of the Scious Search plugi
 ## Support
 
 - Refer to [our demo's editor](https://bubble.io/page?version=live&type=page&name=scious-search&id=scious-plugins&tab=tabs-1) for a self documented guide on how to setup and use Scious Search.
-- Need help integrating Scious Search? Drop a message in [our free Bubble support channel](https://forum.bubble.io/t/introducing-scious-search-solve-instant-search-once-and-for-all/259315/last) where we'll answer questions as able.
+- Need help integrating Scious Search? Want to request a feature? Drop a message in [our free Bubble support channel](https://forum.bubble.io/t/introducing-scious-search-solve-instant-search-once-and-for-all/259315/last) where we answer questions as able.
 - Prefer to have someone integrate Scious Search for you? We'll be offering integration services 'for hire' soon.
 - We offer a [Service Level Agreement](https://buy.stripe.com/8wMg2x1if3zz3ba6op) for customers requiring plugin service and maintenance guarentees.

@@ -32,7 +32,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 7. `Results per page` Number of search results returned in each page of results.
 8. `Page` The current page of search results to display starting at "1".
 9. `Field to highlight` Field name to return highlights for. Must be one of the fields already listed in `Fields to search`.
-10. `Advanced Options` Additional options for tuning search results.
+10. `Advanced Options` Additional options for tuning search results. See details in our [Advanced Options ] 
 
 **Outputs**
 
@@ -356,7 +356,7 @@ Want to see your `Filters` without having to print them to a text box? Open your
 
 :::
 
-### Typing Trigger
+## Typing Trigger
 
 <Figure src="img/scious-search/typing trigger.png" />
 
