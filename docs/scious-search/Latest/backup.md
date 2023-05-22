@@ -1,8 +1,9 @@
 ---
-sidebar_position: 1
-sidebar_label: Getting Started
+sidebar_position: 50
+sidebar_label: Overview
 pagination_next: null
 pagination_prev: null
+sidebar_class_name: hidden
 ---
 
 import Figure from '../../components/figures'
