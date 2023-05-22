@@ -32,7 +32,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 7. `Results per page` Number of search results returned in each page of results.
 8. `Page` The current page of search results to display starting at "1".
 9. `Field to highlight` Field name to return highlights for. Must be one of the fields already listed in `Fields to search`.
-10. `Advanced Options` Additional options for tuning search results. See details in our [Advanced Options ] 
+10. `Advanced Options` Additional options for tuning search results. See details in our [Advanced Options ]
 
 **Outputs**
 
@@ -299,14 +299,14 @@ Readers may notice we start each filter with the phrase `" && "`. As mentioned i
 </TabItem>
 </Tabs>
 
-#### How the Filter's input is different from Toolbox's Expression element
+### Filter input vs Toolbox's Expression element
 
 <Tabs groupId="search-providers">
 <TabItem value="Algolia" label="Algolia">
 
-Earlier we said the `Filters` input behaves like the `Expression` element from the `Toolbox` plugin. There are two exceptions:
+Earlier we said the `Filters` input behaves like the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/toolbox-1488796042609x768734193128308700). In truth, we've made a few changes behind the scenes to make writing filters as easy possible:
 
-1. If the resulting `Filters` text starts with the phrase `' AND '` or `'AND '`, then we remove that part before sending your filters to Algolia.
+1. If the resulting `Filters` text starts with the phrase `' AND '` or `' OR '`, then we remove that part before sending your filters to Algolia.
 
    To understand why, imagine a filter composed of two ternary operators:
 
@@ -314,18 +314,16 @@ Earlier we said the `Filters` input behaves like the `Expression` element from t
    var my_filter = ternary_filter_a + ternary_filter_b
    ```
 
-   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` which, if sent to Algolia, would cause an error. So, to maintain order in the universe, we automatically remove that leading phrase.
+   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` (or `OR`) which, if sent to Algolia, would cause an error. So, to maintain order in the universe, we remove those leading phrases.
 
-2. We interpret non-quoted appearances of the phrase `yes` as Javascript's boolean `true` and `no` as Javascript's boolean `false`.
-
-   Quoted appearances like `"yes"`, `'yes'`, `"is_open_source=yes"` or `"is_open_source=no"` will not be converted to `true` or `false`. This means you can define Javascript conditions without having to format one of Bubble's Dynamic expressions with `Formatted as text`.
+2. We interpret **non-quoted** appearances of the phrase `yes` and `no` as Javascript's boolean `true` and `false`, respectively. We interpret **quoted** appearances of the phrase `:yes` and `:no` as the phrase `:true` and `:false`, respectively. Together, this allows you to use Bubble's Dynamic `yes` / `no` expressions without having to `Formatted as text` the value to `true` or `false`, which is what Algolia expects.
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
 
-Earlier we said the `Filters` input behaves like the `Expression` element from the `Toolbox` plugin. There are two exceptions:
+Earlier we said the `Filters` input behaves like the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/toolbox-1488796042609x768734193128308700). In truth, we've made a few changes behind the scenes to make writing filters as easy possible:
 
-1. If the resulting `Filters` text starts with the phrase `' && '` or `'&& '`, then we remove that part before sending your filters to Typesense.
+1. If the resulting `Filters` text starts with the phrase `' && '` or `' || '`, then we remove that part before sending your filters to Typesense.
 
    To understand why, imagine a filter composed of two ternary operators:
 
@@ -333,11 +331,9 @@ Earlier we said the `Filters` input behaves like the `Expression` element from t
    var my_filter = ternary_filter_a + ternary_filter_b
    ```
 
-   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `&&` which, if sent to Typesense, would cause an error. So, to maintain order in the universe, we automatically remove that leading phrase.
+   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` (or `OR`) which, if sent to Typesense, would cause an error. So, to maintain order in the universe, we remove those leading phrases.
 
-2. We interpret non-quoted appearances of the phrase `yes` as Javascript's boolean `true` and `no` as Javascript's boolean `false`.
-
-   Quoted appearances like `"yes"`, `'yes'`, `"is_open_source=yes"` or `"is_open_source=no"` will not be converted to `true` or `false`. This means you can define Javascript conditions without having to format one of Bubble's Dynamic expressions with `Formatted as text`.
+2. We interpret **non-quoted** appearances of the phrase `yes` and `no` as Javascript's boolean `true` and `false`, respectively. We interpret **quoted** appearances of the phrase `:yes` and `:no` as the phrase `:true` and `:false`, respectively. Together, this allows you to use Bubble's Dynamic `yes` / `no` expressions without having to `Formatted as text` the value to `true` or `false`, which is what Typesense expects.
 
 </TabItem>
 </Tabs>
