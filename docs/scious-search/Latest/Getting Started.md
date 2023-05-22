@@ -1,16 +1,16 @@
 ---
 sidebar_position: 1
-sidebar_label: Latest
+sidebar_label: Getting Started
 pagination_next: null
 pagination_prev: null
 ---
 
-import Figure from '../components/figures'
-import Arcade from '../components/arcade'
-import VideoGIF from '../components/videogifs'
-import Highlight from '../components/highlight'
-import BubblePropertyEditor from '../components/bubblePropertyEditor';
-import Embed from '../components/embed'
+import Figure from '../../components/figures'
+import Arcade from '../../components/arcade'
+import VideoGIF from '../../components/videogifs'
+import Highlight from '../../components/highlight'
+import BubblePropertyEditor from '../../components/bubblePropertyEditor';
+import Embed from '../../components/embed'
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
