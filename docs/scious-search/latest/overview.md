@@ -62,7 +62,6 @@ The following is documentation for the latest version of the Scious Search plugi
 - We have not implemented Algolia "Recommend" (we plan to along with a Typesense equivalent).
 - Search filters are not able to span multiple data types / indices. That said, we have work arounds for this (will be documenting this soon)
 - You cannot sync more than one geographic address field per record per index using Algolia - that's a limitation of Algolia. Typesense can sync any number of geographic addresses per record.
-- We currently only process a few "Advanced Options" within the Scious Search visual element. We'll be supporting all of them soon.
 
 ## Support
 

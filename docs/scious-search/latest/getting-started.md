@@ -14,6 +14,8 @@ import TabItem from '@theme/TabItem';
 
 # Getting started
 
+## Plugin setup
+
 You'll be using Scious Search in less than 20 minutes. To start we need a few things:
 
 1. [Install plugin](#install-plugin).
@@ -138,9 +140,9 @@ Now that you have a feel for how the Search Admin Dashboard looks and feels, let
 
 By default, this template will sync the selected datatype for the current environment it's used in (`test`, `live` or other). This means that syncing other environments requires loading the `Search Admin Dashboard` for that environment and then syncing as needed. Of course, you can change this to work as you like - say, to sync any environment from the `test` environment via dropdown menu. We leave the implementation of such changes to end users.
 
-### Implement search
+## Implement search
 
-Once you've synced your data type(s) of interest, we can start searching them! This is as easy as placing our [Scious Search visual element](#scious-search) onto your page (a page other than your `sync-admin` page), specifying:
+Once you've synced your data type(s) of interest, we can start searching them! This is as easy as placing our [Scious Search visual element](./visual-elements#scious-search) onto your page (a page other than your `sync-admin` page), specifying:
 
 - `Search Provider`
 - `Result type`
