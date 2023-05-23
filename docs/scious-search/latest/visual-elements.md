@@ -362,19 +362,76 @@ This section applies to the following visual elements:
 - [Scious Search](#scious-search)
 - [Get Facets](#get-facets)
 
-While Algolia provides relevant search results by default, it also has parameters you can tune to change how results are returned. See the full list of these parameters in [Algolia's Search parameters](https://www.algolia.com/doc/api-reference/search-api-parameters/) documentation. The `Advanced options` input is the place where we define these - in JSON format.
+While Algolia's search defaults are great for many use cases, some applications can benefit from search result tuning. The `Advanced options` input is the place where we can make such adjustments. This input accepts a JSON dictionary of two kinds of parameters:
 
-We process two kinds of parameters:
-
-1.  Algolia specific parameters - a full list of which is in [Algolia's Search parameter](https://www.algolia.com/doc/api-reference/search-api-parameters/) documentation.
+1.  Algolia specific parameters.
 2.  Scious Search specific parameters.
 
-In the case of Alg
+#### Algolia parameters
 
-The tunable parameters are listed.
+For the full list, check out their [search parameter documentation](https://www.algolia.com/doc/api-reference/search-api-parameters/). Of those, you can set any parameter except the following ones (which we use and cannot be overridden):
+
+- `hitsPerPage`
+- `attributesToRetrieve`
+- `filters`
+- `restrictSearchableAttributes`
+- `attributesToHighlight`
+- `highlightPreTag`
+- `highlightPostTag`
+- `page`
+
+#### Scious Search parameters
+
+Internally, we have two unique parameters for controlling the output of search results:
+
+1. `clearSciousSearch`
+
+   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` is set to an empty list regardless of any other input. This effectively "turns off" the Scious Search visual element and it should be used instead of toggling the element's visibility.
+
+2. `freezeSciousSearch`
+
+   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` will hold the current state - whatever that was - regardless of any other input. This effectively "freezes" your search results.
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
+
+This section applies to the following visual elements:
+
+- [Scious Search](#scious-search)
+- [Get Facets](#get-facets)
+
+While Typesense's search defaults are great for many use cases, some applications can benefit from search result tuning. The `Advanced options` input is the place where we can make such adjustments. This input accepts a JSON dictionary of two kinds of parameters:
+
+1.  Typesense specific parameters.
+2.  Scious Search specific parameters.
+
+#### Typesense parameters
+
+For the full list, check out their [search parameter documentation](https://typesense.org/docs/latest/api/search.html). Of those, you can set any parameter except the following ones (which we use and cannot be overridden):
+
+- `collection`
+- `q`
+- `per_page`
+- `include_fields`
+- `filter_by`
+- `sort_by`
+- `query_by`
+- `highlight_fields`
+- `highlight_start_tag`
+- `highlight_end_tag`
+- `page`
+
+#### Scious Search parameters
+
+Internally, we have two unique parameters for controlling the output of search results:
+
+1. `clear_scious_search`
+
+   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` is set to an empty list regardless of any other input. This effectively "turns off" the Scious Search visual element and it should be used instead of toggling the element's visibility.
+
+2. `freeze_scious_search`
+
+   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` will hold the current state - whatever that was - regardless of any other input. This effectively "freezes" your search results.
 
 </TabItem>
 </Tabs>
