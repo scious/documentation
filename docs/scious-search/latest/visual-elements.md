@@ -32,7 +32,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 7. `Results per page` Number of search results returned in each page of results.
 8. `Page` The current page of search results to display starting at "1".
 9. `Field to highlight` Field name to return highlights for. Must be one of the fields already listed in `Fields to search`.
-10. `Advanced Options` Additional options for tuning search results. See details in our [Advanced Options ]
+10. `Advanced options` Additional options for tuning search results. See details in our [Advanced options](#advanced-options) section
 
 **Outputs**
 
@@ -352,6 +352,33 @@ Want to see your `Filters` without having to print them to a text box? Open your
 
 :::
 
+## Advanced options
+
+<Tabs groupId="search-providers">
+<TabItem value="Algolia" label="Algolia">
+
+This section applies to the following visual elements:
+
+- [Scious Search](#scious-search)
+- [Get Facets](#get-facets)
+
+While Algolia provides relevant search results by default, it also has parameters you can tune to change how results are returned. See the full list of these parameters in [Algolia's Search parameters](https://www.algolia.com/doc/api-reference/search-api-parameters/) documentation. The `Advanced options` input is the place where we define these - in JSON format.
+
+We process two kinds of parameters:
+
+1.  Algolia specific parameters - a full list of which is in [Algolia's Search parameter](https://www.algolia.com/doc/api-reference/search-api-parameters/) documentation.
+2.  Scious Search specific parameters.
+
+In the case of Alg
+
+The tunable parameters are listed.
+
+</TabItem>
+<TabItem value="Typesense" label="Typesense">
+
+</TabItem>
+</Tabs>
+
 ## Typing Trigger
 
 <Figure src="img/scious-search/typing trigger.png" />
@@ -389,10 +416,10 @@ This visual element does not have any inputs.
 4. `Search query` Keywords to search. Set to the Typing Trigger Value for best results.
 5. `Fields to search` The Bubble fields to search supplied as a JSON list.
 6. `Fields to facet` The Bubble fields to facet supplied as a JSON list. Specifies the order of returned "Facets".
-7. `Filters` This section allows you to compose your filters using Javascript. Follow your search provider's syntax for building filtering strings.
+7. `Filters` This section allows you to compose your filters using Javascript. It works exactly like the Scious Search visual element's `Filters` input. Details [here](#filters-deep-dive).
 8. `Max values per facet` The maximum number of facet values returned per facet.
 9. `Facet query` Keywords to search in `Fields to facet`. Set to the Typing Trigger's `Output text` for best results.
-10. `Advanced options` Additional options for tuning search results.
+10. `Advanced options` Additional options for tuning search results. It works exactly like the Scious Search visual element's `Advanced options` input. Details [here](#advanced-options).
 
 **Outputs**
 
