@@ -1,16 +1,17 @@
 ---
-sidebar_position: 1
-sidebar_label: Latest
+sidebar_position: 50
+sidebar_label: Overview
 pagination_next: null
 pagination_prev: null
+sidebar_class_name: hidden
 ---
 
-import Figure from '../components/figures'
-import Arcade from '../components/arcade'
-import VideoGIF from '../components/videogifs'
-import Highlight from '../components/highlight'
-import BubblePropertyEditor from '../components/bubblePropertyEditor';
-import Embed from '../components/embed'
+import Figure from '../../components/figures'
+import Arcade from '../../components/arcade'
+import VideoGIF from '../../components/videogifs'
+import Highlight from '../../components/highlight'
+import BubblePropertyEditor from '../../components/bubblePropertyEditor';
+import Embed from '../../components/embed'
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -623,7 +624,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 
 1. `Search Provider` The search provider you've synced your data with.
 2. `Result type` Search result data type.
-3. `Search query` Set to the Typing Trigger `Output text` for best results.
+3. `Search query` Set to the Typing Trigger `Output text` for best results. An empty search query returns all results matching `Filters`.
 4. `Fields to search` The Bubble fields to search supplied as a JSON list.
 5. `Filters` This section allows you to compose your filters using Javascript. For details, checkout our [Filters Deep Dive](#filters-deep-dive) section.
 6. `Sort by` A dictionary of the fields to sort by specified in JSON.
