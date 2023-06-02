@@ -74,7 +74,7 @@ const config = {
             items: [
               {
                 label: 'Forums (free)',
-                to: '/#forums',
+                to: '/#support',
               },
               // {
               //   label: 'Book a session',
