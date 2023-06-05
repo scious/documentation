@@ -306,17 +306,24 @@ Readers may notice we start each filter with the phrase `" && "`. As mentioned i
 
 Earlier we said the `Filters` input behaves like the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/toolbox-1488796042609x768734193128308700). In truth, we've made a few changes behind the scenes to make writing filters as easy possible:
 
-1. If the resulting `Filters` text starts with the phrase `' AND '` or `' OR '`, then we remove that part before sending your filters to Algolia.
+1.  If the resulting `Filters` text starts with the phrase `' AND '` or `' OR '`, then we remove that part before sending your filters to Algolia.
 
-   To understand why, imagine a filter composed of two ternary operators:
+    To understand why, imagine a filter composed of two ternary operators:
 
-   ```js
-   var my_filter = ternary_filter_a + ternary_filter_b
-   ```
+    ```js
+    var my_filter = ternary_filter_a + ternary_filter_b
+    ```
 
-   If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` (or `OR`) which, if sent to Algolia, would cause an error. So, to maintain order in the universe, we remove those leading phrases.
+    If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` (or `OR`) which, if sent to Algolia, would cause an error. So, to maintain order in the universe, we remove those leading phrases.
 
-2. We interpret **non-quoted** appearances of the phrase `yes` and `no` as Javascript's boolean `true` and `false`, respectively. We interpret **quoted** appearances of the phrase `:yes` and `:no` as the phrase `:true` and `:false`, respectively. Together, this allows you to use Bubble's Dynamic `yes` / `no` expressions without having to `Formatted as text` the value to `true` or `false`, which is what Algolia expects.
+2.  We interpret **non-quoted** appearances of the phrase `yes` and `no` as Javascript's boolean `true` and `false`, respectively. We interpret **quoted** appearances of the phrase `:yes` and `:no` as the phrase `:true` and `:false`, respectively. Together, this allows you to use Bubble's Dynamic `yes` / `no` expressions in filters without having to `Formatted as text` the value to `true` or `false`, which is what Algolia expects.
+
+3.  We interpret **non-quoted** dates as UNIX timestamps (ms) as follows:
+
+    - `MMM D, YYYY h:mm a` The date **Dec 23, 2023 10:31 pm** converts to **1703392260000**. This is the default date format produced by Bubble dynamic expressions that resolve a date.
+    - `MMMM D, YYYY h:mm a` The date **December 23, 2023 10:31 pm** converts to **1703392260000**.
+
+    This allows you to use Bubble's Dynamic date expressions in filters without having to remember to `Extract UNIX timestamps (ms)`, which is the format Algolia expects.
 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
@@ -334,6 +341,14 @@ Earlier we said the `Filters` input behaves like the `Expression` element from t
    If `ternary_filter_a` is inactive due to, say, an empty Bubble dropdown, then only `ternary_filter_b` contributes to `my_filter`. But `ternary_filter_b` likely starts with the phrase `AND` (or `OR`) which, if sent to Typesense, would cause an error. So, to maintain order in the universe, we remove those leading phrases.
 
 2. We interpret **non-quoted** appearances of the phrase `yes` and `no` as Javascript's boolean `true` and `false`, respectively. We interpret **quoted** appearances of the phrase `:yes` and `:no` as the phrase `:true` and `:false`, respectively. Together, this allows you to use Bubble's Dynamic `yes` / `no` expressions without having to `Formatted as text` the value to `true` or `false`, which is what Typesense expects.
+
+3.  We interpret **non-quoted** dates as UNIX timestamps (ms) as follows:
+
+    - `MMM D, YYYY h:mm a` The date **Dec 23, 2023 10:31 pm** converts to **1703392260000**. This is the default date format produced by Bubble dynamic expressions that resolve a date.
+    - `MMMM D, YYYY h:mm a` The date **December 23, 2023 10:31 pm** converts to **1703392260000**.
+
+    This allows you to use Bubble's Dynamic date expressions in filters without having to remember to `Extract UNIX timestamps (ms)`, which is the format Typesense expects.
+
 
 </TabItem>
 </Tabs>
