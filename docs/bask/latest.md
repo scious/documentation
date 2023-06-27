@@ -69,20 +69,29 @@ or log out of all devices
 
 ### Hidden pre-command commands.
 
-The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Switch Plugin`, `Bask Which`, `Bask Set Bubble Credentials`
+The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Switch Plugin`, `Bask Which`
 
-- `pre_launch_checklist()`: Returns
+- `get_pre_launch_checklist()`: Returns
   - `registration_is_valid`
   - `bubble_credentials_are_present`
   - `current_working_plugin_is_set`
-- `get_ready_for_launch()`. Runs through a wizard for getting all of the
-- `check_registration()`: Check if registered and if not, prompt for registration.
+- `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`. Runs through a wizard for completeing any missing pre_launch_checklist items.
+  - `register_bask()`: Ask for registration.
+  - `get_bubble_credentials()`: Ask for Bubble login credentials.
+  - `get_current_working_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then ask user to select plugin.
 - `start_browser()`: If Bask isn't already running, then turn it on. Bask should auto turn off (close the browser instance) once every 2 days.
-- `get_current_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then ask user to select plugin.
 
-The following functions need to be run before `Bask Init`, `Bask Clone`
+The following functions need to be run before `Bask Init`, `Bask Clone`, `Bask Set Bubble Credentials`
+
+- `get_pre_launch_checklist()` as defined above
+-
+
+`Bask init`,
 
 ### `Bask Init`
+
+- `bask_init()` Create a new plugin.
+- `bask_clone()` Clone it to local just like `Bask Clone` below.
 
 ### `Bask Clone`
 
