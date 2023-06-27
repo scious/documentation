@@ -72,9 +72,10 @@ or log out of all devices
 The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Switch Plugin`, `Bask Which`, `Bask Set Bubble Credentials`
 
 - `pre_launch_checklist()`: Returns
-   - `registration_is_valid`
-   - `bubble_credentials_are_present`
-   - `current_working_plugin_is_set`
+  - `registration_is_valid`
+  - `bubble_credentials_are_present`
+  - `current_working_plugin_is_set`
+- `get_ready_for_launch()`. Runs through a wizard for getting all of the
 - `check_registration()`: Check if registered and if not, prompt for registration.
 - `start_browser()`: If Bask isn't already running, then turn it on. Bask should auto turn off (close the browser instance) once every 2 days.
 - `get_current_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then ask user to select plugin.
