@@ -53,11 +53,7 @@ Speaking of login credentials, we have **zero** interest in holding onto yours. 
 
 All commands in VS Code are run by typing `CTRL` + `SHFT` + `P` (or `⇧⌘P` on macOS) and then typing one of the following commands.
 
-### `Bask On`
-
-Turns on bask for the duration of your coding session.
-
-The first time you do this, bask will ask for your Bubble login credentials. If you don't know your password (perhaps because your account uses `Log in with Google`), then visit [Bubble's login page](https://bubble.io/home?mode=login) > click `Forgot your password?` > then follow the directions to reset your password. Finally, copy and paste those values into Bask. As mentioned [above](#hows-this-work), no credentials ever leave your device.
+The first time you run a command (LIST THE SPECIFIC COMMAND USERS SHOULD START WITH) do this, bask will ask for your Bubble login credentials. If you don't know your password (perhaps because your account uses `Log in with Google`), then visit [Bubble's login page](https://bubble.io/home?mode=login) > click `Forgot your password?` > then follow the directions to reset your password. Finally, copy and paste those values into Bask. As mentioned [above](#hows-this-work), no credentials ever leave your device.
 
 Trying Bask for the first time? Start your 14 day free trial by grabbing API keys here.
 
@@ -71,10 +67,19 @@ or log out of all devices
 
 :::
 
-### `Bask Off`
+### Hidden pre-command commands.
 
-can run regardless of prior Bask on because it just does nothgin.
-returns message that bask is off (maybe can say whether or not bask was ever on).
+The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Switch Plugin`, `Bask Which`, `Bask Set Bubble Credentials`
+
+- `pre_launch_checklist()`: Returns
+   - `registration_is_valid`
+   - `bubble_credentials_are_present`
+   - `current_working_plugin_is_set`
+- `check_registration()`: Check if registered and if not, prompt for registration.
+- `start_browser()`: If Bask isn't already running, then turn it on. Bask should auto turn off (close the browser instance) once every 2 days.
+- `get_current_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then ask user to select plugin.
+
+The following functions need to be run before `Bask Init`, `Bask Clone`
 
 ### `Bask Init`
 
