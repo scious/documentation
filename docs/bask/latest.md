@@ -49,21 +49,25 @@ Bask does more than just shorten the code-test-code loop.
 
 A tool like Bask has always seemed out of reach because Bubble doesn't have a public API for updating plugin code. However, it is possible to make VS Code extensions that automate any web browsing task. So we made an extension that automates the tedious browser based actions that Bubble plugin developers do many times per hour. Our extension asks for your Bubble login credentials because it actually signs into your Bubble account in an invisible browser on your computer to perform actions on your behalf.
 
-Speaking of login credentials, we have zero interest in holding yours. So our extension stores those on your computer using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage). Your credentials never leave your device.
+Speaking of login credentials, we have **zero** interest in holding yours. So our extension stores those on your computer using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage). Your credentials never leave your device.
 
 ### Your new workflow
 
 Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate code minification, treeshaking and unit testing, we setup two distinct git-controlled folders.
 
-Parent Folder:
-Default Bubble Plugin Repo:
+- `Parent Folder`:
+- `Default Bubble Plugin Repo`:
+
+```
 📂 Parent Folder
 ┣ 📜 .gitignore
 ┣ 📜 ...
 ┣ 📂 Default Bubble Plugin Repo
 ┃ ┗ 📜 .gitignore
 ┗ 📜 ...
+```
 
+```
 📂 toolbox
 ┣ 📂 client
 ┣ 📂 node_modules
@@ -71,6 +75,7 @@ Default Bubble Plugin Repo:
 ┣ 📜 .gitignore
 ┣ 📜 package-lock.json
 ┗ 📜 package.json
+```
 
 Folder A which will hold . It's kind of an odd setup, but it seems like the best we can do given how Bubble's git synchronization works.
 
@@ -146,10 +151,11 @@ Copies an existing Bubble plugin into a local folder of your choice.
 ### `Bask Switch Plugin`
 
 Specify the plugin you want to work on with Bask.
-Options are populated from a dropdown list showing the Bask compatible workspace folders
-If no option is available, return explanation for how to get options listed in the dropdown.
 
-### `Bask Which`
+- Options are populated from a dropdown list showing the Bask compatible workspace folders
+- If no option is available, return explanation for how to get options listed in the dropdown.
+
+### `Bask Which Plugin`
 
 Returns the name of the plugin Bask is currently working on.
 
