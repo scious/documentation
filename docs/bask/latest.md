@@ -40,7 +40,7 @@ Bask does more than just shorten the code-test-code loop.
 - Standardize your development process to improve code quality, consistency, and release cadence.
 - **Coming soon** Initialize new elements and server side actions without leaving VS Code.
 - **Coming soon** Initialize new plugins without leaving VS Code.
-- **Coming soon** <s>Have multiple developers working on one plugin at the same time?</s> (It's not really possible to enable simultaneous development on the same plugin because there is no true target isolation - everyone would be releasing code to the same branch, and while we could build tools for merging non-conflicting changes, it's rather impracticle for multiple people to test different aspects of the same plugin at the same time).
+- <s> **Coming soon** Have multiple developers working on one plugin at the same time?</s> (It's not really possible to enable simultaneous development on the same plugin because there is no true target isolation - everyone would be releasing code to the same branch, and while we could build tools for merging non-conflicting changes, it's rather impracticle for multiple people to test different aspects of the same plugin at the same time).
 - **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
 
 ## How's it work?
@@ -85,22 +85,44 @@ As mentioned, both folders are git-controlled. If that seems odd, that's because
 
 </s>
 
-Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate code minification, treeshaking and unit testing, we setup two git branches in
+Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate code minification, treeshaking and unit testing, we setup three git branches.
 
-distinct folders.
+- `main`: This git branch is the same repo that Bubble syncs to GitHub. We use it to store production ready code - any SSA or Visual Element code that passes unit tests, is minified and treeshaked gets stored here.
+- `bask_dev`: This branch contains a human readable version of the `main` branch. It mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. It also stores your `build` and `test` scripts.
+- `bask_checkpoint`: This branch is where mature code in `bask_dev` is version controlled for future reference.
 
-- `Default Bubble Plugin Repo`: This is the Bubble plugin folder you're familiar with - it's the same repo that Bubble syncs to GitHub. We'll be using it to store production ready code - any SSA or Visual Element code that passes unit tests, was minified and treeshaked gets stored here.
-- `Main Folder`: This is the human readable version of the `Default Bubble Plugin Repo`. It mirrors the structure of `Default Bubble Plugin Repo` but with meaningful filenames (instead of Bubble's cryptic filenames). It also stores your `build` and `test` scripts and any necessary node modules.
-
-The heirarchy of these folders is generally as follows.
+The general heirarchy of these folders is as follows.
 
 ```
+⎇ main
+┣ 📜 ...
+┣ 📂 Default Bubble Plugin Repo
+┃ ┗ 📜 .gitignore
+┗ 📜 ...
+
+
+
+
+
+```
+
+⎇ Default Bubble Plugin Repo - Main Branch
+┣ 📜 ...
+┣ 📂 Default Bubble Plugin Repo
+┃ ┗ 📜 .gitignore
+┗ 📜 ...
+
+```
+
+```
+
 📂 Main Folder
 ┣ 📜 .gitignore
 ┣ 📜 ...
 ┣ 📂 Default Bubble Plugin Repo
 ┃ ┗ 📜 .gitignore
 ┗ 📜 ...
+
 ```
 
 ## Commands
@@ -199,3 +221,4 @@ Securely saves your Bubble username and password within VS Code so Bask can auto
 
 - If credentials were recently set because `Bask Set Bubble Credentials` was the very first command ever run, then do nothing. Otherwise, run as expected.
 - We see that
+```
