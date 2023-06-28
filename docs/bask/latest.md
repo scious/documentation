@@ -71,13 +71,6 @@ The heirarchy of these folders is generally as follows.
 
 As mentioned, both folders are git-controlled. If that seems odd, that's because it is - but we do this because it's currently impossible to store both production-ready plugin code and human-readable plugin code within a `Default Bubble Plugin Repo`; when syncing from Bubble to GitHub, Bubble deletes any non-standard folders it sees in `Default Bubble Plugin Repo` so any second folder used to separate our human-readable code from production code is eliminated from version control. Thus our introduction the `Main Folder` concept as a parent of `Default Bubble Plugin Repo`. Innovative, ey? This results in having two git repos for the same project, which isn't awesome, but we think that's a small price to pay for the ultimate benefits of dev vs prod code separation.
 
-<details>
-<summary>See why it's impossible</summary>
-
-Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
-
-</details>
-
 (that's because the act of synchronizing Bubble to GitHub will delete any folders and files that do not strictly adhere to Bubble's current plugin repo standard).
 
 ```
