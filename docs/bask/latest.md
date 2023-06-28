@@ -32,7 +32,7 @@ Bask simplifies plugin development, reducing our workflow to:
 6. If the SSA fails (which happens 99% of the time), then read the error output.
 7. Repeat steps 1 through 6 until the plugin works.
 
-## Lovely features
+## Bodacious features
 
 Bask does more than just shorten the code-test-code loop.
 
@@ -55,17 +55,30 @@ Speaking of login credentials, we have **zero** interest in holding yours. So ou
 
 Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate code minification, treeshaking and unit testing, we setup two distinct git-controlled folders.
 
-- `Parent Folder`:
-- `Default Bubble Plugin Repo`:
+- `Default Bubble Plugin Repo`: This is the Bubble plugin folder you're familiar with - it's the same repo that Bubble syncs to GitHub. We'll be using it to store production ready code - any SSA or Visual Element code that passes unit tests, was minified and treeshaked gets stored here.
+- `Main Folder`: This is the human readable version of the `Default Bubble Plugin Repo`. It mirrors the structure of `Default Bubble Plugin Repo` but with meaningful filenames (instead of Bubble's cryptic filenames). It also stores your `build` and `test` scripts and any necessary node modules.
+
+The heirarchy of these folders is generally as follows.
 
 ```
-📂 Parent Folder
+📂 Main Folder
 ┣ 📜 .gitignore
 ┣ 📜 ...
 ┣ 📂 Default Bubble Plugin Repo
 ┃ ┗ 📜 .gitignore
 ┗ 📜 ...
 ```
+
+As mentioned, both folders are git-controlled. If that seems odd, that's because it is - but we do this because it's currently impossible to store both production-ready plugin code and human-readable plugin code within a `Default Bubble Plugin Repo`; when syncing from Bubble to GitHub, Bubble deletes any non-standard folders it sees in `Default Bubble Plugin Repo` so any second folder used to separate our human-readable code from production code is eliminated from version control. Thus our introduction the `Main Folder` concept as a parent of `Default Bubble Plugin Repo`. Innovative, ey? This results in having two git repos for the same project, which isn't awesome, but we think that's a small price to pay for the ultimate benefits of dev vs prod code separation.
+
+<details>
+<summary>See why it's impossible</summary>
+
+Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". It comes from the second half of the word "conscious" which we hold as a guiding principle - to be conscious and empathetic to the people we build products for.
+
+</details>
+
+(that's because the act of synchronizing Bubble to GitHub will delete any folders and files that do not strictly adhere to Bubble's current plugin repo standard).
 
 ```
 📂 toolbox
