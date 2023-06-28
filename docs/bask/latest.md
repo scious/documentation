@@ -45,9 +45,38 @@ Bask does more than just shorten the code-test-code loop.
 
 ## How's it work?
 
-A tool like Bask has always seemed out of reach because Bubble doesn't have a public API for updating plugin code. However, it is possible to make VS Code extensions that automate **any** web browsing task. So we made an extension that automates the tedious browser based actions that Bubble plugin developers do many times per hour. Our extension asks for your Bubble login credentials because it actually signs into your Bubble account in an invisible browser on your computer to perform actions on your behalf.
+### Under the hood
 
-Speaking of login credentials, we have **zero** interest in holding onto yours. So they get stored on your computer using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage). Your credentials never leave your device.
+A tool like Bask has always seemed out of reach because Bubble doesn't have a public API for updating plugin code. However, it is possible to make VS Code extensions that automate any web browsing task. So we made an extension that automates the tedious browser based actions that Bubble plugin developers do many times per hour. Our extension asks for your Bubble login credentials because it actually signs into your Bubble account in an invisible browser on your computer to perform actions on your behalf.
+
+Speaking of login credentials, we have zero interest in holding yours. So our extension stores those on your computer using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage). Your credentials never leave your device.
+
+### Your new workflow
+
+Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate code minification, treeshaking and unit testing, we setup two distinct git-controlled folders.
+
+Parent Folder:
+Default Bubble Plugin Repo:
+📂 Parent Folder
+┣ 📜 .gitignore
+┣ 📜 ...
+┣ 📂 Default Bubble Plugin Repo
+┃ ┗ 📜 .gitignore
+┗ 📜 ...
+
+📂 toolbox
+┣ 📂 client
+┣ 📂 node_modules
+┃ ┗ 📜 index.js
+┣ 📜 .gitignore
+┣ 📜 package-lock.json
+┗ 📜 package.json
+
+Folder A which will hold . It's kind of an odd setup, but it seems like the best we can do given how Bubble's git synchronization works.
+
+structure it a bit... odd. In short,
+
+Since we're
 
 ## Commands
 
