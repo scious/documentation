@@ -91,31 +91,32 @@ Perhaps the biggest difference between your current workflow and the _Bask workf
 - `bask_dev`: This branch contains a human readable version of the `main` branch. It mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. It also stores your `build` and `test` scripts.
 - `bask_checkpoint`: This branch is where mature code in `bask_dev` is version controlled for future reference.
 
-The general heirarchy of these folders is as follows.
+Let's run through a specific example. Say we're working on a plugin called "Toolbox" that only has one Server Side action. Bask will create branches that look like the following:
+
+`⎇ main`
 
 ```
-⎇ main
-┣ 📜 ...
-┣ 📂 Default Bubble Plugin Repo
-┃ ┗ 📜 .gitignore
+┣ 📂 actions
+┃ ┗ 📜 ...
+┗ 📜 README.md
 ┗ 📜 ...
-
-
-
-
+```
 
 ```
 
-⎇ Default Bubble Plugin Repo - Main Branch
-┣ 📜 ...
-┣ 📂 Default Bubble Plugin Repo
-┃ ┗ 📜 .gitignore
+⎇ bask_dev
+┣ 📂 toolbox
+  ┣ 📂 actions
+  ┃ ┗ 📜 ...
+  ┗ 📜 README.md
+  ┗ 📜 ...
+┣ 📂 actions
+┃ ┗ 📜 ...
+┗ 📜 README.md
 ┗ 📜 ...
-
 ```
 
 ```
-
 📂 Main Folder
 ┣ 📜 .gitignore
 ┣ 📜 ...
@@ -221,4 +222,7 @@ Securely saves your Bubble username and password within VS Code so Bask can auto
 
 - If credentials were recently set because `Bask Set Bubble Credentials` was the very first command ever run, then do nothing. Otherwise, run as expected.
 - We see that
+
+```
+
 ```
