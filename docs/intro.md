@@ -154,7 +154,7 @@ Copies an existing Bubble plugin into a local folder of your choice.
 
 ### `Bask Push`
 
-- Project folder should already be defined (cloned) in a way that VS Code can detect is a bask repository
+- Project folder should already be defined (cloned) in a way that VS Code can detect is a bask repository.
 
 ### `Bask Pull`
 
