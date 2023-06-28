@@ -7,7 +7,7 @@ pagination_prev: null
 
 # Bask [Latest]
 
-**Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, most workflows for developing a Bubble plugin look like:
+**Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, most workflows for developing Server Side Actions or Visual Elements look like:
 
 1. Code in local editor.
 2. Run build script to minify, treeshake, or perform other code bundling tasks.
@@ -43,11 +43,11 @@ Bask does more than just shorten the code-test-code loop.
 - **Coming soon** Have multiple developers working on one plugin at the same time? Easily standardize your team's activites to improve code quality, consistency, and cadence.
 - **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
 
-## How's this work?
+## How's it work?
 
-A tool like Bask has always seemed out of reach because Bubble doesn't have a public API for updating plugin code. However, it's possible to make VS Code extensions that automate **any** web browsing task. So we made an extension that automates the tedious browser based actions that Bubble plugin developers do many times per hour. Our extension asks for your Bubble login credentials because it actually signs into your Bubble account in an invisible browser on your computer to perform actions on your behalf.
+A tool like Bask has always seemed out of reach because Bubble doesn't have a public API for updating plugin code. However, it is possible to make VS Code extensions that automate **any** web browsing task. So we made an extension that automates the tedious browser based actions that Bubble plugin developers do many times per hour. Our extension asks for your Bubble login credentials because it actually signs into your Bubble account in an invisible browser on your computer to perform actions on your behalf.
 
-Speaking of login credentials, we have **zero** interest in holding onto yours. So it gets stored using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage). Your login info never leaves your computer.
+Speaking of login credentials, we have **zero** interest in holding onto yours. So they get stored on your computer using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage). Your credentials never leave your device.
 
 ## Commands
 
@@ -67,7 +67,7 @@ or log out of all devices
 
 :::
 
-### Hidden pre-command commands.
+### Plugin activation commands (Runs once every time plugin activates).
 
 The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Switch Plugin`, `Bask Which`
 
@@ -76,10 +76,10 @@ The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Sw
   - `bubble_credentials_are_present`
   - `current_working_plugin_is_set`
 - `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`. Runs through a wizard for completeing any missing pre_launch_checklist items.
-  - `register_bask()`: Ask for registration.
+  - `register_bask()`: Ask for registration. If user does not have API key, we point them to website to purchase key.
   - `get_bubble_credentials()`: Ask for Bubble login credentials.
-  - `get_current_working_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then ask user to select plugin.
-- `start_browser()`: If Bask isn't already running, then turn it on. Bask should auto turn off (close the browser instance) once every 2 days.
+  - `get_current_working_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then ask user to select plugin from list of plugins already added to VS Code Workspace.
+- `launch_browser()`: If Bask isn't already running, then turn it on. <s>Bask should auto turn off (close the browser instance) once every 2 days.</s>
 
 The following functions need to be run before `Bask Init`, `Bask Clone`, `Bask Set Bubble Credentials`
 
@@ -90,14 +90,29 @@ The following functions need to be run before `Bask Init`, `Bask Clone`, `Bask S
 
 ### `Bask Init`
 
-- `bask_init()` Create a new plugin.
-- `bask_clone()` Clone it to local just like `Bask Clone` below.
+Creates a new Bubble plugin in your Bubble account, creates a new SSA or visual element, and then copies it into a local folder of your choice.
+
+- Init is `Bask Clone` with more steps.
+- `get_pre_launch_checklist()`
+- `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`
+- ``
+- `bask_init()` Create a new plugin. Return the URL of the plugin.
+- `bask_clone(plugin_url)` Clone it to local just like `Bask Clone` below.
 
 ### `Bask Clone`
 
+Copies an existing Bubble plugin into a local folder of your choice.
+
+- Clone is `Bask Pull` with more steps
+
 ### `Bask Push`
 
+- Project folder should already be defined (cloned) in a way that VS Code can detect is a bask repository
+
 ### `Bask Pull`
+
+- Project folder should already be defined (cloned) in a way that VS Code can detect is a bask repository
+- Pull the latest changes on
 
 ### `Bask Switch Plugin`
 
@@ -109,4 +124,15 @@ If no option is available, return explanation for how to get options listed in t
 
 Returns the name of the plugin Bask is currently working on.
 
+- Perhaps this would be better as some sort of persistent indicator.
+
+### `Bask Create SSA`
+
+### `Bask Create Visual Element`
+
 ### `Bask Set Bubble Credentials`
+
+Securely saves your Bubble username and password within VS Code so Bask can automate plugin related actions within your Bubble account.
+
+- If credentials were recently set because `Bask Set Bubble Credentials` was the very first command ever run, then do nothing. Otherwise, run as expected.
+- We see that
