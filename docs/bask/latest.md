@@ -29,7 +29,7 @@ Bask simplifies plugin development, reducing our workflow to:
 3. Test plugin.
 4. If testing an SSA, then wait 3 to 10 seconds for it to run.
 5. If the SSA fails (which happens 99% of the time), then read the error output.
-6. Repeat steps 1 through 6 until the plugin works.
+6. Repeat steps 1 through 5 until the plugin works.
 
 ## Bodacious features
 
