@@ -42,6 +42,7 @@ Bask does more than just shorten the code-test-code loop.
 - **Coming soon** Initialize new plugins without leaving VS Code.
 - <s> **Coming soon** Have multiple developers working on one plugin at the same time?</s> (It's not really possible to enable simultaneous development on the same plugin because there is no true target isolation - everyone would be releasing code to the same branch, and while we could build tools for merging non-conflicting changes, it's rather impracticle for multiple people to test different aspects of the same plugin at the same time).
 - **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
+- **Maybe someday** For SSA development, run a local, isolated copy of the same node environment used in Bubble's lambda instances to minimize errors resulting from local-vs-lambda environment mismatches.
 
 ## How's it work?
 
@@ -53,9 +54,9 @@ Speaking of login credentials, we have **zero** interest in holding yours. So ou
 
 ### Your new workflow
 
-Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate code minification, treeshaking and unit testing, we setup three git branches.
+Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate unit testing, code minification and treeshaking, we setup three git branches.
 
-- `main`: This branch is the same repo that Bubble syncs to GitHub. We use it to store production ready code - any SSA or Visual Element code that passes unit tests, is minified and treeshaked gets stored here.
+- `main`: This branch is the same repo that Bubble syncs to GitHub. We use it to store production ready code - any SSA or Visual Element code that passes unit tests, is stored stored here (after optional minification / treeshaking).
 - `bask_dev`: This branch contains a human readable version of the `main` branch. It mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. It also stores your `build` and `test` scripts.
 - `bask_checkpoint`: This branch is where mature code in `bask_dev` is version controlled for future reference.
 
@@ -83,7 +84,8 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┃ ┣ 📜 build.js
 ┃ ┣ 📜 test.js
 ┃ ┗ 📂 actions
-┃    ┗ 📜 evaluate_expression.js
+┃    ┗ 📜 evaluate_expression_server.js
+┃    ┗ 📜 package.json
 ┣ 📂 actions
 ┃ ┗ 📂 AAI-850mj
 ┃    ┣ 📜 client.js
@@ -94,9 +96,9 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┗ 📜 .gitignore
 ```
 
-As you can see, the `toolbox` folder in `bask_dev` lists our action by name (by converting from Bubble's default of `AAI-850mj` to `evaluate_expression`). To keep things tidy, and because , Bask removed the client.js file.
+As you can see, the `toolbox` folder in `bask_dev` lists our action by name (by converting from Bubble's default of `AAI-850mj` to `evaluate_expression`). Bubble actions are either server-side OR client-side so, to keep things tidy, Bask does not list the `client.js` file in the actions directory. Finally, the `package.json` file listed is included 
 
-The `bask_checkpoint` branch would always look like
+In practice, the `bask_checkpoint` branch will always have the same structure as `bask_dev` since it exists to save snapshots of working code in `bask_dev`.
 
 ## Commands
 
