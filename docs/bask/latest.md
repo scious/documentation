@@ -112,6 +112,8 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ```
 📂 Bubble-Plugin-Toolbox
 ┣ 📂 bask
+┃ ┣ 📜 build.js
+┃ ┣ 📜 test.js
 ┃ ┗ 📂 actions
 ┃    ┗ 📂 evaluate_expression
 ┃       ┣ 📜 evaluate_expression_package.json
@@ -127,15 +129,11 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┗ 📜 .gitignore
 ```
 
-```
-📂 Main Folder
-┣ 📜 .gitignore
-┣ 📜 ...
-┣ 📂 Default Bubble Plugin Repo
-┃ ┗ 📜 .gitignore
-┗ 📜 ...
+As you can see, the `bask` folder in `bask_dev` lists our action and its component files by name (by converting from Bubble's default of `AAI-850mj` to `evaluate_expression`).
 
-```
+In practice, we'll author code in the `evaluate_expression_server.js` file. Bask removed the client.
+
+The `bask_checkpoint` branch would always look like
 
 ## Commands
 
