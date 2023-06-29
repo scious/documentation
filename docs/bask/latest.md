@@ -111,13 +111,11 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 
 ```
 📂 Bubble-Plugin-Toolbox
-┣ 📂 bask
+┣ 📂 toolbox
 ┃ ┣ 📜 build.js
 ┃ ┣ 📜 test.js
 ┃ ┗ 📂 actions
-┃    ┗ 📂 evaluate_expression
-┃       ┣ 📜 evaluate_expression_params.json
-┃       ┗ 📜 evaluate_expression.js
+┃    ┗ 📜 evaluate_expression.js
 ┣ 📂 actions
 ┃ ┗ 📂 AAI-850mj
 ┃    ┣ 📜 client.js
@@ -128,9 +126,7 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┗ 📜 .gitignore
 ```
 
-As you can see, the `bask` folder in `bask_dev` lists our action and its component files by name (by converting from Bubble's default of `AAI-850mj` to `evaluate_expression`).
-
-In practice, as this is an SSA, we'll author code in the `evaluate_expression_server.js` file. To keep things tidy, and because it's not relevant to SSAs, Bask removed the client.js file.
+As you can see, the `toolbox` folder in `bask_dev` lists our action by name (by converting from Bubble's default of `AAI-850mj` to `evaluate_expression`). To keep things tidy, and because , Bask removed the client.js file.
 
 The `bask_checkpoint` branch would always look like
 
