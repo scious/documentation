@@ -60,7 +60,7 @@ Perhaps the biggest difference between your current workflow and the _Bask workf
 - `bask_dev`: This branch contains a human readable version of the `main` branch. It mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. It also stores your `build` and `test` scripts.
 - `bask_checkpoint`: This branch is where mature code in `bask_dev` is version controlled for future reference.
 
-Let's run through a specific example. Say we're working on a plugin called "Toolbox" that only has one Server Side action called "Evaluate Expression". Bask will create branches that look like the following:
+Let's run through a specific example. Say we're working on a plugin called "Toolbox" that only has one Server Side action called "Evaluate Expression". Bask will create branches that look like:
 
 #### ⎇ main
 
