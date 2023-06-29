@@ -81,10 +81,11 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ```
 📂 Bubble-Plugin-Toolbox
 ┣ 📂 toolbox
-┃ ┣ 📜 build.js
-┃ ┣ 📜 test.js
 ┃ ┗ 📂 actions
-┃    ┗ 📜 evaluate_expression_server.js
+┃    ┣ 📂 node_modules
+┃    ┣ 📜 ssa_evaluate_expression.js
+┃    ┣ 📜 tests.js
+┃    ┣ 📜 build.js
 ┃    ┗ 📜 package.json
 ┣ 📂 actions
 ┃ ┗ 📂 AAI-850mj
@@ -96,9 +97,17 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┗ 📜 .gitignore
 ```
 
-As you can see, the `toolbox` folder in `bask_dev` lists our action by name (by converting from Bubble's default of `AAI-850mj` to `evaluate_expression`). Bubble actions are either server-side OR client-side so, to keep things tidy, Bask does not list the `client.js` file in the actions directory. Finally, the `package.json` file listed is included 
+As you can see, the `toolbox` folder in `bask_dev` has an `actions` folder with five items in it.
 
-In practice, the `bask_checkpoint` branch will always have the same structure as `bask_dev` since it exists to save snapshots of working code in `bask_dev`.
+1. `ssa_evaluate_expression.js`: this file contains the code for our single toolbox action renamed from Bubble's default of `AAI-850mj` to `ssa_` + `evaluate_expression`. Prefixes can either be `ssa` meaning Server Side Action or `csa` meaning Client Side Action.
+2. `tests.js`: contains all of the unit tests for all of our actions.
+3. `build.js`: runs our tests and instructions for minifying, treeshaking and any other code bundling steps we need to run.
+4. `package.json`: this is a traditional npm generated package.json file. It works in conjunction with the `node_modules` folder to keep track of which node libraries our SSAs and CSAs need.
+5. `node_modules`: this is a traditional npm generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` just as you always would.
+
+With that, the Bask development workflow looks like this:
+
+The last thing you should note is that even though we didn't illustrate it, the `bask_checkpoint` branch will always have the same structure as `bask_dev` because it exists to save snapshots of a working `bask_dev` branch. Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`.
 
 ## Commands
 
@@ -118,7 +127,7 @@ or log out of all devices
 
 :::
 
-### Plugin activation commands (Runs once every time plugin activates).
+#### Plugin activation commands (Runs once every time plugin activates).
 
 The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Switch Plugin`, `Bask Which`
 
@@ -197,6 +206,10 @@ Securely saves your Bubble username and password within VS Code so Bask can auto
 - If credentials were recently set because `Bask Set Bubble Credentials` was the very first command ever run, then do nothing. Otherwise, run as expected.
 - We see that
 
-```
+### `Bask Checkpoint`
 
-```
+Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`. If you later want to restore `bask_dev` from a previously working checkpoint, say because your code inexplicably doesn't work, then you can run `Bask Restore Checkpoint`.
+
+### `Bask Restore Checkpoint`
+
+Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`. If you later want to restore `bask_dev` from a previously working checkpoint, say because your code inexplicably doesn't work, then you can run `Bask Restore Checkpoint`.
