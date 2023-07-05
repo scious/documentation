@@ -50,7 +50,11 @@ Bask does more than just shorten the code-test-code loop.
 
 A tool like Bask has always seemed out of reach because Bubble doesn't have a public API for updating plugin code. However, it is possible to make VS Code extensions that automate any web browsing task. So we made an extension that automates the tedious browser based actions that Bubble plugin developers do many times per hour. Our extension asks for your Bubble login credentials because it actually signs into your Bubble account in an invisible browser on your computer to perform actions on your behalf.
 
-Speaking of login credentials, we have **zero** interest in holding yours. So our extension stores those on your computer using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage). Your credentials never leave your device.
+Speaking of login credentials, we have **zero** interest in holding yours. Our extension stores them on your computer using VS Code's dedicated [secrets manager](https://code.visualstudio.com/api/references/vscode-api#SecretStorage) so your credentials never leave your device.
+
+### Dynamic Bubble app reloading
+
+While Bask is a VS Code extension, we provide a companion Bubble plugin with a client side action you can use to automatically reload the page of the Bubble app you're testing a plugin with. This way, you can edit your code locally, switch to your plugin test page, and start testing your plugin without having to manually refresh the page. See [Auto Reloader](#auto-reloader) for details on how to setup this action.
 
 ### Your new workflow
 
@@ -108,7 +112,7 @@ As you can see, the `toolbox` folder in `bask_dev` has a `server_side_actions` f
 With that, the Bask development workflow looks like this:
 
 - make code changes in `evaluate_expression.js`
-- switch windows to your browser. 
+- switch windows to your browser.
 
 The last thing you should note is that even though we didn't illustrate it, the `bask_checkpoint` branch will always have the same structure as `bask_dev` because it exists to save snapshots of a working `bask_dev` branch. Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`.
 
