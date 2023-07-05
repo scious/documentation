@@ -102,8 +102,8 @@ As you can see, the `toolbox` folder in `bask_dev` has a `server_side_actions` f
 
 1. `evaluate_expression.js`: this file contains the code for our single toolbox action renamed from Bubble's default of `AAI-850mj` to `evaluate_expression`.
 2. `tests.js`: contains all of the unit tests for all of our server side actions.
-3. `build.js`: runs our tests and instructions for minifying, treeshaking and any other code bundling steps we need to run on server side actions.
-4. `package.json`: is a traditional npm-generated package.json file. It works in conjunction with the `node_modules` folder to keep track of which node libraries our SSAs and CSAs need.
+3. `build.js`: runs our tests as well as minification, treeshaking and other code bundling steps.
+4. `package.json`: is a traditional npm-generated package.json file. It works with the `node_modules` folder to keep track of which node libraries our SSAs and CSAs need.
 5. `node_modules`: is a traditional npm-generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` as normal.
 
 With that, the Bask development workflow looks like this:
