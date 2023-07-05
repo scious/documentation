@@ -56,11 +56,11 @@ Speaking of login credentials, we have **zero** interest in holding yours. So ou
 
 Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate unit testing, code minification and treeshaking, we setup three git branches.
 
-- `main`: This branch is the same repo that Bubble syncs to GitHub. We use it to store production ready code - any SSA or Visual Element code that passes unit tests, is stored stored here (after optional minification / treeshaking).
+- `main`: This branch is the same repo that Bubble syncs to GitHub. We use it to store production ready code - any SSA or Visual Element code that passes unit tests is stored here (after optional minification / treeshaking).
 - `bask_dev`: This branch contains a human readable version of the `main` branch. It mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. It also stores your `build` and `test` scripts.
 - `bask_checkpoint`: This branch is where mature code in `bask_dev` is version controlled for future reference.
 
-Let's run through a specific example. Say we're working on a plugin called "Toolbox" that only has one Server Side action called "Evaluate Expression". Bask will create branches that look like:
+Let's run through a specific example. Say we're working on a plugin called "Toolbox" that only has one Server Side action called "Evaluate Expression". Bask will create GIT branches that look like:
 
 #### ⎇ main
 
@@ -81,11 +81,11 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ```
 📂 Bubble-Plugin-Toolbox
 ┣ 📂 toolbox
-┃ ┗ 📂 actions
+┃ ┗ 📂 server_side_actions
 ┃    ┣ 📂 node_modules
-┃    ┣ 📜 ssa_evaluate_expression.js
 ┃    ┣ 📜 tests.js
 ┃    ┣ 📜 build.js
+┃    ┣ 📜 evaluate_expression.js
 ┃    ┗ 📜 package.json
 ┣ 📂 actions
 ┃ ┗ 📂 AAI-850mj
@@ -97,15 +97,18 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┗ 📜 .gitignore
 ```
 
-As you can see, the `toolbox` folder in `bask_dev` has an `actions` folder with five items in it.
+As you can see, the `toolbox` folder in `bask_dev` has a `server_side_actions` folder with five items in it.
 
-1. `ssa_evaluate_expression.js`: this file contains the code for our single toolbox action renamed from Bubble's default of `AAI-850mj` to `ssa_` + `evaluate_expression`. Prefixes can either be `ssa` meaning Server Side Action or `csa` meaning Client Side Action.
-2. `tests.js`: contains all of the unit tests for all of our actions.
-3. `build.js`: runs our tests and instructions for minifying, treeshaking and any other code bundling steps we need to run.
-4. `package.json`: is a traditional npm generated package.json file. It works in conjunction with the `node_modules` folder to keep track of which node libraries our SSAs and CSAs need.
-5. `node_modules`: is a traditional npm generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` as normal.
+1. `evaluate_expression.js`: this file contains the code for our single toolbox action renamed from Bubble's default of `AAI-850mj` to `evaluate_expression`.
+2. `tests.js`: contains all of the unit tests for all of our server side actions.
+3. `build.js`: runs our tests and instructions for minifying, treeshaking and any other code bundling steps we need to run on server side actions.
+4. `package.json`: is a traditional npm-generated package.json file. It works in conjunction with the `node_modules` folder to keep track of which node libraries our SSAs and CSAs need.
+5. `node_modules`: is a traditional npm-generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` as normal.
 
 With that, the Bask development workflow looks like this:
+
+- make code changes in `evaluate_expression.js`
+- switch windows to your browser. 
 
 The last thing you should note is that even though we didn't illustrate it, the `bask_checkpoint` branch will always have the same structure as `bask_dev` because it exists to save snapshots of a working `bask_dev` branch. Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`.
 
