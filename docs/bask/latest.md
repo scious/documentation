@@ -153,24 +153,10 @@ The following functions need to be run before `Bask Init`, `Bask Clone`, `Bask S
 - `get_pre_launch_checklist()` as defined above
 -
 
-`Bask init`,
+### `Bask Pull`
 
-### `Bask Init`
-
-Creates a new Bubble plugin in your Bubble account, creates a new SSA or visual element, and then copies it into a local folder of your choice.
-
-- Init is `Bask Clone` with more steps.
-- `get_pre_launch_checklist()`
-- `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`
-- ``
-- `bask_init()` Create a new plugin. Return the URL of the plugin.
-- `bask_clone(plugin_url)` Clone it to local just like `Bask Clone` below.
-
-### `Bask Clone`
-
-Copies an existing Bubble plugin into a local folder of your choice.
-
-- Clone is `Bask Pull` with more steps
+- If plugin is not already locally defined, then prompt user for plugin URL to clone it locally (will need to detect what the associated github repo is and possibly create it if it doesn't already exist)
+- If plugin is already locally defined, then pull the latest changes into the local project.
 
 ### `Bask Auto Push`
 
@@ -184,11 +170,6 @@ Set Bask to automatically push local changes to your Bubble plugin without runni
 
 Set Bask to automatically push local changes to your Bubble plugin after running your `build` script. To trigger an automatic push, simply unfocus your VS Code editor.
 
-### `Bask Pull`
-
-- Project folder should already be defined (cloned) in a way that VS Code can detect is a bask repository
-- Pull the latest changes on
-
 ### `Bask Switch Plugin`
 
 Specify the plugin you want to work on with Bask.
@@ -201,10 +182,6 @@ Specify the plugin you want to work on with Bask.
 Returns the name of the plugin Bask is currently working on.
 
 - Perhaps this would be better as some sort of persistent indicator.
-
-### `Bask Create SSA`
-
-### `Bask Create Visual Element`
 
 ### `Bask Set Bubble Credentials`
 
