@@ -38,9 +38,6 @@ Bask does more than just shorten the code-test-code loop.
 - **File names for humans™** - rename files from Bubble's native "random-string" format to the actual names you gave your actions or elements so you always know which file you're working in.
 - Automate and version-control local tests to detect bugs before syncing changes to the plugin editor.
 - Standardize your development process to improve code quality, consistency, and release cadence.
-- **Coming soon** Initialize new elements and server side actions without leaving VS Code.
-- **Coming soon** Initialize new plugins without leaving VS Code.
-- <s> **Coming soon** Have multiple developers working on one plugin at the same time?</s> (It's not really possible to enable simultaneous development on the same plugin because there is no true target isolation - everyone would be releasing code to the same branch, and while we could build tools for merging non-conflicting changes, it's rather impracticle for multiple people to test different aspects of the same plugin at the same time).
 - **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
 - **Maybe someday** For SSA development, run a local, isolated copy of the same node environment used in Bubble's lambda instances to minimize errors resulting from local-vs-lambda environment mismatches.
 
@@ -54,7 +51,7 @@ Speaking of login credentials, we have **zero** interest in holding yours. Our e
 
 ### Dynamic Bubble app reloading
 
-While Bask is a VS Code extension, we provide a companion Bubble plugin with a client side action you can use to automatically reload the page of the Bubble app you're testing a plugin with. This way, you can edit your code locally, switch to your plugin test page, and start testing your plugin without having to manually refresh the page. See [Auto Reloader](#auto-reloader) for details on how to setup this action.
+While Bask is a VS Code extension, we provide a companion Bubble plugin with a client side action you can use to automatically reload the page of the Bubble app you're testing a plugin with. This way, you can edit your code locally, switch to your plugin test page, and start testing your plugin without having to manually refresh the page. See [Auto Refresh](#auto-refresh) for details on how to setup this action.
 
 ### Your new workflow
 
@@ -197,3 +194,11 @@ Running the command `Bask checkpoint` will pull your changes from `bask_dev` int
 ### `Bask Restore Checkpoint`
 
 Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`. If you later want to restore `bask_dev` from a previously working checkpoint, say because your code inexplicably doesn't work, then you can run `Bask Restore Checkpoint`.
+
+## Action
+
+### Auto Refresh
+
+Refreshes the current Bubble page whenever a change has been made to your app or plugin.
+
+Explain how to setup this action.
