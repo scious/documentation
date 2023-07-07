@@ -167,8 +167,22 @@ Modifications to the launch routing depending on which function is called:
 
 Pulls the latest changes for the current plugin from the Bubble editor to your local workspace with conditions:
 
-1.  The first time you run `Bask Pull`, it will create
+1.  The first time you run `Bask Pull`, it will
 2.  Otherwise, Bask will only update
+
+- First run for any given plugin:
+
+  - Will clone repo to your computer in a directory of your choosing.
+  - Will checkout the main branch into a git branch of your choosing (has to be a new branch).
+  - Run `merge_core_into_bask()`
+    - `update_bask_server_side_actions()`
+    - `update_bask_client_side_actions()`
+    - `update_bask_visual_elements()`
+      All of these functions rely on `map_core_to_bask(file_path)`
+      - Accepts any core file path, and tells you what bask file path it corresponds to
+      - Accepts any bask file path, and tells you what core file path it corresponds to
+
+- After first run for any given plugin:
 
 Any local changes that haven't been `Bask Push`ed to Bubble prior to the
 
@@ -195,6 +209,14 @@ Set Bask to automatically push local changes to your Bubble plugin without runni
   - Handle
   - Push changes and notify user that updates have been pushed to remote.
 
+...
+
+- Run `merge_bask_into_core()`
+  - `update_core_server_side_actions()`
+  - `update_core_client_side_actions()`
+  - `update_core_visual_elements()`
+    All of these functions rely on `map_core_to_bask(file_path)`
+
 ### `Bask Auto Build and Push`
 
 Set Bask to automatically push local changes to your Bubble plugin after running your `build` script. To trigger an automatic push, simply unfocus your VS Code editor.
@@ -203,8 +225,7 @@ Set Bask to automatically push local changes to your Bubble plugin after running
 
 Specify the plugin you want to work on with Bask.
 
-- Options are populated from a dropdown list showing the Bask compatible workspace folders
-- If no option is available, return explanation for how to get options listed in the dropdown (add bask compatible folders to the workspace or run bask pull)
+- Calls
 - Once plugin is specified, persist this value across sessions as `current_plugin`
 
 ### `Bask Which Plugin`
