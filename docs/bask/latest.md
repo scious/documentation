@@ -187,14 +187,6 @@ Securely saves your Bubble username and password within VS Code so Bask can auto
 - If credentials were recently set because `Bask Set Bubble Credentials` was the very first command ever run, then do nothing. Otherwise, run as expected.
 - We see that
 
-### `Bask Checkpoint`
-
-Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`. If you later want to restore `bask_dev` from a previously working checkpoint, say because your code inexplicably doesn't work, then you can run `Bask Restore Checkpoint`.
-
-### `Bask Restore Checkpoint`
-
-Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`. If you later want to restore `bask_dev` from a previously working checkpoint, say because your code inexplicably doesn't work, then you can run `Bask Restore Checkpoint`.
-
 ## Action
 
 ### Auto Refresh
