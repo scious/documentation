@@ -133,27 +133,57 @@ or log out of all devices
 
 #### Plugin activation commands (Runs once every time plugin activates).
 
-The following functions need to be run before `Bask Push`, `Bask Pull`, `Bask Switch Plugin`, `Bask Which`
+The following functions need to be run on launch.
 
 - `get_pre_launch_checklist()`: Returns
   - `registration_is_valid`
   - `bubble_credentials_are_present`
-  - `current_working_plugin_is_set`
+  - `current_bubble_plugin_is_set`
 - `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`. Runs through a wizard for completeing any missing pre_launch_checklist items.
   - `register_bask()`: Ask for registration. If user does not have API key, we point them to website to purchase key.
   - `get_bubble_credentials()`: Ask for Bubble login credentials.
-  - `get_current_working_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then ask user to select plugin from list of plugins already added to VS Code Workspace.
-- `launch_browser()`: If Bask isn't already running, then turn it on. <s>Bask should auto turn off (close the browser instance) once every 2 days.</s>
+  - `get_current_bubble_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then:
 
-The following functions need to be run before `Bask Init`, `Bask Clone`, `Bask Set Bubble Credentials`
+Selection of a plugin always starts by syncing it from Bubble. We will never start from a local repo. So we fetch/store a full list of plugins from the user's bubble account. When we sync it locally for the first time, we'll insert its local file path into the correct entry in the local plugin directory. Everytime we want to switch plugins, we refresh our local plugin directory with the remote one (taking care to keep information about file paths). The addressing system for the local plugin directory should be keyed by the plugin's ID so that we can maintain updated information across plugin name changes.
 
-- `get_pre_launch_checklist()` as defined above
--
+     - `get_users_plugins()` fetch a list of all of the plugins ordered by recent
+     - `load_local_plugin(local_path)` Allow user to add plugin from workspace.
+     - `load_remote_plugin(bubble_plugin_url)` Allow user to add plugin from Bubble URL. Once remote plugin has been cloned locally, we run `load_local_plugin(path)`.
+
+- `launch_browser()`: If Bask isn't already running, then turn it on.
+
+Modifications to the launch routing depending on which function is called:
+`Bask Push`
+
+`Bask Pull`
+
+`Bask Switch Plugin`
+
+`Bask Which`
+
+`Bask Set Bubble Credentials`
 
 ### `Bask Pull`
 
-- If plugin is not already locally defined, then prompt user for plugin URL to clone it locally (will need to detect what the associated github repo is and possibly create it if it doesn't already exist)
-- If plugin is already locally defined, then pull the latest changes into the local project.
+Pulls the latest changes for the current plugin from the Bubble editor to your local workspace with conditions:
+
+1.  The first time you run `Bask Pull`, it will create
+2.  Otherwise, Bask will only update
+
+Any local changes that haven't been `Bask Push`ed to Bubble prior to the
+
+- Is not concernced with setting the current plugin whatsoever. That should have been handled on startup.
+- Only pulls
+
+** propagate_core_to_bask() **
+
+-
+
+Do not delete scripts that do not have
+
+** propagate_bask_to_core() **
+
+-
 
 ### `Bask Auto Push`
 
@@ -161,7 +191,9 @@ Set Bask to automatically push local changes to your Bubble plugin without runni
 
 - Project folder should already be defined (cloned) in a way that VS Code can detect is a bask repository
 - If project is already up to date, then don't push any changes. Notify that remote is already up to date.
-- If project is not up to date, then push changes and notify user that updates have been pushed to remote.
+- If project is not up to date, then
+  - Handle
+  - Push changes and notify user that updates have been pushed to remote.
 
 ### `Bask Auto Build and Push`
 
@@ -172,7 +204,8 @@ Set Bask to automatically push local changes to your Bubble plugin after running
 Specify the plugin you want to work on with Bask.
 
 - Options are populated from a dropdown list showing the Bask compatible workspace folders
-- If no option is available, return explanation for how to get options listed in the dropdown.
+- If no option is available, return explanation for how to get options listed in the dropdown (add bask compatible folders to the workspace or run bask pull)
+- Once plugin is specified, persist this value across sessions as `current_plugin`
 
 ### `Bask Which Plugin`
 
