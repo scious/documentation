@@ -175,7 +175,7 @@ Pulls the latest changes for the current plugin from the Bubble editor to your l
   - Will clone repo to your computer in a directory of your choosing.
   - Will checkout the main branch into a git branch of your choosing (has to be a new branch).
   - Run `merge_core_into_bask()`
-    - `update_bask_server_side_actions()`
+    - `update_bask_server_side_actions()` 
     - `update_bask_client_side_actions()`
     - `update_bask_visual_elements()`
       All of these functions rely on `map_core_to_bask(file_path)`
@@ -201,21 +201,23 @@ Do not delete scripts that do not have
 
 ### `Bask Auto Push`
 
-Set Bask to automatically push local changes to your Bubble plugin without running your `build` script. To trigger an automatic push, simply unfocus your VS Code editor. This is the default push mode.
+Set Bask to automatically push local changes to your Bubble plugin without running your `build` script. To trigger an automatic push, simply unfocus your VS Code editor (switch tabs to your bubble development app). This is the default push mode.
 
-- Project folder should already be defined (cloned) in a way that VS Code can detect is a bask repository
+- Project folder is already be defined in a way that VS Code can detect is a bask repository
 - If project is already up to date, then don't push any changes. Notify that remote is already up to date.
 - If project is not up to date, then
+
+? Maybe these functions load build preferences from `build.js`?
+
   - Handle
   - Push changes and notify user that updates have been pushed to remote.
-
-...
+    ...
 
 - Run `merge_bask_into_core()`
   - `update_core_server_side_actions()`
   - `update_core_client_side_actions()`
   - `update_core_visual_elements()`
-    All of these functions rely on `map_core_to_bask(file_path)`
+    All of these functions rely on `map_bask_to_core(file_path)`
 
 ### `Bask Auto Build and Push`
 
