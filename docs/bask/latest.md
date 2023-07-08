@@ -142,17 +142,10 @@ The following functions need to be run on launch.
 - `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`. Runs through a wizard for completeing any missing pre_launch_checklist items.
   - `register_bask()`: Ask for registration. If user does not have API key, we point them to website to purchase key.
   - `get_bubble_credentials()`: Ask for Bubble login credentials.
-  - `get_current_bubble_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then:
-
-Selection of a plugin always starts by syncing it from Bubble. We will never start from a local repo. So we fetch/store a full list of plugins from the user's bubble account. When we sync it locally for the first time, we'll insert its local file path into the correct entry in the local plugin directory. Everytime we want to switch plugins, we refresh our local plugin directory with the remote one (taking care to keep information about file paths). The addressing system for the local plugin directory should be keyed by the plugin's ID so that we can maintain updated information across plugin name changes.
-
-     - `get_users_plugins()` fetch a list of all of the plugins ordered by recent
-     - `load_local_plugin(local_path)` Allow user to add plugin from workspace.
-     - `load_remote_plugin(bubble_plugin_url)` Allow user to add plugin from Bubble URL. Once remote plugin has been cloned locally, we run `load_local_plugin(path)`.
-
+  - `get_current_bubble_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then run `bask_switch_plugin()`
 - `launch_browser()`: If Bask isn't already running, then turn it on.
 
-Modifications to the launch routing depending on which function is called:
+Modifications to the launch routine depending on which function is called:
 `Bask Push`
 
 `Bask Pull`
@@ -167,15 +160,16 @@ Modifications to the launch routing depending on which function is called:
 
 Pulls the latest changes for the current plugin from the Bubble editor to your local workspace with conditions:
 
-1.  The first time you run `Bask Pull`, it will
-2.  Otherwise, Bask will only update
-
 - First run for any given plugin:
 
-  - Will clone repo to your computer in a directory of your choosing.
+  - Clones `current_plugin` to computer in a directory of user's choosing.
+  - Add plugin's directory to VS Code workspace.
+  - Insert plugin's local file path as a `local_plugin_path` entry in the local plugin_directory.
+  -
+  - Insert its local file path into the correct entry in the local plugin directory.
   - Will checkout the main branch into a git branch of your choosing (has to be a new branch).
   - Run `merge_core_into_bask()`
-    - `update_bask_server_side_actions()` 
+    - `update_bask_server_side_actions()`
     - `update_bask_client_side_actions()`
     - `update_bask_visual_elements()`
       All of these functions rely on `map_core_to_bask(file_path)`
@@ -209,9 +203,9 @@ Set Bask to automatically push local changes to your Bubble plugin without runni
 
 ? Maybe these functions load build preferences from `build.js`?
 
-  - Handle
-  - Push changes and notify user that updates have been pushed to remote.
-    ...
+- Handle
+- Push changes and notify user that updates have been pushed to remote.
+  ...
 
 - Run `merge_bask_into_core()`
   - `update_core_server_side_actions()`
@@ -227,8 +221,12 @@ Set Bask to automatically push local changes to your Bubble plugin after running
 
 Specify the plugin you want to work on with Bask.
 
-- Calls
+- Selection of a plugin always starts by syncing it's metadata (not the plugin code itself) from Bubble. We will never start from a local repo.
+- Fetch/store a full list of plugins from the user's bubble account. When we sync it locally for the first time, we'll insert its local file path into the correct entry in the local plugin directory. Everytime we want to switch plugins, we refresh our local plugin directory with the remote one (taking care to keep information about file paths). The addressing system for the local plugin directory should be keyed by the plugin's ID so that we can maintain updated information across plugin name changes.
+- `bask_switch_plugin()` is callable from other functions (like our initialization routine)
+
 - Once plugin is specified, persist this value across sessions as `current_plugin`
+- Last step: calls `bask_pull()`
 
 ### `Bask Which Plugin`
 
