@@ -176,18 +176,50 @@ Pulls a plugin's changes from Bubble to your local workspace in the current git 
     - Return `git_branch`.
 - Run `merge_core_into_bask()`
 
-  - `update_functions_map()`
+  - Have two function_maps.
 
-    - determine which functions are SSAs, CSAs, Visual Elements
-    - if a function has a name we haven't seen before, then add that new name to the list of names associated with said function
+    `stored_function_map`. This map is already built (or simply doesn't exist).
 
-  - ## `update_bask_server_side_actions()`
-  - `update_bask_client_side_actions()`
-  - `update_bask_visual_elements()`
-    All of these functions rely on `map_core_to_bask(file_path)`
-    - Accepts any core file path, and tells you what bask file path it corresponds to using internal `functions_map`
+    ```
+    {
+        "ssa": {
+            "AAI-850mj": {
+                "name": "Evaluate Expression",
+                "script_name": "evaluate_expression.js"
+            }
+        }
+    }
+    ```
 
-Any local changes that haven't been `Bask Push`ed to Bubble prior to the
+    `temp_function_map`. This map is built everytime we run `Bask Pull` after pulling the latest changes into `core_plugin`
+
+    ```
+    {
+        "ssa": {
+            "AAI-850mj": {
+                "name": "Evaluate Expression",
+                "script_name": "evaluate_expression.js"
+            }
+        }
+    }
+    ```
+
+    - For each entry in `temp_function_map`:
+      - If entry exists in `temp_function_map` but not in `stored_function_map`:
+        - `setup_bask_folder(temp_function_map_entry,mode="CREATE")` Create bask file and set its contents to that of it's `core_plugin` counterpart.
+      - Else:
+        - `setup_bask_folder(temp_function_map_entry,mode="RENAME")` Update the name of the `bask_file` to that of it's `core_plugin` counterpart. Do not update the contents of this file.
+      - Do following when catching exceptions:
+        - Make `bask` folder if it doesn't exist.
+        - Depending on type of file:
+          - If `server_side_actions` folder doesn't exist, then make it.
+          - If `client_side_actions` folder doesn't exist, then make it.
+          - if `visual_elements` folder doesn't exist, then make it.
+        - Run `setup_bask_folder(temp_function_map_entry,mode="CREATE")`.
+    - `update_functions_map()` Set `stored_function_map` to `temp_function_map`.
+    
+
+Any local changes that haven't been `Bask Push`ed to Bubble prior to a pull will be overwritten... Maybe catch this condition and alert user to save / commit this somehow.
 
 ### `Bask Auto Push`
 
