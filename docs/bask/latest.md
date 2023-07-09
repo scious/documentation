@@ -217,7 +217,8 @@ Pulls a plugin's changes from Bubble to your local workspace in the current git 
           - if `visual_elements` folder doesn't exist, then make it.
         - Run `setup_bask_folder(temp_function_map_entry,mode="CREATE")`.
     - `update_functions_map()` Set `stored_function_map` to `temp_function_map`.
-    
+    - 
+
 
 Any local changes that haven't been `Bask Push`ed to Bubble prior to a pull will be overwritten... Maybe catch this condition and alert user to save / commit this somehow.
 
