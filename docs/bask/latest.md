@@ -158,40 +158,31 @@ Modifications to the launch routine depending on which function is called:
 
 ### `Bask Pull`
 
-Pulls the latest changes for the current plugin from the Bubble editor to your local workspace with conditions:
+Pulls a plugin's changes from Bubble to your local workspace in the current git branch. If the current git branch is `main` then you will be prompted to create a new git branch. Note: you can switch the current git branch you're working on at any point using VS Codes built in git actions.
 
-- First run for any given plugin:
-
-  - Clones `current_plugin` to computer in a directory of user's choosing.
-  - Add plugin's directory to VS Code workspace.
-  - Insert plugin's local file path as a `local_plugin_path` entry in the local plugin_directory.
-  -
-  - Insert its local file path into the correct entry in the local plugin directory.
-  - Will checkout the main branch into a git branch of your choosing (has to be a new branch).
-  - Run `merge_core_into_bask()`
-    - `update_bask_server_side_actions()`
-    - `update_bask_client_side_actions()`
-    - `update_bask_visual_elements()`
-      All of these functions rely on `map_core_to_bask(file_path)`
-      - Accepts any core file path, and tells you what bask file path it corresponds to
-      - Accepts any bask file path, and tells you what core file path it corresponds to
-
-- After first run for any given plugin:
+- `clone_plugin()`
+  - If `local_plugin_directory` doesn't have a resolvable `local_plugin_path` for `current_plugin`:
+    - Then clone plugin to computer in a directory of user's choosing.
+    - Insert plugin's local file path as a `local_plugin_path` entry in the local plugin_directory.
+    - Return `local_plugin_path`.
+  - Else
+    - Return `local_plugin_path`.
+- `add_plugin_workspace()` Add plugin's directory to VS Code workspace if not already added.
+- `setup_git_branch()`
+  - If `current_git_branch` is not `main`:
+    - Return `git_branch`.
+  - Else
+    - `git checkout` the main branch into a git branch of user's choosing (has to be a new branch).
+    - Return `git_branch`.
+- Run `merge_core_into_bask()`
+  - `update_bask_server_side_actions()`
+    -
+  - `update_bask_client_side_actions()`
+  - `update_bask_visual_elements()`
+    All of these functions rely on `map_core_to_bask(file_path)`
+    - Accepts any core file path, and tells you what bask file path it corresponds to
 
 Any local changes that haven't been `Bask Push`ed to Bubble prior to the
-
-- Is not concernced with setting the current plugin whatsoever. That should have been handled on startup.
-- Only pulls
-
-** propagate_core_to_bask() **
-
--
-
-Do not delete scripts that do not have
-
-** propagate_bask_to_core() **
-
--
 
 ### `Bask Auto Push`
 
@@ -212,6 +203,7 @@ Set Bask to automatically push local changes to your Bubble plugin without runni
   - `update_core_client_side_actions()`
   - `update_core_visual_elements()`
     All of these functions rely on `map_bask_to_core(file_path)`
+    - Accepts any bask file path, and tells you what core file path it corresponds to
 
 ### `Bask Auto Build and Push`
 
