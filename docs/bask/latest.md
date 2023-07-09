@@ -81,7 +81,7 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 
 ```
 📂 Bubble-Plugin-Toolbox
-┣ 📂 toolbox
+┣ 📂 bask
 ┃ ┗ 📂 server_side_actions
 ┃    ┣ 📂 node_modules
 ┃    ┣ 📜 tests.js
@@ -98,9 +98,9 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┗ 📜 .gitignore
 ```
 
-As you can see, the `toolbox` folder in `bask_dev` has a `server_side_actions` folder with five items in it.
+As you can see, the `bask` folder in `bask_dev` has a `server_side_actions` folder with five items in it.
 
-1. `evaluate_expression.js`: this file contains the code for our single toolbox action renamed from Bubble's default of `AAI-850mj` to `evaluate_expression`.
+1. `evaluate_expression.js`: this file contains the code for our single action renamed from Bubble's default of `AAI-850mj` to `evaluate_expression`.
 2. `tests.js`: contains all of the unit tests for all of our server side actions.
 3. `build.js`: runs our tests as well as minification, treeshaking and other code bundling steps.
 4. `package.json`: is a traditional npm-generated package.json file. It works with the `node_modules` folder to keep track of which node libraries our SSAs and CSAs need.
@@ -175,12 +175,17 @@ Pulls a plugin's changes from Bubble to your local workspace in the current git 
     - `git checkout` the main branch into a git branch of user's choosing (has to be a new branch).
     - Return `git_branch`.
 - Run `merge_core_into_bask()`
-  - `update_bask_server_side_actions()`
-    -
+
+  - `update_functions_map()`
+
+    - determine which functions are SSAs, CSAs, Visual Elements
+    - if a function has a name we haven't seen before, then add that new name to the list of names associated with said function
+
+  - ## `update_bask_server_side_actions()`
   - `update_bask_client_side_actions()`
   - `update_bask_visual_elements()`
     All of these functions rely on `map_core_to_bask(file_path)`
-    - Accepts any core file path, and tells you what bask file path it corresponds to
+    - Accepts any core file path, and tells you what bask file path it corresponds to using internal `functions_map`
 
 Any local changes that haven't been `Bask Push`ed to Bubble prior to the
 
