@@ -81,7 +81,7 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 
 ```
 📂 Bubble-Plugin-Toolbox
-┣ 📂 bask
+┣ 📂 src
 ┃ ┗ 📂 server_side_actions
 ┃    ┣ 📂 node_modules
 ┃    ┣ 📜 tests.js
@@ -98,7 +98,7 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 ┗ 📜 .gitignore
 ```
 
-As you can see, the `bask` folder in `bask_dev` has a `server_side_actions` folder with five items in it.
+As you can see, the `src` folder in `bask_dev` has a `server_side_actions` folder with five items in it.
 
 1. `evaluate_expression.js`: this file contains the code for our single action renamed from Bubble's default of `AAI-850mj` to `evaluate_expression`.
 2. `tests.js`: contains all of the unit tests for all of our server side actions.
@@ -206,19 +206,25 @@ Pulls a plugin's changes from Bubble to your local workspace in the current git 
 
     - For each entry in `temp_function_map`:
       - If entry exists in `temp_function_map` but not in `stored_function_map`:
-        - `setup_bask_folder(temp_function_map_entry,mode="CREATE")` Create bask file and set its contents to that of it's `core_plugin` counterpart.
+        - `initialize_bask_folder(temp_function_map_entry,mode="CREATE")` Create bask file and set its contents to that of it's `core_plugin` counterpart.
       - Else:
-        - `setup_bask_folder(temp_function_map_entry,mode="RENAME")` Update the name of the `bask_file` to that of it's `core_plugin` counterpart. Do not update the contents of this file.
+        - `initialize_bask_folder(temp_function_map_entry,mode="RENAME")` Update the name of the `bask_file` to that of it's `core_plugin` counterpart. Do not update the contents of this file.
       - Do following when catching exceptions:
         - Make `bask` folder if it doesn't exist.
         - Depending on type of file:
           - If `server_side_actions` folder doesn't exist, then make it.
           - If `client_side_actions` folder doesn't exist, then make it.
           - if `visual_elements` folder doesn't exist, then make it.
-        - Run `setup_bask_folder(temp_function_map_entry,mode="CREATE")`.
+        - Run `initialize_bask_folder(temp_function_map_entry,mode="CREATE")`.
     - `update_functions_map()` Set `stored_function_map` to `temp_function_map`.
-    - 
+    - `finalize_bask_server_side_actions_folder()`
+      - `build_package_json()` Initialize or update package.json with libraries needed by all SSAs.
+      - `update_node_modules()` runs `npm install` if package.json was updated above.
+      - `update_tests()` .
+    - `finalize_bask_client_side_actions_folder()` ??
+    - `update_bask_visual_elements()` ??
 
+- `git commit` all latest changes with message `Pull updates from main branch`.
 
 Any local changes that haven't been `Bask Push`ed to Bubble prior to a pull will be overwritten... Maybe catch this condition and alert user to save / commit this somehow.
 
