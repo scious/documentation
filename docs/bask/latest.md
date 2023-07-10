@@ -81,19 +81,19 @@ Let's run through a specific example. Say we're working on a plugin called "Tool
 
 ```
 📂 Bubble-Plugin-Toolbox
-┣ 📂 src
-┃ ┗ 📂 server_side_actions
-┃    ┣ 📂 node_modules
-┃    ┣ 📜 tests.js
-┃    ┣ 📜 build.js
-┃    ┣ 📜 evaluate_expression.js
-┃    ┗ 📜 package.json
 ┣ 📂 actions
 ┃ ┗ 📂 AAI-850mj
 ┃    ┣ 📜 client.js
 ┃    ┣ 📜 package.json
 ┃    ┣ 📜 params.json
 ┃    ┗ 📜 server.js
+┣ 📂 node_modules
+┣ 📂 src
+┃ ┗ 📂 server_side_actions
+┃    ┗ 📜 evaluate_expression.js
+┣ 📂 tests
+┣ 📜 build.js
+┣ 📜 package.json
 ┣ 📜 README.md
 ┗ 📜 .gitignore
 ```
@@ -284,3 +284,30 @@ Securely saves your Bubble username and password within VS Code so Bask can auto
 Refreshes the current Bubble page whenever a change has been made to your app or plugin.
 
 Explain how to setup this action.
+
+## Testing
+
+### What are some options we have for setting up unit tests?
+
+1. Run SSA tests in node
+
+   - Will probably have to create jigs / shims that emulate bubble locally. May be difficult to create this well.
+   - Ideally most tests can run locally, but then graduate to bubble side testing.
+   - Requires more technical expertise / time setting up tests.
+   - Benefits from version control
+
+2. Create a Bubble template for easily creating, running and learning from tests in Bubble.
+
+   - Most if not all tests run in Bubble
+   - Require less technical expertise as folks don't have to venture down the rabbit hole of learning a testing framework or writing tests with them.
+   - When complete, plugin developers will have a ready made "code coverage" page which has three benefits:
+     - Sureity their plugin works in Bubble
+     - Can show off their code coverage to signal that their plugin is high quality
+     - [Requires server] Plugins of any material complexity will occasionaly (and randomly) just stop working - either due to updates to the browser, an associated 3rd party service or Bubble itself. This template page can be built in such a way that it can be monitored and set to alert a developer if the plugin ever fails all or certain tests.
+   - Provides a minimum level of self documentation that - if nothing else - a developer's customer's can use to learn how to use their plugin. **If we could make the tests page function as a compelling enough form of documentation, this would accelarate plugin development AS WELL AS plugin adoption**.
+
+   - If setup correctly, there would be a way for the bask extension to summarize, document (and therefore version control) test coverage in the github branch itself.
+
+3. Use puppeteer to automate tests.
+   - requires more technical knowhow.
+   -
