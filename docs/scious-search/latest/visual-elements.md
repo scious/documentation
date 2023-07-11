@@ -342,13 +342,12 @@ Earlier we said the `Filters` input behaves like the `Expression` element from t
 
 2. We interpret **non-quoted** appearances of the phrase `yes` and `no` as Javascript's boolean `true` and `false`, respectively. We interpret **quoted** appearances of the phrase `:yes` and `:no` as the phrase `:true` and `:false`, respectively. Together, this allows you to use Bubble's Dynamic `yes` / `no` expressions without having to `Formatted as text` the value to `true` or `false`, which is what Typesense expects.
 
-3.  We interpret **non-quoted** dates as UNIX timestamps (ms) as follows:
+3. We interpret **non-quoted** dates as UNIX timestamps (ms) as follows:
 
-    - `MMM D, YYYY h:mm a` The date **Dec 23, 2023 10:31 pm** converts to **1703392260000**. This is the default date format produced by Bubble dynamic expressions that resolve a date.
-    - `MMMM D, YYYY h:mm a` The date **December 23, 2023 10:31 pm** converts to **1703392260000**.
+   - `MMM D, YYYY h:mm a` The date **Dec 23, 2023 10:31 pm** converts to **1703392260000**. This is the default date format produced by Bubble dynamic expressions that resolve a date.
+   - `MMMM D, YYYY h:mm a` The date **December 23, 2023 10:31 pm** converts to **1703392260000**.
 
-    This allows you to use Bubble's Dynamic date expressions in filters without having to remember to `Extract UNIX timestamps (ms)`, which is the format Typesense expects.
-
+   This allows you to use Bubble's Dynamic date expressions in filters without having to remember to `Extract UNIX timestamps (ms)`, which is the format Typesense expects.
 
 </TabItem>
 </Tabs>
@@ -453,12 +452,19 @@ Internally, we have two unique parameters for controlling the output of search r
 
 ## Typing Trigger
 
+The Typing Trigger is used to instantly feed new values into the Scious Search Visual Element. The reasons for building this element are threefold:
+
+1. To remove the time delay that standard Bubble Inputs have between when a user types and keystroke values become available in Bubble.
+2. new search request on every keystroke is running up the number of monthly search, allows you to tune the rate at which this value to reduce the number of unnecessary real time search requests initiated by queries that were typed quickly.
+
+set the To run a new search on every input keypress, set the Typing Trigger's `Typing timeout` to `0` milliseconds. Alternatively, set
+
 <Figure src="img/scious-search/typing trigger.png" />
 
 **Inputs**
 
 1. `Search element ID` The unique ID of the relevant Bubble input element.
-2. `Typing timeout` The milliseconds between keystrokes before fetching new search results. Tune this value to reduce the number of unnecessary real time search requests initiated by queries that were typed quickly.
+2. `Typing timeout` The milliseconds between keystrokes before fetching new search results. Set to `0` to run a new search on every keystroke or set this value higher to reduce the number of unnecessary real time search requests initiated by queries that were typed quickly.
 3. `Character minimum` The minimum number of characters needed in a query to return search results.
 
 **Outputs**
