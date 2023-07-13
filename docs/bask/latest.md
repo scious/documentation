@@ -95,20 +95,20 @@ In contrast, when we use Bask to initialize a new git branch, we're given a fold
 
 As you can see, we now have a few more files and folders than Bubble gave us natively in the `main` branch. In general, this mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. So, the new:
 
-- `src` folder contains a `server_side_actions` folder with our singular server side action `evaluate_expression.js` (renamed from Bubble's default of `AAI-850mj`). It will also add a `server_side_actions` folder and a `visual_elements` folder if our plugin has any such items.
+- `src` folder contains a `server_side_actions` folder with our singular server side action `evaluate_expression.js` (renamed from Bubble's default of `AAI-850mj`). It will also add a `client_side_actions` folder and a `visual_elements` folder if our plugin has such items.
 - `build.js` handles minification, treeshaking and other code bundling steps.
 - `package.json` is a traditional npm-generated package.json file. It works with the `node_modules` folder to keep track of which node libraries our SSAs need.
 - `node_modules` is a traditional npm-generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` as normal.
 
-With that, the Bask development workflow looks like this:
+With that, the Bask development workflow looks like:
 
 1. Make code changes in `evaluate_expression.js`
 2. Switch windows to your browser plugin test page. Behind the scenes:
 
-   - If `Bask Auto Push` is set, then Bask copies all files from your `src` folder to their respective destinations in the default Bubble plugin folders. Else, if `Bask Auto Build and Push` is set, then Bask runs `build.js` on all files from your `src` folder before storing them in the default Bubble plugin folders.
+   - If `Bask Auto Push` is set, then Bask copies all files from your `src` folder to their respective paths in the default Bubble plugin folders. Else, if `Bask Auto Build and Push` is set, then Bask runs `build.js` on all files from your `src` folder before storing them in the default Bubble plugin folders.
    - Bask will `git commit`, `git merge` and `git push` the changes from your current git branch into the `main` branch on Github.
-   - Bask instructs Bubble to synchronize the latest commit on Github.
-   - Detecting that you've updated your app, the Bask CSA refreshes your plugin test page for you.
+   - Bask instructs Bubble.io to synchronize our latest commit on Github.
+   - Detecting that you've updated your app, Bask's [Auto Refresh](#auto-refresh) reloads your plugin test page.
 
 3. Review your test results.
 4. Switch back to VS Code to edit code as needed.
