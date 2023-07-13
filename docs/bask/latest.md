@@ -144,6 +144,7 @@ The following functions need to be run on launch.
 - `launch_browser()`: If Bask isn't already running, then turn it on.
 
 Modifications to the launch routine depending on which function is called:
+
 `Bask Push`
 
 `Bask Pull`
