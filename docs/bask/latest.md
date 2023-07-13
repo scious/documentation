@@ -295,6 +295,8 @@ Explain how to setup this action.
 
 ### What are some options we have for setting up unit tests?
 
+While there are potential benefits in running plugin unit tests locally, we bet that differences between a developer's local environment and Bubble's environment are enough to spoil many of those benefits. So instead, we strive to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal. And since Bask has access to your Bubble account, it can automatically retrieve test results from your app if it's set up correctly
+
 1. Run SSA tests in node
 
    - Will probably have to create jigs / shims that emulate bubble locally. May be difficult to create this well.
