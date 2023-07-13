@@ -39,9 +39,10 @@ Bask does more than just shorten the code-test-code loop.
 - Automate and version-control local tests to detect bugs before syncing changes to the plugin editor.
 - Standardize your development process to improve code quality, consistency, and release cadence.
 - **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
+- **Coming soon** Auto run & report results from plugin unit tests in a Bubble app.
 - **Maybe someday** For SSA development, run a local, isolated copy of the same node environment used in Bubble's lambda instances to minimize errors resulting from local-vs-lambda environment mismatches.
 
-## How's it work?
+## How it works
 
 ### Under the hood
 
@@ -55,61 +56,61 @@ While Bask is a VS Code extension, we provide a companion Bubble plugin with a c
 
 ### Your new workflow
 
-Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To facilitate unit testing, code minification and treeshaking, we setup three git branches.
-
-- `main`: This branch is the same repo that Bubble syncs to GitHub. We use it to store production ready code - any SSA or Visual Element code that passes unit tests is stored here (after optional minification / treeshaking).
-- `bask_dev`: This branch contains a human readable version of the `main` branch. It mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. It also stores your `build` and `test` scripts.
-- `bask_checkpoint`: This branch is where mature code in `bask_dev` is version controlled for future reference.
-
-Let's run through a specific example. Say we're working on a plugin called "Toolbox" that only has one Server Side action called "Evaluate Expression". Bask will create GIT branches that look like:
-
-#### ⎇ main
+Perhaps the biggest difference between your current workflow and the _Bask workflow_ centers around how we structure your local Bubble plugin folder. To illustrate, let's run through a specific example. Say you're working on a plugin called "Toolbox" that only has one Server Side action called "Evaluate Expression". The default folder structure for this, as stored in git, looks like:
 
 ```
-📂 Bubble-Plugin-Toolbox
-┣ 📂 actions
-┃ ┗ 📂 AAI-850mj
-┃    ┣ 📜 client.js
-┃    ┣ 📜 package.json
-┃    ┣ 📜 params.json
-┃    ┗ 📜 server.js
-┣ 📜 README.md
-┗ 📜 ...
+⎇ main
+  📂 Bubble-Plugin-Toolbox
+  ┣ 📂 actions
+  ┃ ┗ 📂 AAI-850mj
+  ┃    ┣ 📜 client.js
+  ┃    ┣ 📜 package.json
+  ┃    ┣ 📜 params.json
+  ┃    ┗ 📜 server.js
+  ┗ 📜 ...
 ```
 
-#### ⎇ bask_dev
+In practice, the above structure encourages developers to maintain their production-ready code in the same files that they develop in. This is sad.
+
+In contrast, when we use Bask to initialize a new git branch, we're given a folder structure that allows us to easily separate source files from production ready ones. Just as important, this new structure allows us to specify the build script required to convert our source code into production ready code. So, to continue the example, if we [`Bask Pull`](#bask-pull) the above plugin to the `bask_dev` git branch, it would look like:
 
 ```
-📂 Bubble-Plugin-Toolbox
-┣ 📂 actions
-┃ ┗ 📂 AAI-850mj
-┃    ┣ 📜 client.js
-┃    ┣ 📜 package.json
-┃    ┣ 📜 params.json
-┃    ┗ 📜 server.js
-┣ 📂 node_modules
-┣ 📂 src
-┃ ┗ 📂 server_side_actions
-┃    ┗ 📜 evaluate_expression.js
-┣ 📜 build.js
-┣ 📜 package.json
-┣ 📜 README.md
-┗ 📜 .gitignore
+⎇ bask_dev
+  📂 Bubble-Plugin-Toolbox
+  ┣ 📂 actions
+  ┃ ┗ 📂 AAI-850mj
+  ┃    ┣ 📜 client.js
+  ┃    ┣ 📜 package.json
+  ┃    ┣ 📜 params.json
+  ┃    ┗ 📜 server.js
+  ┣ 📂 node_modules
+  ┣ 📂 src
+  ┃ ┗ 📂 server_side_actions
+  ┃    ┗ 📜 evaluate_expression.js
+  ┣ 📜 build.js
+  ┣ 📜 package.json
+  ┗ 📜 .gitignore
 ```
 
-As you can see, the `src` folder in `bask_dev` has a `server_side_actions` folder with four items in it.
+As you can see, we now have a few more files and folders than Bubble gave us natively in the `main` branch. In general, this mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. So, the new:
 
-1. `evaluate_expression.js`: this file contains the code for our single action renamed from Bubble's default of `AAI-850mj` to `evaluate_expression`.
-2. `build.js`: runs our tests as well as minification, treeshaking and other code bundling steps.
-3. `package.json`: is a traditional npm-generated package.json file. It works with the `node_modules` folder to keep track of which node libraries our SSAs and CSAs need.
-4. `node_modules`: is a traditional npm-generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` as normal.
+- `src` folder contains a `server_side_actions` folder with our singular server side action `evaluate_expression.js` (renamed from Bubble's default of `AAI-850mj`). It will also add a `server_side_actions` folder and a `visual_elements` folder if our plugin has any such items.
+- `build.js` handles minification, treeshaking and other code bundling steps.
+- `package.json` is a traditional npm-generated package.json file. It works with the `node_modules` folder to keep track of which node libraries our SSAs need.
+- `node_modules` is a traditional npm-generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` as normal.
 
 With that, the Bask development workflow looks like this:
 
-- make code changes in `evaluate_expression.js`
-- switch windows to your browser.
+1. Make code changes in `evaluate_expression.js`
+2. Switch windows to your browser plugin test page. Behind the scenes:
 
-The last thing you should note is that even though we didn't illustrate it, the `bask_checkpoint` branch will always have the same structure as `bask_dev` because it exists to save snapshots of a working `bask_dev` branch. Running the command `Bask checkpoint` will pull your changes from `bask_dev` into `bask_checkpoint`.
+   - If `Bask Auto Push` is set, then Bask copies all files from your `src` folder to their respective destinations in the default Bubble plugin folders. Else, if `Bask Auto Build and Push` is set, then Bask runs `build.js` on all files from your `src` folder before storing them in the default Bubble plugin folders.
+   - Bask will `git commit`, `git merge` and `git push` the changes from your current git branch into the `main` branch on Github.
+   - Bask instructs Bubble to synchronize the latest commit on Github.
+   - Detecting that you've updated your app, the Bask CSA refreshes your plugin test page for you.
+
+3. Review your test results.
+4. Switch back to VS Code to edit code as needed.
 
 ## Commands
 
@@ -226,6 +227,10 @@ Pulls a plugin's changes from Bubble to your local workspace in the current git 
 - `git commit` all latest changes with message `Pull updates from main branch`.
 
 Any local changes that haven't been `Bask Push`ed to Bubble prior to a pull will be overwritten... Maybe catch this condition and alert user to save / commit this somehow.
+
+... With that, the last thing to keep in mind is that whenever you run `Bask Pull`, any folders and files in git `main` that are not Bubble defaults will be deleted. This is a Bubble specific behavior we cannot change and it results in the deletion of our `src` folder in `main`. Nevertheless, Bask is built to handle this and will correctly sync your changes from `main` to whatever git branch you're currently working in whenever you run `Bask Pull`. For this reason, you should not treat the `main` branch as the full copy of your
+
+As a result, We recommend that you create a third git branch for holding checkpoints of fully production ready checkpoints of your plugin.
 
 ### `Bask Auto Push`
 
