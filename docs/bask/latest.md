@@ -40,6 +40,8 @@ Bask does more than just shorten the code-test-code loop.
 - Standardize your development process to improve code quality, consistency, and release cadence.
 - **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
 - **Coming soon** Auto run & report results from plugin unit tests in a Bubble app.
+- **If there's enough interest** OpenAI powered assistant for creating Bubble plugins.
+- **If there's enough interest** Plugin usage analytics dashboard for all your plugins.
 - **Maybe someday** For SSA development, run a local, isolated copy of the same node environment used in Bubble's lambda instances to minimize errors resulting from local-vs-lambda environment mismatches.
 
 ## How it works
