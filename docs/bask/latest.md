@@ -35,8 +35,8 @@ Bask simplifies plugin development, reducing our workflow to:
 
 Bask does more than just shorten the code-test-code loop.
 
-- **File names for humans™** - rename files from Bubble's native "random-string" format to the actual names you gave your actions or elements so you always know which file you're working in.
-- Automate and version-control local tests to detect bugs before syncing changes to the plugin editor.
+- **File names for humans™** - rename files from Bubble's native _random-string_ format to the actual names you gave your actions or elements so you always know which file you're working in.
+- Automate and log test results to detect and track bugs with ease.
 - Standardize your development process to improve code quality, consistency, and release cadence.
 - **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
 - **Coming soon** Auto run & report results from plugin unit tests in a Bubble app.
