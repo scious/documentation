@@ -52,7 +52,7 @@ Speaking of login credentials, we have **zero** interest in holding yours. Our e
 
 ### Dynamic Bubble app reloading
 
-While Bask is a VS Code extension, we provide a companion Bubble plugin with a client side action you can use to automatically reload the page of the Bubble app you're testing a plugin with. This way, you can edit your code locally, switch to your plugin test page, and start testing your plugin without having to manually refresh the page. See [Auto Refresh](#auto-refresh) for details on how to setup this action.
+While Bask is a VS Code extension, we provide a companion Bubble plugin with a client side action you can use to automatically reload the page of the Bubble app you're testing a plugin with. This way, you can edit your code locally, switch to your plugin test page, and start testing your plugin without having to manually refresh the page. See [Auto Refresh](#auto-refresh) for details on how to set this up.
 
 ### Your new workflow
 
@@ -70,7 +70,7 @@ Perhaps the biggest difference between your current workflow and the _Bask workf
   ┗ 📜 ...
 ```
 
-In practice, the above structure encourages developers to maintain their production-ready code in the same files that they develop in. This is sad.
+In practice, the above structure encourages developers to maintain their production-ready code in the same files that they develop in. So sad.
 
 In contrast, when we use Bask to initialize a new git branch, we're given a folder structure that allows us to easily separate source files from production ready ones. Just as important, this new structure allows us to specify the build script required to convert our source code into production ready code. So, to continue the example, if we [`Bask Pull`](#bask-pull) the above plugin to the `bask_dev` git branch, it would look like:
 
@@ -89,7 +89,8 @@ In contrast, when we use Bask to initialize a new git branch, we're given a fold
   ┃    ┗ 📜 evaluate_expression.js
   ┣ 📜 build.js
   ┣ 📜 package.json
-  ┗ 📜 .gitignore
+  ┣ 📜 .gitignore
+  ┗ 📜 ...
 ```
 
 As you can see, we now have a few more files and folders than Bubble gave us natively in the `main` branch. In general, this mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. So, the new:
