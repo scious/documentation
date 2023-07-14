@@ -5,6 +5,8 @@ pagination_next: null
 pagination_prev: null
 ---
 
+import Highlight from '../components/highlight'
+
 # Bask [Latest]
 
 **Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, most workflows for developing Server Side Actions or Visual Elements look like:
@@ -289,13 +291,13 @@ Securely saves your Bubble username and password within VS Code so Bask can auto
 
 Refreshes the current Bubble page whenever a change has been made to your app or plugin.
 
-Explain how to setup this action.
+<Highlight color="#25c2a0">TODO</Highlight> Explain how to setup this action.
 
 ## Testing
 
 ### What are some options we have for setting up unit tests?
 
-While there are potential benefits in running plugin unit tests locally, we bet that differences between a developer's local environment and Bubble's environment are enough to spoil many of those benefits. So instead, we strive to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal. And since Bask has access to your Bubble account, it can automatically retrieve test results from your app if it's set up correctly
+While there are potential benefits in running plugin unit tests locally, we anticipate that differences between a developer's local environment and Bubble's environment are enough to void many of those benefits. So, instead, we aim to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal. And since Bask has access to your Bubble account, it can automatically retrieve test results from your app if it's set up correctly
 
 1. Run SSA tests in node
 
