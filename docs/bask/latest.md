@@ -124,19 +124,12 @@ The first time you run a command (LIST THE SPECIFIC COMMAND USERS SHOULD START W
 
 Trying Bask for the first time? Start your 14 day free trial by grabbing API keys here.
 
-API Key in hand, switch over to VS
-
-:::TIP
-
-Any time you change your Bubble password, you'll need to update that password in Bask. Use `Bask login
-
-or log out of all devices
-
-:::
+- <Highlight color="#25c2a0">TODO</Highlight> Add hyperlink for users to get API keys.
+- <Highlight color="#25c2a0">TODO</Highlight> Add getting started section with video walkthrough
 
 #### Plugin activation commands (Runs once every time plugin activates).
 
-The following functions need to be run on launch.
+The following functions need to run on launch.
 
 - `get_pre_launch_checklist()`: Returns
   - `registration_is_valid`
@@ -144,7 +137,7 @@ The following functions need to be run on launch.
   - `current_bubble_plugin_is_set`
 - `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`. Runs through a wizard for completeing any missing pre_launch_checklist items.
   - `register_bask()`: Ask for registration. If user does not have API key, we point them to website to purchase key.
-  - `get_bubble_credentials()`: Ask for Bubble login credentials.
+  - `get_bubble_credentials()`: Ask for Bubble login credentials. Securely saves your Bubble username and password within VS Code so Bask can automate plugin related actions within your Bubble account.
   - `get_current_bubble_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then run `bask_switch_plugin()`
 - `launch_browser()`: If Bask isn't already running, then turn it on.
 
@@ -157,8 +150,6 @@ Modifications to the launch routine depending on which function is called:
 `Bask Switch Plugin`
 
 `Bask Which`
-
-`Bask Set Bubble Credentials`
 
 ### `Bask Pull`
 
@@ -278,13 +269,6 @@ Returns the name of the plugin Bask is currently working on.
 
 - Perhaps this would be better as some sort of persistent indicator.
 
-### `Bask Set Bubble Credentials`
-
-Securely saves your Bubble username and password within VS Code so Bask can automate plugin related actions within your Bubble account.
-
-- If credentials were recently set because `Bask Set Bubble Credentials` was the very first command ever run, then do nothing. Otherwise, run as expected.
-- We see that
-
 ## Action
 
 ### Auto Refresh
@@ -295,11 +279,13 @@ Refreshes the current Bubble page whenever a change has been made to your app or
 
 ## Testing
 
-### What are some options we have for setting up unit tests?
+While there are potential benefits in running plugin unit tests locally, we anticipate that differences between a developer's local environment and Bubble's environment are enough to void many of those benefits. So, instead, we aim to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal.
 
-While there are potential benefits in running plugin unit tests locally, we anticipate that differences between a developer's local environment and Bubble's environment are enough to void many of those benefits. So, instead, we aim to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal. And since Bask has access to your Bubble account, it can automatically retrieve test results from your app if it's set up correctly
+Support have Bubble plugin element that
 
-1. Run SSA tests in node
+And since Bask has access to your Bubble account, it can automatically retrieve test results from your app if it's set up correctly
+
+1. Run SSA tests in node (local)
 
    - Will probably have to create jigs / shims that emulate bubble locally. May be difficult to create this well.
    - Ideally most tests can run locally, but then graduate to bubble side testing.
@@ -319,4 +305,6 @@ While there are potential benefits in running plugin unit tests locally, we anti
    - If setup correctly, there would be a way for the bask extension to summarize, document (and therefore version control) test coverage in the github branch itself.
 
 3. Use puppeteer to automate tests.
-   - requires more technical knowhow.
+   - requires more technical knowhow and setup effort.
+   - high automation
+   -
