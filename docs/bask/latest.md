@@ -229,7 +229,7 @@ As a result, We recommend that you create a third git branch for holding checkpo
 
 ### `Bask Auto Push`
 
-Set Bask to automatically push local changes to your Bubble plugin without running your `build` script. To trigger an automatic push, simply unfocus your VS Code editor (switch tabs to your bubble development app). This is the default push mode.
+Set Bask to automatically push local changes to your Bubble plugin without running your `build.js` script. To trigger an automatic push, simply unfocus your VS Code editor (switch tabs to your bubble development app). This is the default push mode.
 
 - Project folder is already be defined in a way that VS Code can detect is a bask repository
 - If project is already up to date, then don't push any changes. Notify that remote is already up to date.
@@ -250,7 +250,7 @@ Set Bask to automatically push local changes to your Bubble plugin without runni
 
 ### `Bask Auto Build and Push`
 
-Set Bask to automatically push local changes to your Bubble plugin after running your `build` script. To trigger an automatic push, simply unfocus your VS Code editor.
+Set Bask to automatically push local changes to your Bubble plugin after running your `build.js` script. To trigger an automatic push, simply unfocus your VS Code editor.
 
 ### `Bask Switch Plugin`
 
