@@ -127,126 +127,13 @@ Trying Bask for the first time? Start your 14 day free trial by grabbing API key
 - <Highlight color="#25c2a0">TODO</Highlight> Add hyperlink for users to get API keys.
 - <Highlight color="#25c2a0">TODO</Highlight> Add getting started section with video walkthrough
 
-#### Plugin activation commands (Runs once every time plugin activates).
-
-The following functions need to run on launch.
-
-- `get_pre_launch_checklist()`: Returns
-  - `registration_is_valid`
-  - `bubble_credentials_are_present`
-  - `current_bubble_plugin_is_set`
-- `complete_prelaunch_checklist(register_bask=true, get_bubble_credentials=true, get_current_working_plugin=true)`. Runs through a wizard for completeing any missing pre_launch_checklist items.
-  - `register_bask()`: Ask for registration. If user does not have API key, we point them to website to purchase key.
-  - `get_bubble_credentials()`: Ask for Bubble login credentials. Securely saves your Bubble username and password within VS Code so Bask can automate plugin related actions within your Bubble account.
-  - `get_current_bubble_plugin()` Returns current plugin. This is the last plugin that was set using `Bask Switch Plugin.` If none has been set, then run `bask_switch_plugin()`
-- `launch_browser()`: If Bask isn't already running, then turn it on.
-
-Modifications to the launch routine depending on which function is called:
-
-`Bask Push`
-
-`Bask Pull`
-
-`Bask Switch Plugin`
-
-`Bask Which`
-
 ### `Bask Pull`
 
 Pulls a plugin's changes from Bubble to your local workspace in the current git branch. If the current git branch is `main` then you will be prompted to create a new git branch. Note: you can switch the current git branch you're working on at any point using VS Codes built in git actions.
 
-- `clone_plugin()`
-  - If `local_plugin_directory` doesn't have a resolvable `local_plugin_path` for `current_plugin`:
-    - Then clone plugin to computer in a directory of user's choosing.
-    - Insert plugin's local file path as a `local_plugin_path` entry in the local plugin_directory.
-    - Return `local_plugin_path`.
-  - Else
-    - Return `local_plugin_path`.
-- `add_plugin_workspace()` Add plugin's directory to VS Code workspace if not already added.
-- `setup_git_branch()`
-  - If `current_git_branch` is not `main`:
-    - Return `git_branch`.
-  - Else
-    - `git checkout` the main branch into a git branch of user's choosing (has to be a new branch).
-    - Return `git_branch`.
-- Run `merge_core_into_bask()`
-
-  - Have two function_maps.
-
-    `stored_function_map`. This map is already built (or simply doesn't exist).
-
-    ```
-    {
-        "ssa": {
-            "AAI-850mj": {
-                "name": "Evaluate Expression",
-                "script_name": "evaluate_expression.js"
-            }
-        }
-    }
-    ```
-
-    `temp_function_map`. This map is built everytime we run `Bask Pull` after pulling the latest changes into `core_plugin`
-
-    ```
-    {
-        "ssa": {
-            "AAI-850mj": {
-                "name": "Evaluate Expression",
-                "script_name": "evaluate_expression.js"
-            }
-        }
-    }
-    ```
-
-    - For each entry in `temp_function_map`:
-      - If entry exists in `temp_function_map` but not in `stored_function_map`:
-        - `initialize_bask_folder(temp_function_map_entry,mode="CREATE")` Create bask file and set its contents to that of it's `core_plugin` counterpart.
-      - Else:
-        - `initialize_bask_folder(temp_function_map_entry,mode="RENAME")` Update the name of the `bask_file` to that of it's `core_plugin` counterpart. Do not update the contents of this file.
-      - Do following when catching exceptions:
-        - Make `bask` folder if it doesn't exist.
-        - Depending on type of file:
-          - If `server_side_actions` folder doesn't exist, then make it.
-          - If `client_side_actions` folder doesn't exist, then make it.
-          - if `visual_elements` folder doesn't exist, then make it.
-        - Run `initialize_bask_folder(temp_function_map_entry,mode="CREATE")`.
-    - `update_functions_map()` Set `stored_function_map` to `temp_function_map`.
-    - `finalize_bask_server_side_actions_folder()`
-      - `build_package_json()` Initialize or update package.json with libraries needed by all SSAs.
-      - `update_node_modules()` runs `npm install` if package.json was updated above.
-      - `update_tests()` .
-    - `finalize_bask_client_side_actions_folder()` ??
-    - `update_bask_visual_elements()` ??
-
-- `git commit` all latest changes with message `Pull updates from main branch`.
-
-Any local changes that haven't been `Bask Push`ed to Bubble prior to a pull will be overwritten... Maybe catch this condition and alert user to save / commit this somehow.
-
-... With that, the last thing to keep in mind is that whenever you run `Bask Pull`, any folders and files in git `main` that are not Bubble defaults will be deleted. This is a Bubble specific behavior we cannot change and it results in the deletion of our `src` folder in `main`. Nevertheless, Bask is built to handle this and will correctly sync your changes from `main` to whatever git branch you're currently working in whenever you run `Bask Pull`. For this reason, you should not treat the `main` branch as the full copy of your
-
-As a result, We recommend that you create a third git branch for holding checkpoints of fully production ready checkpoints of your plugin.
-
 ### `Bask Auto Push`
 
 Set Bask to automatically push local changes to your Bubble plugin without running your `build.js` script. To trigger an automatic push, simply unfocus your VS Code editor (switch tabs to your bubble development app). This is the default push mode.
-
-- Project folder is already be defined in a way that VS Code can detect is a bask repository
-- If project is already up to date, then don't push any changes. Notify that remote is already up to date.
-- If project is not up to date, then
-
-? Maybe these functions load build preferences from `build.js`?
-
-- Handle
-- Push changes and notify user that updates have been pushed to remote.
-  ...
-
-- Run `merge_bask_into_core()`
-  - `update_core_server_side_actions()`
-  - `update_core_client_side_actions()`
-  - `update_core_visual_elements()`
-    All of these functions rely on `map_bask_to_core(file_path)`
-    - Accepts any bask file path, and tells you what core file path it corresponds to
 
 ### `Bask Auto Build and Push`
 
@@ -256,18 +143,11 @@ Set Bask to automatically push local changes to your Bubble plugin after running
 
 Specify the plugin you want to work on with Bask.
 
-- Selection of a plugin always starts by syncing it's metadata (not the plugin code itself) from Bubble. We will never start from a local repo.
-- Fetch/store a full list of plugins from the user's bubble account. When we sync it locally for the first time, we'll insert its local file path into the correct entry in the local plugin directory. Everytime we want to switch plugins, we refresh our local plugin directory with the remote one (taking care to keep information about file paths). The addressing system for the local plugin directory should be keyed by the plugin's ID so that we can maintain updated information across plugin name changes.
-- `bask_switch_plugin()` is callable from other functions (like our initialization routine)
-
-- Once plugin is specified, persist this value across sessions as `current_plugin`
-- Last step: calls `bask_pull()`
-
 ### `Bask Which Plugin`
 
 Returns the name of the plugin Bask is currently working on.
 
-- Perhaps this would be better as some sort of persistent indicator.
+<Highlight color="#25c2a0">TODO</Highlight> Explore if this would be better as a persistent indicator somewhere in the VS Code UI.
 
 ## Action
 
@@ -283,35 +163,8 @@ While there are potential benefits to running plugin unit tests locally, we anti
 
 To speed up Bubble side plugin testing, we've created a visual element and test page template used to define and track plugin unit test results. For those reading this first draft of Bask, [see here](https://plugins.scious.io/version-test/scious-search-tests) for an illustration of what our hypothetical test page template would look like. As shown, our template includes discrete tests preset with various inputs and expected outputs that our plugin (in that case, [Scious Search](https://plugins.scious.io/version-test/scious-search)), should match. If the plugin does produce the right output, then the test is considered "Passed". Otherwise, it has "Failed".
 
-Via a special Visual Element (not yet created), we can track which tests have passed or failed. This Visual Element will be created in a such a way that our VS Code Bask Extension can automatically visit our test page, wait for tests to finish, and then prepare a report indicating which proportion of tests have passed/failed. In the near term, such functionality is - we think - a *"nice to have"* piece of functionality. In terms of creating value for plugin developers, we think that this particular functionality best serves the long term maintenance and development of plugins. You can imagine - and indeed many of you have experience - a plugin randomly failing sometime in the future, either due to Bubble or browser updates, or inadvertent changes to your code. With a properly configured "unit tests page" we can create a system that not only tests code before new releases, but one that can periodically test the code (live, on Bubble's infrastructure) and alert developers to breaking changes as they happen instead of by our plugin users. This keeps our customers happy as well as peace of mind that plugins are working as desired even in mission critical applications. 
+Via a special Visual Element (not yet created), we can track which tests have passed or failed. This Visual Element will be created in a such a way that our VS Code Bask Extension can automatically visit our test page, wait for tests to finish, and then prepare a report indicating which proportion of tests have passed/failed. In the near term, such functionality is - we think - a _"nice to have"_ piece of functionality. In terms of creating value for plugin developers, we think that this particular functionality best serves the long term maintenance and development of plugins. You can imagine - and indeed many of you have experience - a plugin randomly failing sometime in the future, either due to Bubble or browser updates, or inadvertent changes to your code. With a properly configured "unit tests page" we can create a system that not only tests code before new releases, but one that can periodically test the code (live, on Bubble's infrastructure) and alert developers to breaking changes as they happen instead of by our plugin users. This keeps our customers happy as well as peace of mind that plugins are working as desired even in mission critical applications.
 
-
-
-
-Support have Bubble plugin element that
-
-And since Bask has access to your Bubble account, it can automatically retrieve test results from your app if it's set up correctly
-
-1. Run SSA tests in node (local)
-
-   - Will probably have to create jigs / shims that emulate bubble locally. May be difficult to create this well.
-   - Ideally most tests can run locally, but then graduate to bubble side testing.
-   - Requires more technical expertise / time setting up tests.
-   - Benefits from version control
-
-2. Create a Bubble template for easily creating, running and learning from tests in Bubble.
-
-   - Most if not all tests run in Bubble
-   - Require less technical expertise as folks don't have to venture down the rabbit hole of learning a testing framework or writing tests with them.
-   - When complete, plugin developers will have a ready made "code coverage" page which has three benefits:
-     - Sureity their plugin works in Bubble
-     - Can show off their code coverage to signal that their plugin is high quality
-     - [Requires server] Plugins of any material complexity will occasionaly (and randomly) just stop working - either due to updates to the browser, an associated 3rd party service or Bubble itself. This template page can be built in such a way that it can be monitored and set to alert a developer if the plugin ever fails all or certain tests.
-   - Provides a minimum level of self documentation that - if nothing else - a developer's customer's can use to learn how to use their plugin. **If we could make the tests page function as a compelling enough form of documentation, this would accelarate plugin development AS WELL AS plugin adoption**.
-
-   - If setup correctly, there would be a way for the bask extension to summarize, document (and therefore version control) test coverage in the github branch itself.
-
-3. Use puppeteer to automate tests.
-   - requires more technical knowhow and setup effort.
-   - high automation
-   -
+- <Highlight color="#25c2a0">TODO</Highlight> Shorten this section.
+- <Highlight color="#25c2a0">TODO</Highlight> Create Testing Visual Element
+- <Highlight color="#25c2a0">TODO</Highlight> Create Bask VS Code binding to actually run / collate test results in VS Code.
