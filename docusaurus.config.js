@@ -31,8 +31,8 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl:
-            'https://pr.new/github.com/scious/scious-documentation/edit/development/',
+          // editUrl:
+          //   'https://pr.new/github.com/scious/scious-documentation/edit/development/',
         },
         blog: false,
         theme: {
