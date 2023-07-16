@@ -215,7 +215,6 @@ Pulls a plugin's changes from Bubble to your local workspace in the current git 
     - `finalize_bask_server_side_actions_folder()`
       - `build_package_json()` Initialize or update package.json with libraries needed by all SSAs.
       - `update_node_modules()` runs `npm install` if package.json was updated above.
-      - `update_tests()` .
     - `finalize_bask_client_side_actions_folder()` ??
     - `update_bask_visual_elements()` ??
 
@@ -225,28 +224,71 @@ Any local changes that haven't been `Bask Push`ed to Bubble prior to a pull will
 
 ... With that, the last thing to keep in mind is that whenever you run `Bask Pull`, any folders and files in git `main` that are not Bubble defaults will be deleted. This is a Bubble specific behavior we cannot change and it results in the deletion of our `src` folder in `main`. Nevertheless, Bask is built to handle this and will correctly sync your changes from `main` to whatever git branch you're currently working in whenever you run `Bask Pull`. For this reason, you should not treat the `main` branch as the full copy of your
 
-As a result, We recommend that you create a third git branch for holding checkpoints of fully production ready checkpoints of your plugin.
+As a result, we recommend that you create a third git branch for holding checkpoints of fully production ready checkpoints of your plugin.
 
 ### `Bask Auto Push`
 
 Set Bask to automatically push local changes to your Bubble plugin without running your `build.js` script. To trigger an automatic push, simply unfocus your VS Code editor (switch tabs to your bubble development app). This is the default push mode.
 
-- Project folder is already be defined in a way that VS Code can detect is a bask repository
+- Project folder is already defined in a way that VS Code can detect is a bask repository
 - If project is already up to date, then don't push any changes. Notify that remote is already up to date.
 - If project is not up to date, then
 
-? Maybe these functions load build preferences from `build.js`?
-
-- Handle
-- Push changes and notify user that updates have been pushed to remote.
-  ...
-
 - Run `merge_bask_into_core()`
   - `update_core_server_side_actions()`
+    - Run `map_bask_to_core(file_path)` for SSAs. Accepts any bask file path, and tells you what core file path it corresponds to.
+    - Feed output of `map_bask_to_core()` to `build.js` (or `build.mjs` if the `.js` version is not available).
+    - Sandwhich the bundled code with Bubble's standard function declaration.
   - `update_core_client_side_actions()`
   - `update_core_visual_elements()`
     All of these functions rely on `map_bask_to_core(file_path)`
-    - Accepts any bask file path, and tells you what core file path it corresponds to
+    - Accepts any bask file path, and tells you what core file path it corresponds to.
+
+An example of the `build.js` looks like:
+
+```js title="build.js"
+// Bask build file
+// This script defines the list of actions that need to be applied to Bubble plugin
+// code to make it production ready. These actions typically include minification and
+// treeshaking but in practice they can be anything you want.
+//
+// When running `Bask Build`, this file is executed once for every plugin SSA, CSA and
+// Visual Element so consider these the default build instructions. That said, you can
+// modify how certain files are processed (either to apply different build parameters
+// or to ignore them altogether) using "if" conditions. To facilitate this, for your
+// convenience, we list all of the file names this build script will process as follows:
+all_file_names = [""]
+
+
+import * as esbuild from 'esbuild'
+const process = require('process');
+
+file_name = process.argv[2] // Name of the current file to build. DO NOT MODIFY.
+unbuilt_file_path = process.argv[3] // Path to `file_name`. DO NOT MODIFY.
+built_file_path = process.argv[4] // Path to production ready version of `file_name`. DO NOT MODIFY.
+
+// We ensure that destination directories exist before running this build file
+// We may have to run console.log() from within the VS Code extension
+
+// Build file
+await esbuild.build({
+    entryPoints: [unbuilt_file_path],
+    bundle: true,
+    minify: true,
+    treeShaking: true,
+    outfile: built_file_path,
+    platform: 'node',
+    external: ["algoliasearch", "typesense"],
+    sourcesContent: false,
+    legalComments: 'none',
+})
+
+// After the build succeeds, we sandwitch the build file contents within
+// a `function(properties, context) {\n${content}}`; block via the VS CODE extension
+// Maybe we console.log() our success with optional verbosity
+
+console.log(`File ${file} bundled successfully.`);
+```
 
 ### `Bask Auto Build and Push`
 
@@ -283,10 +325,7 @@ While there are potential benefits to running plugin unit tests locally, we anti
 
 To speed up Bubble side plugin testing, we've created a visual element and test page template used to define and track plugin unit test results. For those reading this first draft of Bask, [see here](https://plugins.scious.io/version-test/scious-search-tests) for an illustration of what our hypothetical test page template would look like. As shown, our template includes discrete tests preset with various inputs and expected outputs that our plugin (in that case, [Scious Search](https://plugins.scious.io/version-test/scious-search)), should match. If the plugin does produce the right output, then the test is considered "Passed". Otherwise, it has "Failed".
 
-Via a special Visual Element (not yet created), we can track which tests have passed or failed. This Visual Element will be created in a such a way that our VS Code Bask Extension can automatically visit our test page, wait for tests to finish, and then prepare a report indicating which proportion of tests have passed/failed. In the near term, such functionality is - we think - a *"nice to have"* piece of functionality. In terms of creating value for plugin developers, we think that this particular functionality best serves the long term maintenance and development of plugins. You can imagine - and indeed many of you have experience - a plugin randomly failing sometime in the future, either due to Bubble or browser updates, or inadvertent changes to your code. With a properly configured "unit tests page" we can create a system that not only tests code before new releases, but one that can periodically test the code (live, on Bubble's infrastructure) and alert developers to breaking changes as they happen instead of by our plugin users. This keeps our customers happy as well as peace of mind that plugins are working as desired even in mission critical applications. 
-
-
-
+Via a special Visual Element (not yet created), we can track which tests have passed or failed. This Visual Element will be created in a such a way that our VS Code Bask Extension can automatically visit our test page, wait for tests to finish, and then prepare a report indicating which proportion of tests have passed/failed. In the near term, such functionality is - we think - a _"nice to have"_ piece of functionality. In terms of creating value for plugin developers, we think that this particular functionality best serves the long term maintenance and development of plugins. You can imagine - and indeed many of you have experience - a plugin randomly failing sometime in the future, either due to Bubble or browser updates, or inadvertent changes to your code. With a properly configured "unit tests page" we can create a system that not only tests code before new releases, but one that can periodically test the code (live, on Bubble's infrastructure) and alert developers to breaking changes as they happen instead of by our plugin users. This keeps our customers happy as well as peace of mind that plugins are working as desired even in mission critical applications.
 
 Support have Bubble plugin element that
 
