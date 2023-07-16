@@ -279,7 +279,14 @@ Refreshes the current Bubble page whenever a change has been made to your app or
 
 ## Testing
 
-While there are potential benefits in running plugin unit tests locally, we anticipate that differences between a developer's local environment and Bubble's environment are enough to void many of those benefits. So, instead, we aim to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal.
+While there are potential benefits to running plugin unit tests locally, we anticipate that differences between a developer's local environment and Bubble's environment will void many of those benefits. So, instead, we aim to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal.
+
+To speed up Bubble side plugin testing, we've created a visual element and test page template used to define and track plugin unit test results. For those reading this first draft of Bask, [see here](https://plugins.scious.io/version-test/scious-search-tests) for an illustration of what our hypothetical test page template would look like. As shown, our template includes discrete tests preset with various inputs and expected outputs that our plugin (in that case, [Scious Search](https://plugins.scious.io/version-test/scious-search)), should match. If the plugin does produce the right output, then the test is considered "Passed". Otherwise, it has "Failed".
+
+Via a special Visual Element (not yet created), we can track which tests have passed or failed. This Visual Element will be created in a such a way that our VS Code Bask Extension can automatically visit our test page, wait for tests to finish, and then prepare a report indicating which proportion of tests have passed/failed. In the near term, such functionality is - we think - a *"nice to have"* piece of functionality. In terms of creating value for plugin developers, we think that this particular functionality best serves the long term maintenance and development of plugins. You can imagine - and indeed many of you have experience - a plugin randomly failing sometime in the future, either due to Bubble or browser updates, or inadvertent changes to your code. With a properly configured "unit tests page" we can create a system that not only tests code before new releases, but one that can periodically test the code (live, on Bubble's infrastructure) and alert developers to breaking changes as they happen instead of by our plugin users. This keeps our customers happy as well as peace of mind that plugins are working as desired even in mission critical applications. 
+
+
+
 
 Support have Bubble plugin element that
 
