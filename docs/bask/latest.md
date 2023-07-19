@@ -237,6 +237,27 @@ Set Bask to automatically push local changes to your Bubble plugin without runni
 - Run `merge_bask_into_core()`
   - `update_core_server_side_actions()`
     - Run `map_bask_to_core(file_path)` for SSAs. Accepts any bask file path, and tells you what core file path it corresponds to.
+    - Copy content from `src` file to dist file.
+    - Sandwhich the bundled code with Bubble's standard function declaration.
+    - Run `update_package.json` Updates the package.json for each SSA.
+      - Regex check the `dist` file for every production package listed in the `src` `package.json` for appearances of `require("<package_name>").
+      - For every appearance, add that package and it's version to the SSA's `dist` `package.json`.
+  - `update_core_client_side_actions()`
+  - `update_core_visual_elements()`
+    All of these functions rely on `map_bask_to_core(file_path)`
+    - Accepts any bask file path, and tells you what core file path it corresponds to.
+
+### `Bask Auto Build and Push`
+
+Set Bask to automatically push local changes to your Bubble plugin after running your `build.js` script. To trigger an automatic push, simply unfocus your VS Code editor.
+
+- Project folder is already defined in a way that VS Code can detect is a bask repository
+- If project is already up to date, then don't push any changes. Notify that remote is already up to date.
+- If project is not up to date, then
+
+- Run `merge_bask_into_core()`
+  - `update_core_server_side_actions()`
+    - Run `map_bask_to_core(file_path)` for SSAs. Accepts any bask file path, and tells you what core file path it corresponds to.
     - Feed output of `map_bask_to_core()` to `build.js` (or `build.mjs` if the `.js` version is not available).
     - Sandwhich the bundled code with Bubble's standard function declaration.
   - `update_core_client_side_actions()`
@@ -289,10 +310,6 @@ await esbuild.build({
 
 console.log(`File ${file} bundled successfully.`);
 ```
-
-### `Bask Auto Build and Push`
-
-Set Bask to automatically push local changes to your Bubble plugin after running your `build.js` script. To trigger an automatic push, simply unfocus your VS Code editor.
 
 ### `Bask Switch Plugin`
 
@@ -354,3 +371,16 @@ And since Bask has access to your Bubble account, it can automatically retrieve 
    - requires more technical knowhow and setup effort.
    - high automation
    -
+
+### Configurable bask settings:
+
+- Whether to auto-run npm install on bask pull.
+- Whether to auto update an SSA's package.json on bask push.
+- Whether to wrap SSA code within Bubble's default function definition.
+- Whether to inject a comment with available bubble properties and variables at the top of an SSA.
+- Whether to inject a properties preprocessing section
+
+### Snippets
+
+- Return values from SSA
+-
