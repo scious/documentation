@@ -37,6 +37,10 @@ Company will not be responsible for correcting a Service Request arising from an
 - Incorrect use of the Service; or to the extent the relevant environment is not within Company’s control.
 - Any fault in the equipment or in any programs used in conjunction with the Service or in respect to any Customer Service-Compatible Application(s).
 
+## Concurrent coverage
+
+The benefits of this Service Level Agreement extend to all of Customer's concurrent Scious Search Plugin Subscriptions.
+
 ## Associated Products
 
 <nav className="pagination-nav">
