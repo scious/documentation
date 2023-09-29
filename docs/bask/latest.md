@@ -9,7 +9,7 @@ import Highlight from '../components/highlight'
 
 # Bask [Latest]
 
-**Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, most workflows for developing Server Side Actions or Visual Elements look like:
+**Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, most workflows for developing plugins look like:
 
 1. Code in local editor.
 2. Run build script to minify, treeshake, or perform other code bundling tasks.
@@ -19,19 +19,13 @@ import Highlight from '../components/highlight'
 6. Click `Settings` tab > then tap `Synchronize with GitHub` button.
 7. Switch to the browser tab running our plugin development app.
 8. Refresh the page to load our latest plugin changes.
-9. Test plugin.
-10. If testing an SSA, then wait 3 to 10 seconds for it to run.
-11. If the SSA fails (which happens 99% of the time), then read the error output.
-12. Repeat steps 1 through 11 until the plugin works.
+9. Test plugin. Repeat steps 1 through 9 until the plugin works.
 
 Bask simplifies plugin development, reducing our workflow to:
 
 1. Code in local editor.
 2. Switch windows to the browser tab running our plugin development app.
-3. Test plugin.
-4. If testing an SSA, then wait 3 to 10 seconds for it to run.
-5. If the SSA fails (which happens 99% of the time), then read the error output.
-6. Repeat steps 1 through 5 until the plugin works.
+3. Test plugin. Repeat steps 1 through 3 until the plugin works.
 
 ## Bodacious features
 
