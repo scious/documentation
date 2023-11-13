@@ -144,8 +144,6 @@ Bask automatically synchronizes code changes to Bubble whenever you save a plugi
 
 To toggle between build modes, tap on Bask's status bar item located on the bottom left corner of the VS Code editor.
 
-### `Bask Build & Push (auto)`
-
 ## Action
 
 ### Auto Refresh
