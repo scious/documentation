@@ -105,6 +105,7 @@ With that, the Bask development workflow looks like:
    - If `Bask Push (auto)` is set, then Bask copies all files from your `src` folder to their respective paths in the default Bubble plugin folders. Else, if `Bask Build & Push (auto)` is set, then Bask runs `build.js` (or `build.mjs`) on all files from your `src` folder before storing them in the default Bubble plugin folders.
    - Bask uploads the latest state of your plugin to bubble.io/plugin_editor.
    - Detecting that you've updated your app, Bask's [Auto Refresh](#auto-refresh) reloads your plugin test page.
+
 3. Review your test results.
 4. Switch back to VS Code to edit code as needed.
 
@@ -112,7 +113,7 @@ With that, the Bask development workflow looks like:
 
 To install Bask, you can tap `Install` on our [VS Code Marketplace page](https://marketplace.visualstudio.com/items?itemName=Scious.Bask) or search the phrase `Bask` within VS Code's Extensions tab.
 
-Once installed, you can run the `Bask Switch Plugin` command to get started. First time users will be prompted to enter an API key which can be purchased [here](https://buy.stripe.com/28ocQl1if7PPbHG9AC). Our first 8 alpha users can use promo code **ALPHASQUAD** for 30% off their subscription for life.
+Once installed, you can run the `Bask Switch Plugin` command to get started. First time users will be prompted to enter an API key which can be purchased [here](https://buy.stripe.com/28ocQl1if7PPbHG9AC).
 
 Once registered, Bask will follow up by asking you to enter your Bubble Credentials which it will securely store on your device to carry out all of Basks core functions. Once added, you're all set to start using Bask.
 
@@ -126,14 +127,6 @@ The first time you run any command, bask will ask for your Bubble login credenti
 
 Pulls a plugin's changes from Bubble to your local workspace in the current git branch. Note: you can switch the current git branch you're working on at any point using VS Codes built in git actions.
 
-### `Bask Push (auto)`
-
-Set Bask to automatically push local changes to your Bubble plugin without running your `build.js` script. To trigger an automatic push, simply save your work and then unfocus your VS Code editor (switch tabs to your bubble development app). This is the default push mode.
-
-### `Bask Build & Push (auto)`
-
-Set Bask to automatically push local changes to your Bubble plugin after running your `build.js` or `build.mjs` script. To trigger an automatic push, simply save your work and then unfocus your VS Code editor.
-
 ### `Bask Switch Plugin`
 
 Specify the plugin you want to work on with Bask.
@@ -142,22 +135,21 @@ Specify the plugin you want to work on with Bask.
 
 Formally submit a new version of your plugin and save its code as a versioned Git tag.
 
+## Syncing local changes to Bubble
+
+Bask automatically synchronizes code changes to Bubble whenever you save a plugin file. There are two modes Bask will use to sync your changes:
+
+- **Build mode enabled** sets Bask to push local changes to your Bubble plugin after running your `build.js` or `build.mjs` script.
+- **Build mode disabled** sets Bask to push local changes to your Bubble plugin without running your `build.js` or `build.mjs` script. This is the default push mode.
+
+To toggle between build modes, tap on Bask's status bar item located on the bottom left corner of the VS Code editor.
+
+### `Bask Build & Push (auto)`
+
 ## Action
 
 ### Auto Refresh
 
-Refreshes the current Bubble page whenever a change has been made to your app or plugin. Add to your page, create a workflow that triggers on `Page is loaded` and then run this action. 
+Refreshes the current Bubble page whenever a change has been made to your app or plugin. Add to your page, create a workflow that triggers on `Page is loaded` and then run this action.
 
 <Highlight color="#25c2a0">TODO</Highlight> Show screenshot of action.
-
-## Testing
-
-While there are potential benefits to running plugin unit tests locally, we anticipate that differences between a developer's local environment and Bubble's environment will void many of those benefits. So, instead, we aim to make code synchronization between your local editor and Bubble so fast that tab switching between VS Code and a Bubble app is not just suitable for testing but ideal.
-
-To speed up Bubble side plugin testing, we've created a visual element and test page template used to define and track plugin unit test results. For those reading this second draft of Bask, [see here](https://plugins.scious.io/version-test/scious-search-tests) for an illustration of what our hypothetical test page template would look like. As shown, our template includes discrete tests preset with various inputs and expected outputs that our plugin (in that case, [Scious Search](https://plugins.scious.io/version-test/scious-search)), should match. If the plugin does produce the right output, then the test is considered "Passed". Otherwise, it has "Failed".
-
-Via a special Visual Element (not yet created), we can track which tests have passed or failed. This Visual Element will be created in a such a way that our VS Code Bask Extension can automatically visit our test page, wait for tests to finish, and then prepare a report indicating which proportion of tests have passed/failed. In the near term, such functionality is - we think - a _"nice to have"_ piece of functionality. In terms of creating value for plugin developers, we think that this particular functionality best serves the long term maintenance and development of plugins. You can imagine - and indeed many have experienced - a plugin randomly failing, either due to Bubble or browser updates, or inadvertent changes to your code. With a properly configured "unit tests page" we can create a system that not only tests code before new releases, but one that can periodically test the code (live, on Bubble's infrastructure) and alert developers to breaking changes as they happen instead of by our plugin users. This keeps our customers happy as well as peace of mind that plugins are working as desired even in mission critical applications.
-
-- <Highlight color="#25c2a0">TODO</Highlight> Shorten this section.
-- <Highlight color="#25c2a0">TODO</Highlight> Create Testing Visual Element
-- <Highlight color="#25c2a0">TODO</Highlight> Create Bask VS Code binding to actually run / collate test results in VS Code.
