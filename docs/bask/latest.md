@@ -113,7 +113,7 @@ With that, the Bask development workflow looks like:
 
 To install Bask, you can tap `Install` on our [VS Code Marketplace page](https://marketplace.visualstudio.com/items?itemName=Scious.Bask) or search the phrase `Bask` within VS Code's Extensions tab.
 
-Once installed, you can run the `Bask Switch Plugin` command to get started. First time users will be prompted to enter an API key which can be purchased [here](https://buy.stripe.com/28ocQl1if7PPbHG9AC).
+Once installed, you can run the `Bask Switch Plugin` command to get started. First time users will be prompted to enter an API key which can be purchased [here](https://scious.io/plugins/bask).
 
 Once registered, Bask will follow up by asking you to enter your Bubble Credentials which it will securely store on your device to carry out all of Basks core functions. Once added, you're all set to start using Bask.
 
