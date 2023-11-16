@@ -8,6 +8,9 @@ export default function VideoGIF({ src, caption }) {
         textAlign: 'center',
         padding: 16,
         boxShadow: '2px 3px 6px #eaeaea',
+        marginInlineStart: '0px',
+        marginInlineEnd: '0px',
+        marginBottom: '24px',
       }}
     >
       <video width="100%" autoPlay loop muted playsInline>

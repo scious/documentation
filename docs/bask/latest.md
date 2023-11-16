@@ -6,6 +6,7 @@ pagination_prev: null
 ---
 
 import Highlight from '../components/highlight'
+import VideoGIF from '../components/videogifs'
 
 # Bask [Latest]
 
@@ -26,6 +27,8 @@ Bask simplifies plugin development, reducing our workflow to:
 1. Code in local editor.
 2. Switch windows to the browser tab running our plugin development app.
 3. Test plugin. Repeat steps 1 through 3 until the plugin works.
+
+<VideoGIF src="https://heap.omnistore.win/bask_animations/bask_auto_sync.mp4" />
 
 ## Bodacious features
 
@@ -127,13 +130,17 @@ The first time you run any command, bask will ask for your Bubble login credenti
 
 Pulls a plugin's changes from Bubble to your local workspace in the current git branch. Note: you can switch the current git branch you're working on at any point using VS Codes built in git actions.
 
+<VideoGIF src="https://heap.omnistore.win/bask_animations/bask_pull.mp4" />
+
 ### `Bask Switch Plugin`
 
-Specify the plugin you want to work on with Bask.
+Specify the plugin you want to work on with Bask. Performs the same action as `Bask Pull` after having selected your plugin of choice.
 
 ### `Bask Publish`
 
 Formally submit a new version of your plugin and save its code as a versioned Git tag.
+
+<VideoGIF src="https://heap.omnistore.win/bask_animations/bask_publish.mp4" />
 
 ## Syncing local changes to Bubble
 
@@ -143,6 +150,8 @@ Bask automatically synchronizes code changes to Bubble whenever you save a plugi
 - **Build mode disabled** sets Bask to push local changes to your Bubble plugin without running your `build.js` or `build.mjs` script. This is the default push mode.
 
 To toggle between build modes, tap on Bask's status bar item located on the bottom left corner of the VS Code editor.
+
+<VideoGIF src="https://heap.omnistore.win/bask_animations/bask_build.mp4" />
 
 ## Action
 
