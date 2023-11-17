@@ -106,11 +106,9 @@ With that, the Bask development workflow looks like:
 
 1. Make code changes in `evaluate_expression.js`
 2. Save the file. Behind the scenes:
-
    - If Bask's [build mode](#syncing-local-changes-to-bubble) is **disabled**, then Bask combines all files from your `src` folder into `./dist/plugin.json` as is. Else, if Bask's build mode is **enabled**, then Bask runs `build.mjs` on all javascript files from your `src` folder while combining to `./dist/plugin.json`.
    - Bask uploads `./dist/plugin.json` to bubble.io/plugin_editor.
    - Detecting that you've updated your app, Bask's [Auto Refresh](#auto-refresh) reloads your plugin test page.
-
 3. Review your test results.
 4. Switch back to VS Code to edit code as needed.
 
@@ -159,6 +157,18 @@ To toggle between build modes, tap on Bask's status bar item located on the bott
 
 ### Auto Refresh
 
-Refreshes the current Bubble page whenever a change has been made to your app or plugin. Add to your page, create a workflow that triggers on `Page is loaded` and then run this action.
+Refreshes the current Bubble page whenever a change has been made to your app or plugin. To use:
 
-<Highlight color="#25c2a0">TODO</Highlight> Show screenshot of action.
+1. Add the [Bask plugin](https://bubble.io/plugin/bask-1694722264573x355074825064808450) to your Bubble app.
+2. On a test page of your choice, create a workflow that triggers on `Page is loaded`.
+3. Within the workflow, add the Bask `Auto Refresh` action.
+4. Add your Bubble app as a `test app` within your plugin ([learn more](https://manual.bubble.io/account-and-marketplace/building-plugins/building-elements#testing-a-plugin)).
+
+With Bask running, your plugin test page will update any time you save a related file in VS Code.
+
+## Support
+
+We provide support in two ways:
+
+- The [forum](https://forum.bubble.io/t/who-wants-a-vs-code-extension-for-developing-bubble-plugins/269165/last). This option is free for everyone to use where questions are answered by us as well as the community.
+- We offer a [Service Level Agreement](https://buy.stripe.com/8wMg2x1if3zz3ba6op) for customers requiring service and maintenance guarentees.
