@@ -35,11 +35,10 @@ Bask simplifies plugin development, reducing our workflow to:
 Bask does more than auto-sync your local code to Bubble.
 
 - **File names for humans™** - rename files from Bubble's native _random-string_ format to the actual names you gave your actions or elements so you always know which file you're working in.
-- **Function names for robots™** We convert `function (instance, properties, context)` to `function update (instance, properties, context)` so your linters and build tools just work.
-- **Automated bundling** Sync your code as is or bundle it to make your plugins run much faster. Treeshaking and including ES6 modules is easy.
-- **Semantic versioning for git** Effortlessly keep git tags in sync with your official plugin releases via [`Bask Publish`]().
-
-Standardize your development process to improve code quality, consistency, and release cadence.
+- **Function names for robots™** - we convert `function (instance, properties, context)` to `function update (instance, properties, context)` so  linters and build tools just work.
+- **Automated bundling** - sync your code as is or bundle it to make actions run faster. Treeshaking and deploying with ES6 modules has never been easier.
+- **Git decoupled** - you're no longer chained to developing in `main` branch. Practical version control is back, baby!
+- **Stay organized** *Which git commit was related to an official release of my plugin?* Never ask that question again thanks to [`Bask Publish`](#bask-publish).
 - **If there's enough interest** Auto run & report results from plugin unit tests in a Bubble app.
 - **If there's enough interest** OpenAI powered assistant for creating Bubble plugins.
 - **If there's enough interest** Plugin usage analytics dashboard for all your plugins.
@@ -79,7 +78,7 @@ In contrast, when we use Bask, we're given a folder structure that allows us to 
 ```
 ⎇ bask_dev
   📂 Bubble-Plugin-Toolbox
-  ┣ 📂 actions
+  ┣ 📂 src
   ┃ ┗ 📂 AAI-850mj
   ┃    ┣ 📜 client.js
   ┃    ┣ 📜 package.json
