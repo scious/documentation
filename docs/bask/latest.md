@@ -35,10 +35,10 @@ Bask simplifies plugin development, reducing our workflow to:
 Bask does more than auto-sync your local code to Bubble.
 
 - **File names for humans™** - rename files from Bubble's native _random-string_ format to the actual names you gave your actions or elements so you always know which file you're working in.
-- **Function names for robots™** - we convert `function (instance, properties, context)` to `function update (instance, properties, context)` so  linters and build tools just work.
+- **Function names for robots™** - we convert `function (instance, properties, context)` to `function update (instance, properties, context)` so linters and build tools just work.
 - **Automated bundling** - sync your code as is or bundle it to make actions run faster. Treeshaking and deploying with ES6 modules has never been easier.
 - **Git decoupled** - you're no longer chained to developing in `main` branch. Practical version control is back, baby!
-- **Stay organized** *Which git commit was related to an official release of my plugin?* Never ask that question again thanks to [`Bask Publish`](#bask-publish).
+- **Stay organized** _Which git commit was related to an official release of my plugin?_ Never ask that question again thanks to [`Bask Publish`](#bask-publish).
 - **If there's enough interest** Auto run & report results from plugin unit tests in a Bubble app.
 - **If there's enough interest** OpenAI powered assistant for creating Bubble plugins.
 - **If there's enough interest** Plugin usage analytics dashboard for all your plugins.
@@ -78,17 +78,15 @@ In contrast, when we use Bask, we're given a folder structure that allows us to 
 ```
 ⎇ bask_dev
   📂 Bubble-Plugin-Toolbox
-  ┣ 📂 src
-  ┃ ┗ 📂 AAI-850mj
-  ┃    ┣ 📜 client.js
-  ┃    ┣ 📜 package.json
-  ┃    ┣ 📜 params.json
-  ┃    ┗ 📜 server.js
   ┣ 📂 node_modules
+  ┣ 📂 dist
+  ┃ ┗ 📜 plugin.json
   ┣ 📂 src
   ┃ ┗ 📂 server_side_actions
-  ┃    ┗ 📜 evaluate_expression.js
-  ┣ 📜 build.js
+  ┃   ┗ 📂 evaluate_expression
+  ┃     ┣ 📜 evaluate_expression.js
+  ┃     ┗ 📜 evaluate_expression.json
+  ┣ 📜 build.mjs
   ┣ 📜 package.json
   ┣ 📜 .gitignore
   ┗ 📜 ...
@@ -96,18 +94,21 @@ In contrast, when we use Bask, we're given a folder structure that allows us to 
 
 As you can see, we now have a few more files and folders than Bubble gave us natively in the `main` branch. In general, this mirrors the folders in the `main` branch but with descriptive filenames in place of Bubble's cryptic filenames. So, the new:
 
-- `src` folder contains a `server_side_actions` folder with our singular server side action `evaluate_expression.js` (renamed from Bubble's default of `AAI-850mj`). It will also add a `client_side_actions` folder and a `visual_elements` folder if our plugin has such items.
+- `src` folder contains a `server_side_actions` folder with additional folders named after our SSAs, in our case just `evaluate_expression`. It will also add a `client_side_actions` folder and a `visual_elements` folder if our plugin has such items.
+  - Within our singular server side action we have `evaluate_expression.js` (renamed from Bubble's default of `AAI-850mj`) which contains our SSA code. It will also add a client_side_actions folder and a visual_elements folder if our plugin has such items.
+  - Along side it is the `evaluate_expression.json` that combines the previously separate `package.json` and `params.json`.
 - `build.mjs` handles minification, treeshaking and other code bundling steps.
 - `package.json` is a traditional npm-generated package.json file. It works with the `node_modules` folder to keep track of which node libraries our SSAs need.
 - `node_modules` is a traditional npm-generated node_modules folder. To add modules to it (as well as package.json), you would run the node command `npm install <module_name>` as normal.
+- `dist` contains the distributable version of your plugin as a single `plugin.json` file (the representation of your plugin as the Bubble Plugin Editor internally expects). This is what Bask syncs to Bubble.
 
 With that, the Bask development workflow looks like:
 
 1. Make code changes in `evaluate_expression.js`
-2. Switch windows to your browser plugin test page. Behind the scenes:
+2. Save the file. Behind the scenes:
 
-   - If `Bask Push (auto)` is set, then Bask copies all files from your `src` folder to their respective paths in the default Bubble plugin folders. Else, if `Bask Build & Push (auto)` is set, then Bask runs `build.js` (or `build.mjs`) on all files from your `src` folder before storing them in the default Bubble plugin folders.
-   - Bask uploads the latest state of your plugin to bubble.io/plugin_editor.
+   - If Bask's [build mode](#syncing-local-changes-to-bubble) is **disabled**, then Bask combines all files from your `src` folder into `./dist/plugin.json` as is. Else, if Bask's build mode is **enabled**, then Bask runs `build.mjs` on all javascript files from your `src` folder while combining to `./dist/plugin.json`.
+   - Bask uploads `./dist/plugin.json` to bubble.io/plugin_editor.
    - Detecting that you've updated your app, Bask's [Auto Refresh](#auto-refresh) reloads your plugin test page.
 
 3. Review your test results.
