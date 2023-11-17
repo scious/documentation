@@ -4,9 +4,9 @@ pagination_prev: null
 sidebar_class_name: hidden
 ---
 
-# Scious Search Service Level Agreement
+# Service Level Agreement
 
-Scious Inc., hereafter referred to as the Company, will provide Technical Responses to Service Requests received from subscribers of the Scious Search Service Level Agreement, hereafter referred to as the Customer. The time allocated to the delivery of Technical Responses shall be measured from the time of receipt of the relevant Service Request by the Company during Support Hours. Upon receipt of a Service Request, the Service Request will be assigned a Priority, where the Priority measures the severity of the situation. The Technical Response Time will depend on the Priority as follows:
+Scious Inc., hereafter referred to as the Company, will provide Technical Responses to Service Requests received from subscribers of the Service Level Agreement, hereafter referred to as the Customer. The time allocated to the delivery of Technical Responses shall be measured from the time of receipt of the relevant Service Request by the Company during Support Hours. Upon receipt of a Service Request, the Service Request will be assigned a Priority, where the Priority measures the severity of the situation. The Technical Response Time will depend on the Priority as follows:
 
 ## Priority support matrix
 
@@ -39,15 +39,25 @@ Company will not be responsible for correcting a Service Request arising from an
 
 ## Concurrent coverage
 
-The benefits of this Service Level Agreement extend to all of Customer's concurrent Scious Search Plugin Subscriptions.
-
-## Associated Products
+The benefits of this Service Level Agreement extend to all of Customer's concurrent Bubble Plugin and VS Code Extension Subscriptions, including the following Products:
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item pagination-nav__item--next">
     <a className="pagination-nav__link" href="scious-search/latest">
       <div className="pagination-nav__sublabel">Scious Search</div>
       <div className="pagination-nav__label">Natively integrate Typesense or Algolia →</div>
+    </a>
+  </div> 
+  <div className="pagination-nav__item pagination-nav__item--next">
+    <a className="pagination-nav__link" href="TheirLabel/latest">
+      <div className="pagination-nav__sublabel">TheirLabel</div>
+      <div className="pagination-nav__label">Domain name white-labeling for Bubble →</div>
+    </a>
+  </div>
+  <div className="pagination-nav__item pagination-nav__item--next">
+    <a className="pagination-nav__link" href="bask/latest">
+      <div className="pagination-nav__sublabel">Bask</div>
+      <div className="pagination-nav__label">VS Code extension for Bubble plugin development →</div>
     </a>
   </div> 
 </nav>
