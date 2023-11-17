@@ -38,7 +38,7 @@ Bask does more than auto-sync your local code to Bubble.
 - **Function names for robots™** - we convert `function (instance, properties, context)` to `function update (instance, properties, context)` so linters and build tools just work.
 - **Automated bundling** - sync your code as is or bundle it to make actions run faster. Treeshaking and deploying with ES6 modules has never been easier.
 - **Git decoupled** - you're no longer chained to developing in `main` branch. Practical version control is back, baby!
-- **Stay organized** _Which git commit was related to an official release of my plugin?_ Never ask that question again thanks to [`Bask Publish`](#bask-publish).
+- **Stay organized** _Which commit was related to an official release of my plugin?_ Never wonder again thanks to [`Bask Publish`](#bask-publish).
 - **If there's enough interest** Auto run & report results from plugin unit tests in a Bubble app.
 - **If there's enough interest** OpenAI powered assistant for creating Bubble plugins.
 - **If there's enough interest** Plugin usage analytics dashboard for all your plugins.
