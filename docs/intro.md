@@ -33,6 +33,13 @@ Scious is prouncounced **sci** like "**sci**ence" and **us** like "you and I". I
       <div className="pagination-nav__sublabel">Scious Search</div>
       <div className="pagination-nav__label">Natively integrate Typesense or Algolia →</div>
     </a>
+  </div>
+
+  <div className="pagination-nav__item pagination-nav__item--next">
+    <a className="pagination-nav__link" href="bask/latest">
+      <div className="pagination-nav__sublabel">Bask</div>
+      <div className="pagination-nav__label">VS Code extension for Bubble plugin development →</div>
+    </a>
   </div> 
 </nav>
 
