@@ -32,12 +32,14 @@ Bask simplifies plugin development, reducing our workflow to:
 
 ## Bodacious features
 
-Bask does more than just shorten the code-test-code loop.
+Bask does more than auto-sync your local code to Bubble.
 
 - **File names for humans™** - rename files from Bubble's native _random-string_ format to the actual names you gave your actions or elements so you always know which file you're working in.
-- Automate and log test results to detect and track bugs with ease.
-- Standardize your development process to improve code quality, consistency, and release cadence.
-- **Coming soon** Allow Bubble accounts secured by 2FA to login with Bask.
+- **Function names for robots™** We convert `function (instance, properties, context)` to `function update (instance, properties, context)` so your linters and build tools just work.
+- **Automated bundling** Sync your code as is or bundle it to make your plugins run much faster. Treeshaking and including ES6 modules is easy.
+- **Semantic versioning for git** Effortlessly keep git tags in sync with your official plugin releases via [`Bask Publish`]().
+
+Standardize your development process to improve code quality, consistency, and release cadence.
 - **If there's enough interest** Auto run & report results from plugin unit tests in a Bubble app.
 - **If there's enough interest** OpenAI powered assistant for creating Bubble plugins.
 - **If there's enough interest** Plugin usage analytics dashboard for all your plugins.
