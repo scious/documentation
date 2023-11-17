@@ -10,7 +10,7 @@ import VideoGIF from '../components/videogifs'
 
 # Bask [Latest]
 
-**Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, most workflows for developing plugins look like:
+**Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, developing plugins look like:
 
 1. Code in local editor.
 2. Run build script to minify, treeshake, or perform other code bundling tasks.
