@@ -153,6 +153,74 @@ To toggle between build modes, tap on Bask's status bar item located on the bott
 
 <VideoGIF src="https://heap.omnistore.win/bask_animations/bask_build.mp4" />
 
+### Default build script
+Most, if not all, Javascript bundlers are built to process entire Javascript files or project directories. Because a Bubble plugin is neither, Bask is packaged with a default build script that uses `esbuild` to individually bundle the Javascript functions present in your plugin.
+
+We use `esbuild` as the default bundler because it's fast and has a lot of options but users can opt for any JS bundler they like. The key thing to know is that Bask runs your `build.mjs` (or `build.js`) by supplying it five arguments about the plugin function being processed. These arguments are accessed using Node's `process` module like so:
+
+1. `file_name = process.argv[2]` The name of the source file that contains the current function being processed.
+2. `resolve_directory = process.argv[3]` Directory containing `file_name`.
+3. `unbuilt_file_path = process.argv[4]` Path to a temporary file containing only the contents of the current function being processed.
+4. `built_file_path = process.argv[5]` Another temporary file containing the built contents of `unbuilt_file_path`.
+5. `function_type = process.argv[6]` This Bubble function's type. One of the following:
+   - `SERVER_SIDE_ACTION`
+   - `CLIENT_SIDE_ACTION`
+   - `ELEMENT_ACTION`
+   - `ELEMENT_INITIALIZE`
+   - `ELEMENT_PREVIEW`
+   - `ELEMENT_UPDATE`
+   - `ELEMENT_RESET`
+   - `ELEMENT_STATE`
+
+In the default build file we provide, that looks like:
+
+```jsx title="build.mjs"
+import * as esbuild from 'esbuild'
+import process from 'process';
+import * as fs from 'fs';
+
+let file_name = process.argv[2]
+let resolve_directory = process.argv[3]
+let unbuilt_file_path = process.argv[4]
+let built_file_path = process.argv[5]
+let function_type = process.argv[6]
+
+const file_contents = fs.readFileSync(unbuilt_file_path, 'utf-8');
+
+// Build files depending on function type
+if (function_type == "SERVER_SIDE_ACTION" || function_type == "CLIENT_SIDE_ACTION") {
+    esbuild.build({
+        stdin: {
+            contents: file_contents,
+            resolveDir: resolve_directory,
+            sourcefile: file_name,
+        },
+        bundle: true,
+        minify: true,
+        treeShaking: true,
+        outfile: built_file_path,
+        platform: 'node',
+        sourcesContent: false,
+    })
+} else {
+    esbuild.build({
+        stdin: {
+            contents: file_contents,
+            resolveDir: resolve_directory,
+            sourcefile: file_name,
+        },
+        bundle: true,
+        minify: true,
+        // treeShaking: true,
+        outfile: built_file_path,
+        platform: 'node',
+        sourcesContent: false,
+    })
+}
+```
+
+As you'll note, we use the injected `function_type` argument to change build parameters depending on the function being processed (i.e. turning off treeShaking for plugin elements). Since this default script is simply to help users get started, you'll likely want to adjust by use case or set even more granular build settings by using the `file_name` argument along with `function_type`.
+
 ## Action
 
 ### Auto Refresh
