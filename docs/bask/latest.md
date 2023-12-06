@@ -162,7 +162,7 @@ We use `esbuild` as the default bundler because it's fast and has a lot of optio
 2. `resolve_directory = process.argv[3]` Directory containing `file_name`.
 3. `unbuilt_file_path = process.argv[4]` Path to a temporary file containing only the contents of the current function being processed.
 4. `built_file_path = process.argv[5]` Another temporary file containing the built contents of `unbuilt_file_path`.
-5. `function_type = process.argv[6]` This Bubble function's type. One of the following:
+5. `function_type = process.argv[6]` Current Bubble function's type. One of the following:
    - `SERVER_SIDE_ACTION`
    - `CLIENT_SIDE_ACTION`
    - `ELEMENT_ACTION`
@@ -172,7 +172,7 @@ We use `esbuild` as the default bundler because it's fast and has a lot of optio
    - `ELEMENT_RESET`
    - `ELEMENT_STATE`
 
-In the default build file we provide, that looks like:
+In the default build file we provide, those arguments are used as follows:
 
 ```jsx title="build.mjs"
 import * as esbuild from 'esbuild'
