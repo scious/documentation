@@ -17,7 +17,7 @@ For all the niceties, though, every tool has its flaws. One thing Bubble (curren
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item">
-    <a className="pagination-nav__link" href="http://their-label.bubbleapps.io/">
+    <a className="pagination-nav__link" href="http://their-label.bubbleapps.io/version-test/">
       <div className="pagination-nav__sublabel">TheirLabel Plugin Demo</div>
       <div className="pagination-nav__label">White-Labelling for Bubble →</div>
     </a>
@@ -40,7 +40,7 @@ Check out our demo's editor above for an excellent reference while integrating o
 
 ## Getting started
 
-This page serves as the official manual for using TheirLabel. You can visit [their-label.bubbleapps.io](https://their-label.bubbleapps.io) to try it before you buy it. For guidance you can always refer to [TheirLabel's editor](https://bubble.io/page?type=page&name=index&id=their-label&tab=tabs-1) which self documents exactly how to provide your end users with a white-labelling flow (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
+This page serves as the official manual for using TheirLabel. You can visit [their-label.bubbleapps.io](https://their-label.bubbleapps.io/version-test) to try it before you buy it. For guidance you can always refer to [TheirLabel's editor](https://bubble.io/page?type=page&name=index&id=their-label&tab=tabs-1) which self documents exactly how to provide your end users with a white-labelling flow (assuming you're already setup as shown below). If all else fails, please try for help on the forum.
 
 We just need a few things to start white-labelling your Bubble app:
 
@@ -72,7 +72,7 @@ At this point you are now ready use TheirLabel's bubble elements and actions to 
 
 ## Create your end user's white-labelling experience
 
-TheirLabel's [Test Drive](https://their-label.bubbleapps.io/) shows one way you can implement an end user white-labelling experience:
+TheirLabel's [Test Drive](https://their-label.bubbleapps.io/version-test/) shows one way you can implement an end user white-labelling experience:
 
 <iframe width="100%" height="380" src="https://www.youtube.com/embed/oDErIcb6ZlA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -101,7 +101,7 @@ To do this you'll need three things:
 
 In practice you will already know the Bubble URL since that is something you control. For example, TheirLabel's demo has a `feature request` page (see editor). Ordinarily, a unique URL for this page for one of your customers could look something like:
 
-> [https://their-label.bubbleapps.io/feature_request_page/1596231081229x896733754840270100](https://their-label.bubbleapps.io/feature_request_page/1596231081229x896733754840270100)
+> [https://their-label.bubbleapps.io/feature_request_page/1596231081229x896733754840270100](https://their-label.bubbleapps.io/version-test/feature_request_page/1596231081229x896733754840270100)
 
 But your customer would rather have that page hosted on a subdomain that they own, called:
 
