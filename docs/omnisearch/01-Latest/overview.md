@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 # Scious Search [Latest]
 
-The following is documentation for the latest version of the Scious Search plugin - `version 1.3.3`
+The following is documentation for the latest version of the Scious Search plugin - `version 2.0.0`
 
 ## Features
 
