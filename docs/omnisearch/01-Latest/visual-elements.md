@@ -15,11 +15,11 @@ import TabItem from '@theme/TabItem';
 
 # Visual elements
 
-## Scious Search
+## Omnisearch
 
-This visual element is the work horse of Scious Search - it's what returns search results from your provider of choice.
+This visual element is the work horse of Omnisearch - it's what returns search results from your provider of choice.
 
-<Figure src="img/scious-search/Scious Search Visual Element.png" />
+<Figure src="img/omnisearch/Omnisearch Visual Element.png" />
 
 **Inputs**
 
@@ -49,7 +49,7 @@ This visual element is the work horse of Scious Search - it's what returns searc
 
 This section applies to the following visual elements:
 
-- [Scious Search](#scious-search)
+- [Omnisearch](#omnisearch)
 - [Get Facets](#get-facets)
 
 Whether you want to filter by a single dropdown or apply 12 different criteria with conditional dependencies, our filtering capability is flexible enough to accomodate most needs. The most important thing to know is our `Filters` input exists to accomplish one goal:
@@ -58,14 +58,14 @@ Whether you want to filter by a single dropdown or apply 12 different criteria w
 
 That's the big idea. Our search providers expect filter strings that contain boolean operators, numeric comparisons, GeoJSON, and more - so to accomodate this, we've made our `Filters` input expect Javascript. If you're familiar with the `Expression` element from the [Toolbox plugin](https://bubble.io/plugin/1488796042609x768734193128308700), then you should feel right at home using this.
 
-The examples that follow will get you filtering with Scious Search, starting simple and then getting more complex. We'll be looking at search provider specific implementations, so be sure to click the right one below to follow along.
+The examples that follow will get you filtering with Omnisearch, starting simple and then getting more complex. We'll be looking at search provider specific implementations, so be sure to click the right one below to follow along.
 
 ### Low Complexity
 
 <Tabs groupId="search-providers">
 <TabItem value="Algolia" label="Algolia">
 
-These examples are from our [Algolia Filter demo](https://plugins.scious.io/scious-search-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
+These examples are from our [Algolia Filter demo](https://plugins.scious.io/omnisearch-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=omnisearch-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
 
 **Behold.** The simplist filter you can build.
 
@@ -88,7 +88,7 @@ Finally, please note that field names themselves (i.e. `usage_count` above) are 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
 
-These examples are from our [Typesense Filter demo](https://plugins.scious.io/scious-search-typesense-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=scious-search-typesense-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
+These examples are from our [Typesense Filter demo](https://plugins.scious.io/omnisearch-typesense-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=omnisearch-typesense-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
 
 Behold. The simplist filter you can build.
 
@@ -373,13 +373,13 @@ Want to see your `Filters` without having to print them to a text box? Open your
 
 This section applies to the following visual elements:
 
-- [Scious Search](#scious-search)
+- [Omnisearch](#omnisearch)
 - [Get Facets](#get-facets)
 
 While Algolia's search defaults are great for many use cases, some applications can benefit from search result tuning. The `Advanced options` input is the place where we can make such adjustments. This input accepts a JSON dictionary of two kinds of parameters:
 
 1.  Algolia specific parameters.
-2.  Scious Search specific parameters.
+2.  Omnisearch specific parameters.
 
 #### Algolia parameters
 
@@ -394,13 +394,13 @@ For the full list, check out their [search parameter documentation](https://www.
 - `highlightPostTag`
 - `page`
 
-#### Scious Search parameters
+#### Omnisearch parameters
 
 Internally, we have two unique parameters for controlling the output of search results:
 
 1. `clearSciousSearch`
 
-   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` is set to an empty list regardless of any other input. This effectively "turns off" the Scious Search visual element and it should be used instead of toggling the element's visibility.
+   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` is set to an empty list regardless of any other input. This effectively "turns off" the Omnisearch visual element and it should be used instead of toggling the element's visibility.
 
 2. `freezeSciousSearch`
 
@@ -411,13 +411,13 @@ Internally, we have two unique parameters for controlling the output of search r
 
 This section applies to the following visual elements:
 
-- [Scious Search](#scious-search)
+- [Omnisearch](#omnisearch)
 - [Get Facets](#get-facets)
 
 While Typesense's search defaults are great for many use cases, some applications can benefit from search result tuning. The `Advanced options` input is the place where we can make such adjustments. This input accepts a JSON dictionary of two kinds of parameters:
 
 1.  Typesense specific parameters.
-2.  Scious Search specific parameters.
+2.  Omnisearch specific parameters.
 
 #### Typesense parameters
 
@@ -435,13 +435,13 @@ For the full list, check out their [search parameter documentation](https://type
 - `highlight_end_tag`
 - `page`
 
-#### Scious Search parameters
+#### Omnisearch parameters
 
 Internally, we have two unique parameters for controlling the output of search results:
 
 1. `clear_scious_search`
 
-   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` is set to an empty list regardless of any other input. This effectively "turns off" the Scious Search visual element and it should be used instead of toggling the element's visibility.
+   Can be `true` or `false`. Default is `false`. If `true`, then `Search Results` is set to an empty list regardless of any other input. This effectively "turns off" the Omnisearch visual element and it should be used instead of toggling the element's visibility.
 
 2. `freeze_scious_search`
 
@@ -452,14 +452,14 @@ Internally, we have two unique parameters for controlling the output of search r
 
 ## Typing Trigger
 
-The Typing Trigger is used to instantly feed new values into the Scious Search Visual Element. The reasons for building this element are threefold:
+The Typing Trigger is used to instantly feed new values into the Omnisearch Visual Element. The reasons for building this element are threefold:
 
 1. To remove the time delay that standard Bubble Inputs have between when a user types and keystroke values become available in Bubble.
 2. new search request on every keystroke is running up the number of monthly search, allows you to tune the rate at which this value to reduce the number of unnecessary real time search requests initiated by queries that were typed quickly.
 
 set the To run a new search on every input keypress, set the Typing Trigger's `Typing timeout` to `0` milliseconds. Alternatively, set
 
-<Figure src="img/scious-search/typing trigger.png" />
+<Figure src="img/omnisearch/typing trigger.png" />
 
 **Inputs**
 
@@ -484,7 +484,7 @@ This visual element does not have any inputs.
 
 ## Get Facets
 
-<Figure src="img/scious-search/Get Facets.png" />
+<Figure src="img/omnisearch/Get Facets.png" />
 
 **Inputs**
 
@@ -494,10 +494,10 @@ This visual element does not have any inputs.
 4. `Search query` Keywords to search. Set to the Typing Trigger Value for best results.
 5. `Fields to search` The Bubble fields to search supplied as a JSON list.
 6. `Fields to facet` The Bubble fields to facet supplied as a JSON list. Specifies the order of returned "Facets".
-7. `Filters` This section allows you to compose your filters using Javascript. It works exactly like the Scious Search visual element's `Filters` input. Details [here](#filters-deep-dive).
+7. `Filters` This section allows you to compose your filters using Javascript. It works exactly like the Omnisearch visual element's `Filters` input. Details [here](#filters-deep-dive).
 8. `Max values per facet` The maximum number of facet values returned per facet.
 9. `Facet query` Keywords to search in `Fields to facet`. Set to the Typing Trigger's `Output text` for best results.
-10. `Advanced options` Additional options for tuning search results. It works exactly like the Scious Search visual element's `Advanced options` input. Details [here](#advanced-options).
+10. `Advanced options` Additional options for tuning search results. It works exactly like the Omnisearch visual element's `Advanced options` input. Details [here](#advanced-options).
 
 **Outputs**
 

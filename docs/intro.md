@@ -53,5 +53,5 @@ We offer additional support for all our products through the following channels:
 
 - Forum based support. This is free and while we usually follow up within 2 to 5 business days, we do occasionally take longer. Official support forums for each of our products are as listed:
   - [TheirLabel](https://forum.bubble.io/t/introducing-theirlabel-domain-name-white-labeling-for-bubble/104972/last)
-  - [Scious Search](https://forum.bubble.io/t/introducing-scious-search-solve-instant-search-once-and-for-all/259315/last)
+  - [Omnisearch](https://forum.bubble.io/t/introducing-scious-search-solve-instant-search-once-and-for-all/259315/last)
 - For those with immediate or more complex needs, we offer one-on-one sessions to answer questions in a guarenteed timeframe. [Click here](https://cal.com/scious) to book a session.

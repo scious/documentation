@@ -90,7 +90,7 @@ This is the action used to sync indices. While we've already set it up for you w
 
 <Figure src="img/scious-search/Refresh search results.png" />
 
-Refresh the search results from a Scious Search element. This action is typically used directly following any Create or Update a search record action in scenarios where users should be able to see the effect of those changes reflected in search results.
+Refresh the search results from a Omnisearch element. This action is typically used directly following any Create or Update a search record action in scenarios where users should be able to see the effect of those changes reflected in search results.
 
 **Inputs**
 

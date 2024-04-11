@@ -43,8 +43,8 @@ The benefits of this Service Level Agreement extend to all of Customer's concurr
 
 <nav className="pagination-nav">
   <div className="pagination-nav__item pagination-nav__item--next">
-    <a className="pagination-nav__link" href="scious-search/latest">
-      <div className="pagination-nav__sublabel">Scious Search</div>
+    <a className="pagination-nav__link" href="omnisearch/latest">
+      <div className="pagination-nav__sublabel">Omnisearch</div>
       <div className="pagination-nav__label">Natively integrate Typesense or Algolia →</div>
     </a>
   </div> 

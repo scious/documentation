@@ -15,9 +15,9 @@ import TabItem from '@theme/TabItem';
 
 ## Sync Search Index
 
-This is the action used to sync indices. While we've already set it up for you within our [sync admin template](https://plugins.scious.io/scious-search-admin), you can use it to make a custom search index administration page.
+This is the action used to sync indices. While we've already set it up for you within our [sync admin template](https://plugins.scious.io/omnisearch-admin), you can use it to make a custom search index administration page.
 
-<Figure src="img/scious-search/Sync search record.png" />
+<Figure src="img/omnisearch/Sync search record.png" />
 
 **Inputs**
 
@@ -37,7 +37,7 @@ This is the action used to sync indices. While we've already set it up for you w
 
 ## Create search record
 
-<Figure src="img/scious-search/Create search record.png" />
+<Figure src="img/omnisearch/Create search record.png" />
 
 **Inputs**
 
@@ -54,7 +54,7 @@ This is the action used to sync indices. While we've already set it up for you w
 
 ## Update search record
 
-<Figure src="img/scious-search/update search record clean.png" />
+<Figure src="img/omnisearch/update search record clean.png" />
 
 **Inputs**
 
@@ -71,7 +71,7 @@ This is the action used to sync indices. While we've already set it up for you w
 
 ## Delete search record
 
-<Figure src="img/scious-search/Delete search record.png" />
+<Figure src="img/omnisearch/Delete search record.png" />
 
 **Inputs**
 
@@ -88,9 +88,9 @@ This is the action used to sync indices. While we've already set it up for you w
 
 ## Refresh search results
 
-<Figure src="img/scious-search/Refresh search results.png" />
+<Figure src="img/omnisearch/Refresh search results.png" />
 
-Refresh the search results from a Scious Search element. This action is typically used directly following any Create or Update a search record action in scenarios where users should be able to see the effect of those changes reflected in search results.
+Refresh the search results from a Omnisearch element. This action is typically used directly following any Create or Update a search record action in scenarios where users should be able to see the effect of those changes reflected in search results.
 
 **Inputs**
 
