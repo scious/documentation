@@ -4,12 +4,6 @@ sidebar_label: Latest
 pagination_prev: null
 ---
 
----
-sidebar_position: 1
-sidebar_label: Latest
-pagination_prev: null
----
-
 import Figure from '../../components/figures'
 import Arcade from '../../components/arcade'
 import Highlight from '../../components/highlight'
