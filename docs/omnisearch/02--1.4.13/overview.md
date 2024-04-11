@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 # Scious Search 1.4.13
 
-The following is documentation for Scious Search version `1.4.13`. Scious Search was renamed to Omnisearch in version `2.0.0`.
+The following is documentation for Scious Search version `1.4.13`. Scious Search was renamed to "Omnisearch" in version `2.0.0`.
 
 ## Features
 
