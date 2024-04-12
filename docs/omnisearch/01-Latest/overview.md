@@ -65,6 +65,6 @@ The following is documentation for the latest version of the Omnisearch plugin -
 ## Support
 
 - Refer to [our demo's editor](https://bubble.io/page?version=live&type=page&name=omnisearch&id=scious-plugins&tab=tabs-1) for a self documented guide on how to setup and use Omnisearch.
-- Need help integrating Omnisearch? Want to request a feature? Drop a message in [our free Bubble support channel](https://forum.bubble.io/t/introducing-omnisearch-solve-instant-search-once-and-for-all/259315/last) where we answer questions as able.
+- Need help integrating Omnisearch? Want to request a feature? Drop a message in [our free Bubble support channel](https://forum.bubble.io/t/omnisearch-integrate-algolia-typesense-and-friends/317306/last) where we answer questions as able.
 - Prefer to have someone integrate Omnisearch for you? We'll be offering integration services 'for hire' soon.
 - We offer a [Service Level Agreement](https://buy.stripe.com/8wMg2x1if3zz3ba6op) for customers requiring plugin service and maintenance guarentees.
