@@ -65,7 +65,7 @@ The examples that follow will get you filtering with Omnisearch, starting simple
 <Tabs groupId="search-providers">
 <TabItem value="Algolia" label="Algolia">
 
-These examples are from our [Algolia Filter demo](https://plugins.scious.io/omnisearch-algolia-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=omnisearch-algolia-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
+These examples are from our [Algolia Filter demo](https://plugins.scious.io/omnisearch-filters-algolia). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=omnisearch-filters-algolia&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
 
 **Behold.** The simplist filter you can build.
 
@@ -88,7 +88,7 @@ Finally, please note that field names themselves (i.e. `usage_count` above) are 
 </TabItem>
 <TabItem value="Typesense" label="Typesense">
 
-These examples are from our [Typesense Filter demo](https://plugins.scious.io/omnisearch-typesense-filter-examples). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=omnisearch-typesense-filter-examples&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
+These examples are from our [Typesense Filter demo](https://plugins.scious.io/omnisearch-filters-typesense). Check out it's [Bubble editor page](https://bubble.io/page?version=live&type=page&name=omnisearch-filters-typesense&id=scious-plugins&tab=tabs-1) to see and interact with these in context.
 
 Behold. The simplist filter you can build.
 
