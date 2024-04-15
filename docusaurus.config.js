@@ -41,7 +41,6 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -59,6 +58,10 @@ const config = {
           //   label: 'Tutorial',
           // },
           { to: 'https://blog.scious.io/', label: 'Blog', position: 'left' },
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
           // {
           //   href: 'https://github.com/facebook/docusaurus',
           //   label: 'GitHub',
@@ -121,6 +124,19 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr', 'es', 'de', 'pt', 'it', 'ja', 'zh', 'nl', 'no', 'da'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-GB',
+      },
+      // You can omit a locale (e.g. fr) if you don't need to override the defaults
+      fa: {
+        direction: 'rtl',
+      },
+    },
+  },
 };
 
 module.exports = config;
