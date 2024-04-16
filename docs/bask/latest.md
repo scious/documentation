@@ -238,5 +238,5 @@ With Bask running, your plugin test page will update any time you save a related
 
 We provide support in two ways:
 
-- The [forum](https://forum.bubble.io/t/who-wants-a-vs-code-extension-for-developing-bubble-plugins/269165/last). This option is free for everyone to use where questions are answered by us as well as the community.
+- The [forum](https://forum.bubble.io/t/introducing-bask-a-vs-code-extension-for-building-plugins/317315/last). This option is free for everyone to use where questions are answered by us as well as the community.
 - We offer a [Service Level Agreement](https://buy.stripe.com/8wMg2x1if3zz3ba6op) for customers requiring service and maintenance guarentees.
