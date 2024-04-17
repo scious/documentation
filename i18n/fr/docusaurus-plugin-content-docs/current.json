@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Suivant",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Omnisearch": {
+    "message": "Omnisearch",
+    "description": "The label for category Omnisearch in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Latest": {
+    "message": "Dernier",
+    "description": "The label for category Latest in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.4.13": {
+    "message": "1.4.13",
+    "description": "The label for category 1.4.13 in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.TheirLabel": {
+    "message": "TheirLabel",
+    "description": "The label for category TheirLabel in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Bask": {
+    "message": "Bask",
+    "description": "The label for category Bask in sidebar tutorialSidebar"
+  }
+}
