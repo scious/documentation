@@ -10,7 +10,7 @@ import VideoGIF from '../components/videogifs'
 
 # Bask [Latest]
 
-**Bask** is a [VS Code](https://code.visualstudio.com/) extension for streamlining Bubble plugin development. Without Bask, developing plugins look like:
+**Bask** is a [VS Code](https://code.visualstudio.com/) and [Cursor](https://www.cursor.com/) extension for streamlining Bubble plugin development. Without Bask, developing plugins look like:
 
 1. Code in local editor.
 2. Run build script to minify, treeshake, or perform other code bundling tasks.
@@ -53,7 +53,7 @@ Speaking of login credentials, we have **zero** interest in holding yours. Our e
 
 ### Dynamic Bubble app reloading
 
-While Bask is a VS Code extension, we provide a companion Bubble plugin with a client side action you can use to automatically reload the page of the Bubble app you're testing a plugin with. This way, you can edit your code locally, switch to your plugin test page, and start testing your plugin without having to manually refresh the page. See [Auto Refresh](#auto-refresh) for details.
+While Bask is a VS Code (and Cursor) extension, we provide a companion Bubble plugin with a client side action you can use to automatically reload the page of the Bubble app you're testing a plugin with. This way, you can edit your code locally, switch to your plugin test page, and start testing your plugin without having to manually refresh the page. See [Auto Refresh](#auto-refresh) for details.
 
 ### Your new workflow
 
@@ -110,11 +110,11 @@ With that, the Bask development workflow looks like:
    - Bask uploads `./dist/plugin.json` to bubble.io/plugin_editor.
    - Detecting that you've updated your app, Bask's [Auto Refresh](#auto-refresh) reloads your plugin test page.
 3. Review your test results.
-4. Switch back to VS Code to edit code as needed.
+4. Switch back to VS Code (or Cursor) to edit code as needed.
 
 ## Getting started
 
-To install Bask, you can tap `Install` on our [VS Code Marketplace page](https://marketplace.visualstudio.com/items?itemName=Scious.Bask) or search the phrase `Bask` within VS Code's Extensions tab.
+To install Bask, you can tap `Install` on our [VS Code Marketplace page](https://marketplace.visualstudio.com/items?itemName=Scious.Bask) or search the phrase `Bask` within VS Code's Extensions tab. The same goes for installing in Cursor! 
 
 Once installed, you can run the `Bask Switch Plugin` command to get started. First time users will be prompted to enter an API key which can be purchased [here](https://scious.io/plugins/bask).
 
